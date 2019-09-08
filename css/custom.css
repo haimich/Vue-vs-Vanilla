@@ -1,6 +1,15 @@
+.reveal img {
+    max-height: 50vh;
+}
+
+.reveal img.noborder {
+    background: none;
+    border: none;
+    box-shadow: none;
+}
+
 .reveal img.inline,
 .reveal img.emoji {
-    background: none;
     border: none;
     box-shadow: none;
     height: 1em;    
@@ -9,6 +18,7 @@
 }
 
 .reveal img.emoji {
+    background: none;
     margin: 0 .05em 0 .1em;
     vertical-align: -0.1em;
     width: 1em;
