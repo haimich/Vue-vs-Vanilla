@@ -9,6 +9,7 @@
 		<link rel="stylesheet" href="css/reset.css">
 		<link rel="stylesheet" href="css/reveal.css">
 		<link rel="stylesheet" href="css/theme/moon.css">
+		<link rel="stylesheet" href="css/custom.css">
 
 		<!-- Theme used for syntax highlighting of code -->
 		<link rel="stylesheet" href="lib/css/monokai.css">
@@ -21,14 +22,19 @@
 			link.href = location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
 			document.head.append(link);
 		</script>
+
+		<!-- Emoji -->
+		<script src="https://twemoji.maxcdn.com/v/latest/twemoji.min.js" crossorigin="anonymous"></script>
 	</head>
 	<body>
 		<div class="reveal">
 			<div class="slides">
 
 				<section>
-					<h1>Vue vs Vanilla</h1>
-					<h2>Components for the Web</h2>
+					<h1>
+						Vue vs Vanilla<br>
+						<small>Components for the Web</small>
+					</h1>
 					<p>
 						<small>
 							Michael Müller, Johannes Kissel<br><!-- TODO Links -->
@@ -37,8 +43,31 @@
 					</p>
 				</section>
 
-				<section>Slide 1</section>
-				<section>Slide 2</section>
+				<section>
+					<h2>Michael Müller</h2>
+				</section>
+
+				<section data-background="img/jo-fahrrad.jpg" data-background-size="cover" class="section-twocolumn">
+					<div>
+						<img src="img/jo.jpg" alt="Johannes Kissel" />
+					</div>
+
+					<!-- TODO color contrast -->
+					<div style="background-color: rgba(0, 43, 54, 0.65); padding: 20px 0px">
+						<h2>Johannes Kissel</h2>
+						<p>
+							Software Developer<br>at
+							<img src="img/disy-logo.svg" alt="Disy Logo" class="inline">
+						</p>
+						<p>Enthusiastic about ...</p>
+						<ul class="emoji-list">
+							<li>🔗 The Open Web</li>
+							<li>🚲 Cycling</li>
+							<li>🎶 Singing</li>
+						</ul>
+					</div>
+				</section>
+
 			</div>
 		</div>
 
@@ -56,6 +85,8 @@
 					{ src: 'plugin/notes/notes.js', async: true }
 				]
 			});
+
+			twemoji.parse(document.body);
 		</script>
 	</body>
 </html>

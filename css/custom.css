@@ -1,0 +1,27 @@
+.reveal img.inline,
+.reveal img.emoji {
+    background: none;
+    border: none;
+    box-shadow: none;
+    height: 1em;    
+    margin: 0;
+    vertical-align: middle;
+}
+
+.reveal img.emoji {
+    margin: 0 .05em 0 .1em;
+    vertical-align: -0.1em;
+    width: 1em;
+}
+
+.reveal .emoji-list {
+    list-style: none;
+    margin-left: 0;
+}
+
+.section-twocolumn {
+    display: flex !important;
+}
+.section-twocolumn > * {
+    flex: 1;
+}
