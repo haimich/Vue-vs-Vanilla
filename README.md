@@ -1,5 +1,4 @@
-# Vue vs Vanilla
-## Components for the Web
+# Vue vs Vanilla - Components for the Web
 
 Michael Müller, Johannes Kissel, [Accento 2019](https://2019.accento.dev/)
 
