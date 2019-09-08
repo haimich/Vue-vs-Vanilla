@@ -2,6 +2,10 @@
     max-height: 40vh;
 }
 
+.reveal a > img {
+    margin: 0;
+}
+
 .reveal img.noborder {
     background: none;
     border: none;
@@ -24,7 +28,7 @@
     width: 1em;
 }
 
-.reveal .emoji-list {
+.reveal .nobullets-list {
     list-style: none;
     margin-left: 0;
 }
@@ -34,4 +38,11 @@
 }
 .section-twocolumn > * {
     flex: 1;
+}
+
+.text-with-bg {
+    background: #002b36;
+    display: inline;
+    box-decoration-break: clone;
+    padding: 0 5px;
 }

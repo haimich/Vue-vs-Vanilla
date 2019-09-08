@@ -44,62 +44,155 @@
 				</section>
 
 				<section>
-					<h2>Michael Müller</h2>
+					<section>
+						<h2>Michael Müller</h2>
+					</section>
+
+					<section data-background="img/jo-bicycle.jpg" data-background-size="cover" class="section-twocolumn">
+						<div>
+							<img src="img/jo.jpg" alt="Johannes Kissel" />
+						</div>
+
+						<!-- TODO color contrast -->
+						<div style="background-color: rgba(0, 43, 54, 0.65); padding: 20px 0">
+							<h2>Johannes Kissel</h2>
+							<p>
+								Software Developer<br>at
+								<img src="img/disy-logo.svg" alt="Disy Logo" class="inline"><br>
+								in Karlsruhe
+							</p>
+							<p>Enthusiastic about ...</p>
+							<ul class="nobullets-list">
+								<li>🔗 The Open Web</li>
+								<li>🚲 Cycling</li>
+								<li>🎶 Singing</li>
+							</ul>
+						</div>
+					</section>
 				</section>
 
-				<section data-background="img/jo-bicycle.jpg" data-background-size="cover" class="section-twocolumn">
-					<div>
-						<img src="img/jo.jpg" alt="Johannes Kissel" />
-					</div>
+				<!-- Motivation Web Components -->
+
+				<section>
+					<section>
+						<h2>Cadenza is big ...</h2>
+						<img src="img/cadenza.png" alt="Cadenza symbol image with different screens" class="noborder">
+						<p class="fragment">... and it's legacy, but ...</p>
+
+						<aside class="notes">
+							<ul>
+								<li>Desktop, Web, Mobile</li>
+								<li>Gather and analyze geo data, do reporting</li>
+								<li>Together ~ 2.000.000 lines of code</li>
+							</ul>
+						</aside>
+					</section>
+
+					<section>
+						<p>... not <em>that</em> kind of legacy ...</p>
+						<figure>
+							<img src="img/legacy-dung-heap.jpg" alt="Dung Heap">
+							<figcaption>
+								<small>Dung heap, © Superbass / <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA-3.0</a> (via Wikimedia Commons)</small>
+							</figcaption>
+						</figure>
+
+						<aside class="notes">
+							<ul>
+								<li>It doesn't steam up while it rots.</li>
+							</ul>
+						</aside>
+					</section>
+
+					<section>
+						<p>... or that kind:</p>
+						<figure>
+							<img src="img/legacy-jenga.jpg" alt="Jenga Tower">
+							<figcaption>
+								<small>Jenga tower, © Marco Verch / <a href="https://creativecommons.org/licenses/by/2.0/">CC-BY-2.0</a> (via Flickr)</small>
+							</figcaption>
+						</figure>
+
+						<aside class="notes">
+							<ul>
+								<li>We're <em>not</em> afraid it will fall.</li>
+							</ul>
+						</aside>
+					</section>
 
 					<!-- TODO color contrast -->
-					<div style="background-color: rgba(0, 43, 54, 0.65); padding: 20px 0">
-						<h2>Johannes Kissel</h2>
-						<p>
-							Software Developer<br>at
-							<img src="img/disy-logo.svg" alt="Disy Logo" class="inline">
+					<section data-background="img/legacy-main-station.jpg">
+						<p class="text-with-bg" style="margin-bottom: 45vh">It's vivid and constantly improved and extended</p>
+						<br><br><br><br><br><br><br><br><br>
+						<p class="fragment text-with-bg" style="font-size: 0.6em"> <!-- <small> does not work properly -->
+							Frankfurt main station, © Urmelbeauftragter / <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA-3.0</a> (via Wikimedia Commons)
 						</p>
-						<p>Enthusiastic about ...</p>
-						<ul class="emoji-list">
-							<li>🔗 The Open Web</li>
-							<li>🚲 Cycling</li>
-							<li>🎶 Singing</li>
+
+						<aside class="notes">
+							<ul>
+								<li>Web is ~10 years old and getting more important, recently.</li>
+								<li>A lot of people use it (TODO order of magnitude?).</li>
+								<li>We add new features all the time.</li>
+								<li>We constantly improve the code base (e.g. always using the newest LTS Java version).</li>
+							</ul>
+						</aside>
+					</section>
+
+					<section>
+						<h2 class="fragment">How to be future proof?</h2>
+						<ul class="nobullets-list" style="text-align: center">
+							<li>
+								<a href="https://richfaces.jboss.org/">
+									<img src="img/richfaces-logo.png" alt="RichFaces Logo" class="noborder" style="height: 2em">
+								</a>
+							</li>
+							<li class="fragment">
+								<a href="https://angularjs.org/">
+									<img src="img/angularjs-logo.png" alt="AngularJS (aka &quot;Angular 1&quot;) Logo" class="noborder" style="height: 2em">
+								</a>
+							</li>
+							<li class="fragment">
+								<a href="https://backbonejs.org/">
+									<img src="img/backbone-logo.png" alt="Backbone Logo" class="noborder" style="height: 2em; background-color: white">
+								</a>
+							</li>
+							<li class="fragment">
+								<a href="https://openlayers.org/two/">
+									<img src="img/openlayers2-logo.png" alt="Qooxdoo Logo" class="noborder" style="height: 2em">
+								</a>
+							</li>
+							<li class="fragment">
+								<a href="http://www.qooxdoo.org/">
+									<img src="img/qooxdoo-logo.png" alt="OpenLayers 2 Logo" class="noborder" style="height: 2em">
+								</a>
+								<br>
+								&hellip;
+							</li>
 						</ul>
-					</div>
-				</section>
+	
+						<aside class="notes">
+							<ul>
+								<li>
+									The RichFaces end-of-life in 2016 together with an exploding number of feature requests
+									made us think about Cadenza Web's technical foundation.
+								</li>
+								<li>The problem: Frameworks tend to die or break their APIs.</li>
+								<li>More examples: YUI, MooTools, </li>
+							</ul>
+						</aside>
+					</section>
+	
+					<!-- https://commons.wikimedia.org/wiki/File:RU800S_atepitovonat_1.jpg -->
+					<section data-background="img/refactor-on-the-go.jpg" data-background-size="contain">
+						<p class="text-with-bg">Refactoring on the go demands maximum interoperability</p>
 
-				<section>
-					<h2>Cadenza is big ...</h2>
-					<img src="img/cadenza.png" alt="Cadenza symbol image with different screens" class="noborder">
-					<p>... and it's legacy, but ...</p>
-				</section>
-
-				<section>
-					<p>... not <em>that</em> kind of legacy ...</p>
-					<figure>
-						<img src="img/legacy-dung-heap.jpg" alt="Dung Heap">
-						<figcaption>
-							<small>Dung heap, © Superbass / <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA-3.0</a> (via Wikimedia Commons)</small>
-						</figcaption>
-					</figure>
-				</section>
-
-				<section>
-					<p>... or that kind:</p>
-					<figure>
-						<img src="img/legacy-jenga.jpg" alt="Jenga Tower">
-						<figcaption>
-							<small>Jenga tower, © Marco Verch / <a href="https://creativecommons.org/licenses/by/2.0/">CC-BY-2.0</a> (via Flickr)</small>
-						</figcaption>
-					</figure>
-				</section>
-
-				<!-- TODO color contrast -->
-				<section data-background="img/legacy-main-station.jpg">
-					<p style="background-color: #002b36; margin-bottom: 45vh; padding: 20px 0">It's vivid and constantly improved and extended.</p>
-					<p style="background-color: rgba(0, 43, 54, 0.65); line-height: 1; padding: 20px 0">
-						<small>Frankfurt main station, © Urmelbeauftragter / <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA-3.0</a> (via Wikimedia Commons)</small>
-					</p>
+						<aside class="notes">
+							<ul>
+								<li>Re-writing the app is not an option.</li>
+								<li>We need maximum interoperability with existing code and future libs.</li>
+							</ul>
+						</aside>
+					</section>
 				</section>
 
 			</div>
