@@ -22,9 +22,6 @@
 			link.href = location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
 			document.head.append(link);
 		</script>
-
-		<!-- Emoji -->
-		<script src="https://twemoji.maxcdn.com/v/latest/twemoji.min.js" crossorigin="anonymous"></script>
 	</head>
 	<body>
 		<div class="reveal">
@@ -195,6 +192,24 @@
 							</ul>
 						</aside>
 					</section>
+
+					<!-- https://commons.wikimedia.org/wiki/File:Holy-grail-round-table-bnf-ms_fr-116F-f610v-15th-detail.jpg -->
+					<section data-background="img/holy-grail.jpg" data-background-size="contain" data-no-center>
+						<h2><span class="text-with-bg">Web Components</span></h2>
+						<br><br><br><br><br>
+						<h3 class="fragment">
+							<span class="text-with-bg">The Holy Grail</span>
+						</h3>
+						<!-- TODO line-height -->
+						<div class="fragment" id="solid-foundation">
+							<h3>
+								<span class="text-with-bg">A solid foundation<br><small>with the right level of abstraction</small></span>
+							</h3>
+							<p>
+								<small class="text-with-bg">Railroad tie, © Störfix / <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA-3.0</a> (via Wikimedia Commons)</small>
+							</p>
+						</div>
+					</section>
 				</section>
 
 			</div>
@@ -215,7 +230,24 @@
 				]
 			});
 
-			twemoji.parse(document.body);
+			Reveal.addEventListener('fragmentshown', function (event) {
+				var fragment = event.fragment;
+				if (fragment.id === 'solid-foundation') {
+					fragment.previousElementSibling.style.textDecoration = 'line-through';
+					var bgContent = document.querySelector('.slide-background .present .slide-background-content');
+					bgContent.style.backgroundImage = 'url("img/building-blocks.jpg")';
+					bgContent.style.backgroundSize = 'cover';
+				}
+			});
+			Reveal.addEventListener('fragmenthidden', function (event) {
+				var fragment = event.fragment;
+				if (fragment.id === 'solid-foundation') {
+					fragment.previousElementSibling.style.textDecoration = 'none';
+					var bgContent = document.querySelector('.slide-background .present .slide-background-content');
+					bgContent.style.backgroundImage = 'url("img/holy-grail.jpg")';
+					bgContent.style.backgroundSize = 'contain';
+				}
+			});
 		</script>
 	</body>
 </html>

@@ -48,6 +48,7 @@
 .text-with-bg {
     background: #002b36;
     display: inline;
+    -webkit-box-decoration-break: clone;
     box-decoration-break: clone;
-    padding: 0 5px;
+    padding: 0.1em 0.3em;
 }
