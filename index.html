@@ -12,7 +12,7 @@
 		<link rel="stylesheet" href="css/custom.css">
 
 		<!-- Theme used for syntax highlighting of code -->
-		<link rel="stylesheet" href="lib/css/monokai.css">
+		<link rel="stylesheet" href="lib/css/zenburn.css">
 
 		<!-- Printing and PDF exports -->
 		<script>
@@ -22,6 +22,8 @@
 			link.href = location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
 			document.head.append(link);
 		</script>
+
+		<base target="_blank">
 	</head>
 	<body>
 		<div class="reveal">
@@ -168,7 +170,7 @@
 
 							<img src="img/forbidden.svg" alt="" class="fragment noborder" style="height: 50vh; left: 50%; position: absolute; top: 50%; transform: translate(-50%, -50%);">
 						</ul>
-	
+
 						<aside class="notes">
 							<ul>
 								<li>
@@ -180,7 +182,7 @@
 							</ul>
 						</aside>
 					</section>
-	
+
 					<!-- https://commons.wikimedia.org/wiki/File:RU800S_atepitovonat_1.jpg -->
 					<section data-background="img/refactor-on-the-go.jpg" data-background-size="contain" data-no-center style="text-align: left; padding-top: 15%">
 						<p class="text-with-bg">Refactoring on the go demands<br>maximum interoperability</p>
@@ -191,6 +193,87 @@
 								<li>We need maximum interoperability with existing code and future libs.</li>
 							</ul>
 						</aside>
+					</section>
+
+					<section>
+						<pre><code data-trim class="javascript">
+							const ELEMENT_NAME = 'd-toggle-button';
+
+							class ToggleButton extends HTMLElement {
+							  connectedCallback () {
+							    this.classList.add(ELEMENT_NAME);
+							    this.setAttribute('role', 'button');
+							    this.addEventListener('click', () => {
+							      this.pressed = !this.pressed;
+							      this.dispatchEvent(new CustomEvent('toggle'));
+							    });
+							  }
+							  set pressed (value) {
+							    this.setAttribute('aria-pressed', value);
+							  }
+							  get pressed () {
+							    return this.getAttribute('aria-pressed') === 'true';
+							  }
+							}
+
+							customElements.define(ELEMENT_NAME, ToggleButton);
+						</code></pre>
+						<p>
+							<a href="https://jsfiddle.net/73mkuxfq/">jsfiddle.net/73mkuxfq</a>
+						</p>
+					</section>
+
+					<section>
+						<h2>Plain DOM</h2>
+						<pre><code data-trim class="javascript">
+							const button = document.createElement('d-toggle-button');
+							button.textContent = 'Button';
+							button.pressed = true;
+							button.addEventListener('toggle', () => {
+							  console.log(button.pressed);
+							});
+							document.body.append(button);
+						</code></pre>
+					</section>
+
+					<section>
+						<h2>Constructor</h2>
+						<pre><code data-trim class="javascript">
+							import ToggleButton from 'ui/toggle-button';
+							// or
+							const ToggleButton = customElements.get('d-toggle-button');
+
+							// constructor
+							const button = new ToggleButton();
+							...
+						</code></pre>
+					</section>
+
+					<section>
+						<h2>jQuery</h2>
+						<pre><code data-trim class="javascript">
+							$('&lt;d-toggle-button&gt;')
+							  .text('Button')
+							  .prop('pressed', true)
+							  .on('toggle', event => console.log(event.target.pressed))
+							  .appendTo(document.body);
+						</code></pre>
+					</section>
+
+					<section>
+						<h2>Vue</h2>
+						<pre><code data-trim class="javascript">
+							new Vue({
+							  el: '#app',
+							  template: `<d-toggle-button :aria-pressed="pressed" @toggle="onToggle">Button</d-toggle-button>`,
+							  data: { pressed: true },
+							  methods: {
+							    onToggle (event) {
+							      console.log(event.target.pressed);
+							    }
+							  }
+							});
+						</code></pre>
 					</section>
 
 					<!-- https://commons.wikimedia.org/wiki/File:Holy-grail-round-table-bnf-ms_fr-116F-f610v-15th-detail.jpg -->
@@ -252,6 +335,9 @@
 					{ src: 'plugin/notes/notes.js', async: true }
 				]
 			});
+
+			// https://highlightjs.readthedocs.io/en/latest/api.html#configure-options
+			hljs.configure({ tabReplace: '  ' });
 
 			Reveal.addEventListener('fragmentshown', function (event) {
 				var fragment = event.fragment;

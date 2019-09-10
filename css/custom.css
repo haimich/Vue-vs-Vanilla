@@ -4,7 +4,7 @@
 }
 
 .reveal img {
-    max-height: 40vh;
+    max-height: 400px;
 }
 
 .reveal a > img {
@@ -21,7 +21,7 @@
 .reveal img.emoji {
     border: none;
     box-shadow: none;
-    height: 1em;    
+    height: 1em;
     margin: 0;
     vertical-align: middle;
 }
@@ -51,4 +51,8 @@
     -webkit-box-decoration-break: clone;
     box-decoration-break: clone;
     padding: 0.1em 0.3em;
+}
+
+.reveal pre code {
+    max-height: none;
 }
