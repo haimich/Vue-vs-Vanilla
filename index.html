@@ -221,6 +221,14 @@
 						<p>
 							<a href="https://jsfiddle.net/nx7rvj5p/">jsfiddle.net/nx7rvj5p</a>
 						</p>
+
+						<aside class="notes">
+							<ul>
+								<li>A simple toggle button component as example: The following slides show it's usage with various technologies.</li>
+								<li>The example already shows some of our best practices, which will be discussed later.</li>
+								<li>Web components are low-level, so you should know the DOM.</li>
+							</ul>
+						</aside>
 					</section>
 
 					<section>
@@ -247,6 +255,14 @@
 							const button = new ToggleButton();
 							...
 						</code></pre>
+
+						<aside class="notes">
+							<ul>
+								<li>Using the constructor in this case is equivalent to <tt>document.createElement()</tt>.</li>
+								<li>It only accepts arguments.</li>
+								<li>Ideally, your components should work <em>with</em> and <em>without</em> constructor arguments.</li>
+							</ul>
+						</aside>
 					</section>
 
 					<section>
@@ -289,21 +305,45 @@
 								<span class="text-with-bg">A solid foundation<br><small>with the right level of abstraction</small></span>
 							</h3>
 							<p>
-								<small class="text-with-bg">Railroad tie, © Störfix / <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA-3.0</a> (via Wikimedia Commons)</small>
+								<small class="text-with-bg">Railroad ties, © Störfix / <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA-3.0</a> (via Wikimedia Commons)</small>
 							</p>
 						</div>
+
+						<aside class="notes">
+							<ul>
+								<li>We bet - yes, it's a bet - that Web Components are more future proof than frameworks.</li>
+								<li>At least they move more slowly ;-)</li><!-- TODO emoji -->
+								<li>Because they're relatively low-level, they integrate well with other technologies.</li>
+							</ul>
+						</aside>
 					</section>
 				</section>
 
 				<section>
 					<section>
-						<blockquote cite="https://books.google.de/books?id=U896iwmtiagC">
-							<p>A software component is a <strong>unit of composition</strong> with contractually specified <strong>interfaces</strong> and explicit context <strong>dependencies</strong> only.</p>
-							<p>A software component can be <strong>deployed independently</strong> and is subject to composition by third parties.</p>
+						<blockquote>
+							<p>A software component is a<br><strong>unit of composition</strong> with contractually specified <strong>interfaces</strong> and explicit context <strong>dependencies</strong> only.</p>
 							<footer>
-								<small>Szyperski, Gruntz, Murer; <cite>Component Software</cite></small>
+								<small>Szyperski, Gruntz, Murer; <cite><a href="https://books.google.de/books?id=U896iwmtiagC">Component Software</a></cite></small>
 							</footer>
 						</blockquote>
+
+						<aside class="notes">
+							<p>Components are building blocks - for your app and for other components of your app.</p>
+						</aside>
+					</section>
+
+					<section>
+						<h2>The effect is <strong style="font-size: 1.5em; font-weight: normal; vertical-align: middle">HUGE!</strong></h2>
+						<img src="img/build-tools.png" alt="Arrow pointing from the Grunt logo to the Webpack logo, indicating the transition from one tool to the other.">
+
+						<aside class="notes">
+							<ul>
+								<li>We came from a world with strictly separated technologies: HTML, CSS, JS</li>
+								<li>This applied to the structure of our code base, our tooling, and our thinking, habits, and practices.</li>
+								<li>Now we we think and build self-contained components and Webpack (or your preferred bundler) resolves their dependencies for you.</li>
+							</ul>
+						</aside>
 					</section>
 
 					<!-- https://www.pexels.com/photo/button-buttons-color-colour-670673/ -->
@@ -312,10 +352,36 @@
 							<span class="text-with-bg">Button</span>
 						</h2>
 						<p class="fragment">
-							<span class="text-with-bg">GUI components have a name and can be reused.</span>
+							<span class="text-with-bg">UI components have a name are reusable</span>
+
+							<aside class="notes">
+								<ul>
+									<li>In frontend development, we usually talk about UI components.</li>
+									<li>Component reuse supports a consistent UI, hence a better UX.</li>
+									<li>People love them, because they make it easier to discuss certain parts of the UI.</li>
+								</ul>
+							</aside>
 						</p>
 					</section>
 
+					<section class="section-twocolumn">
+						<div>
+							<img src="img/zeplin-screenshot.png" alt="Screenshot of the Disy style guide">
+							<a href="">Zeplin</a><!-- TODO -->
+						</div>
+						<div>
+							<img src="img/catalog-screenshot.png" alt="Screenshot of the Disy component library">
+							<a href="">Catalog</a><!-- TODO -->
+						</div>
+
+						<aside class="notes">
+							<ul>
+								<li>Design tools co-evolve with the component trend in frontend development.</li>
+								<li>In recent years we talk more about style guides and component libraries.</li>
+								<li>Designers use design tools like Adobe XD instead of canvas editors like Photoshop - and they work with components instead of pixels.</li><!-- TODO spelling -->
+							</ul>
+						</aside>
+					</section>
 				</section>
 
 			</div>
