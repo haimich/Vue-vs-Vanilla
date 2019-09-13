@@ -281,7 +281,9 @@
 						<pre><code data-trim class="javascript">
 							new Vue({
 							  el: '#app',
-							  template: `<d-toggle-button :aria-pressed="String(pressed)" @toggle="onToggle">Button</d-toggle-button>`,
+							  template: `&lt;d-toggle-button
+							               :aria-pressed="String(pressed)"
+							               @toggle="onToggle"&gt;Button&lt;/d-toggle-button&gt;`,
 							  data: { pressed: true },
 							  methods: {
 							    onToggle (event) {
