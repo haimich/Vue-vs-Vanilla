@@ -1,3 +1,7 @@
+.reveal {
+    font-size: 35px;
+}
+
 /* https://github.com/hakimel/reveal.js/pull/1608 */
 .reveal .slides section[data-no-center]{
 	top: 0 !important;
