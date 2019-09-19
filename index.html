@@ -889,81 +889,290 @@
 					</aside>
 				</section>
 
-				<section
-					class="section-twocolumn"
-				>
-					<div style="background-color: rgba(0, 43, 54, 0.65); padding: 20px 0">
-						<h3>What is Vue.js?</h3>
+                <section>
+                    <section
+                        class="section-twocolumn"
+                    >
+                        <div style="background-color: rgba(0, 43, 54, 0.65); padding: 20px 0">
+                            <h3>What is Vue.js?</h3>
 
-						<ul class="section">
-							<li>Evan You</li>
-							<li>worked at Google (with AngularJS)</li>
-							<li>started as side project</li>
-							<li>financed via Patreon</li>
-						</ul>
+                            <ul class="section">
+                                <li>Evan You</li>
+                                <li>worked at Google (with AngularJS)</li>
+                                <li>started as side project</li>
+                                <li>financed via Patreon</li>
+                            </ul>
 
-						<blockquote>"I figured, what if I could just extract the part that I really liked about Angular and build something really lightweight."</blockquote>
-					</div>
+                            <blockquote>"I figured, what if I could just extract the part that I really liked about Angular and build something really lightweight."</blockquote>
+                        </div>
 
-					<aside class="notes">
-						<ul>
-							<li>man merkt, dass AngularJS als Vorbild gedient hat (z. B. vue-if; aber: vue-else!)</li>
-						</ul>
-					</aside>
-				</section>
+                        <aside class="notes">
+                            <ul>
+                                <li>man merkt, dass AngularJS als Vorbild gedient hat (z. B. vue-if; aber: vue-else!)</li>
+                            </ul>
+                        </aside>
+                    </section>
 
-				<section
-					class="section-twocolumn"
-				>
-					<div style="background-color: rgba(0, 43, 54, 0.65); padding: 20px 0">
-						<h3>Main Vue.js concepts</h3>
+                    <section
+                        class="section-twocolumn"
+                    >
+                        <div style="background-color: rgba(0, 43, 54, 0.65); padding: 20px 0">
+                            <h3>Main Vue.js concepts</h3>
 
-						<ul class="section">
-							<li>Components</li>
-							<li>Reactiveness</li>
-							<li>One way data flow</li>
-							<li>Template syntax</li>
-							<li>Single File Components (SFC)</li>
-							<li>jquery.min.js: 84,8 KB | vue.min.js: 85,6 KB</li>
-						</ul>
-					</div>
-				</section>
+                            <ul class="section">
+                                <li>Components</li>
+                                <li>Reactiveness</li>
+                                <li>One way data flow</li>
+                                <li>Template syntax</li>
+                                <li>Single File Components (SFC)</li>
+                                <li>jquery.min.js: 84,8 KB | vue.min.js: 85,6 KB</li>
+                            </ul>
+                        </div>
+                    </section>
 
-				<section>
-					xxx
-				</section>
+                    <!-- Vue example #1 -->
+                    <section>
+                        <img src="img/vue/todo.jpg" alt="Todo example">
 
-				<section
-					class="section-twocolumn"
-				>
-					<div style="background-color: rgba(0, 43, 54, 0.65); padding: 20px 0">
-						<h3>Template syntax</h3>
+<pre class="fragment" style="margin-top: 0;"><code data-trim class="html">
+<div id="app">
+    <ul>
+        <li v-for="todo in todos">
+            <label>
+                <input
+                    type="checkbox" @change="todo.done = !todo.done" :checked="todo.done">
 
-						<ul class="section">
-							<li>similar to AngularJS</li>
-							<li>{{ variable  }}</li>
-							<li>v-if, v-else-if, v-else</li>
-							<li>:href="value"</li>
-							<li>{{ variable | filter }}</li>
-						</ul>
-					</div>
-				</section>
+                <del v-if="todo.done">
+                    {{ todo.text }}
+                </del>
+                <span v-else>
+                    {{ todo.text }}
+                </span>
+            </label>
+        </li>
+    </ul>
+</div></code></pre>
 
-				<section
-					class="section-twocolumn"
-				>
-					<div style="background-color: rgba(0, 43, 54, 0.65); padding: 20px 0">
-						<h3>Single File Components</h3>
+                        <p style="font-size: 15px;">
+                            <a href="https://jsfiddle.net/mreqpocg/">jsfiddle.net/mreqpocg</a>
+                        </p>
+                    </section>
 
-						<ul class="section">
-							<li>need some time getting used to but make total sense</li>
-							<li>all the parts that belong together in one file!</li>
-							<li>if your SFC gets too big: create a subcomponent!</li>
-							<li>SFCs are opt-in</li>
-							<li>JSX is also possible</li>
-						</ul>
-					</div>
-				</section>
+                    <!-- Vue example #2 -->
+                    <section>
+                        <pre style="margin-top: 0;"><code data-trim class="javascript">
+    new Vue({
+        el: "#app",
+        data: {
+            todos: [
+                { text: "Learn JavaScript", done: true },
+                { text: "Learn Vue", done: false },
+            ]
+        }
+    });</code></pre>
+
+    <pre style="margin-top: 0;"><code data-trim class="html">
+        <div id="app">
+            <ul>
+                <li v-for="todo in todos">
+                    <label>
+                        <input
+                            type="checkbox" @change="todo.done = !todo.done" :checked="todo.done">
+
+                        <del v-if="todo.done">
+                            {{ todo.text }}
+                        </del>
+                        <span v-else>
+                            {{ todo.text }}
+                        </span>
+                    </label>
+                </li>
+            </ul>
+        </div></code></pre>
+                    </section>
+
+                    <section
+                        class="section-twocolumn"
+                    >
+                        <div style="background-color: rgba(0, 43, 54, 0.65); padding: 20px 0">
+                            <h3>Template syntax</h3>
+
+                            <ul class="section">
+                                <li>{{ variable  }}</li>
+                                <li>v-if, v-else-if, v-else</li>
+                                <li>:href="value"</li>
+                                <li>@click="doSomething()"</li>
+                                <li>{{ variable | filter }}</li>
+                            </ul>
+                        </div>
+
+                        <aside class="notes">
+                            <ul>
+                                <li>similar to AngularJS</li>
+                            </ul>
+                        </aside>
+                    </section>
+
+                    <section
+                        class="section-twocolumn"
+                    >
+                        <div style="background-color: rgba(0, 43, 54, 0.65); padding: 20px 0">
+                            <h3>Project setup</h3>
+
+                            <ul class="section">
+                                <li>Option #1: include JavaScript dependency</li>
+                                <li>Option #2: Vue CLI</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section
+                        class="section-twocolumn"
+                    >
+                        <div style="background-color: rgba(0, 43, 54, 0.65); padding: 20px 0">
+                            <h3>Vue CLI</h3>
+
+                            <ul>
+                                <li>based on Webpack</li>
+                                <li>Babel compilation</li>
+                                <li>scss compilation</li>
+                                <li>enables Vue Single File Components</li>
+                                <li>hot reloading</li>
+                                <li>source maps</li>
+                                <li>deployment (minification, code splitting,...)</li>
+                                <li>no config eject</li>
+                            </ul>
+
+                            <pre class="fragment">
+                                <code data-trim class="html">
+                                    npm install -g @vue/cli
+                                </code>
+                            </pre>
+                        </div>
+
+                        <aside class="notes">
+                            <ul>
+                                <li>als ich einem ehemaligen Kollegen von 1&1 Vue erklärt habe, konnte er nicht glauben dass ich das Projekt mit einem CLI generiere</li>
+                                <li>ich wollte ungerne die Kontrolle abgeben</li>
+                                <li>es hat sich aber einiges geändert (z. B. no config eject)</li>
+                                <li>es ist nicht zu leugnen, dass sie einen schneller machen</li>
+                                <li>wer schon mal TypeScript from scratch aufgesetzt hat inkl. Watches usw. weiß das zu schätzen</li>
+                            </ul>
+                        </aside>
+                    </section>
+
+                    <section
+                        class="section-twocolumn"
+                    >
+                        <div style="background-color: rgba(0, 43, 54, 0.65); padding: 20px 0">
+                            <h3>Single File Components</h3>
+
+                            <ul class="section">
+                                <li>need some time getting used to but make total sense</li>
+                                <li>all the parts that belong together in one file!</li>
+                                <li>if your SFC gets too big: create a subcomponent!</li>
+                                <li>SFCs are opt-in</li>
+                                <li>JSX is also possible</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <!-- SFC example #1 -->
+                    <section>
+                        <h3>HelloWorld.vue</h3>
+<pre style="margin-top: 0;"><code data-trim class="vue">
+<template>
+    <p>{{ greeting }} World!</p>
+</template>
+
+<script>
+    export default {
+        data: function () {
+            return {
+                greeting: 'Hello'
+            }
+        }
+    }
+</script>
+
+<style>
+    p {
+        font-size: 2em;
+        text-align: center;
+    }
+</style></code></pre>
+
+                        <p style="font-size: 15px;">
+                            <a href="https://codesandbox.io/s/vue-template-eikjx?fontsize=14">codesandbox.io/s/vue-template-eikjx</a>
+                        </p>
+                         <aside class="notes">
+                            <ul>
+                                <li>so sieht eine Vue-Komponente aus</li>
+                                <li>zu beachten: data ist jetzt eine function</li>
+                            </ul>
+                        </aside>
+                    </section>
+
+                    <!-- SFC example #2 -->
+                    <section>
+                        <h3>main.js</h3>
+    <pre style="margin-top: 0;"><code data-trim class="javascript">
+import Vue from "vue";
+import HelloWorld from "./HelloWorld.vue";
+
+Vue.component("hello-world", HelloWorld);
+
+new Vue({
+    el: "#app",
+    template: "<hello-world></hello-world>"
+});
+</code></pre>
+
+                        <p style="font-size: 15px;">
+                            <a href="https://codesandbox.io/s/vue-template-eikjx?fontsize=14">codesandbox.io/s/vue-template-eikjx</a>
+                        </p>
+
+                        <aside class="notes">
+                            <ul>
+                                <li></li>
+                            </ul>
+                        </aside>
+                    </section>
+
+                    <section
+                        class="section-twocolumn"
+                    >
+                        <div style="background-color: rgba(0, 43, 54, 0.65); padding: 20px 0">
+                            <h3>TypeScript</h3>
+
+                            <h4>Pro</h4>
+
+                            <ul>
+                                <li>love it</li>
+                                <li>excellent syntax</li>
+                                <li>continuous development</li>
+                                <li>easy refactorings</li>
+                                <li>perfect for own code</li>
+                            </ul>
+
+                            <h4>Contra</h4>
+
+                            <ul>
+                                <li>hate it</li>
+                                <li>not so perfect for library code</li>
+                                <li>no runtime checks</li>
+                                <li>adds compile complexity</li>
+                                <li>harder for beginners to see difference to JS</li>
+                            </ul>
+                        </div>
+
+                        <aside class="notes">
+                            <ul>
+                                <li>Empfehlung: externe Validierung deaktivieren</li>
+                            </ul>
+                        </aside>
+                    </section>
+                </section>
 
 				<!--
 				<section>
