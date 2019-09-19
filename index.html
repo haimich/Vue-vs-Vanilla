@@ -499,8 +499,9 @@
 						<aside class="notes">
 							<ul>
 								<li>A set of complementary, but independet standards.</li>
+								<li>There's still movement (e.g. HTML modules).
 								<li>
-									There's still movement (e.g. HTML modules): If you avoid frameworks because of long-term considerations,
+									Note: If you avoid frameworks because of long-term considerations,
 									you should avoid bleeding edge Web APIs, too 😜
 								</li>
 							</ul>
@@ -511,13 +512,14 @@
 						<h2>Custom elements</h2>
 						<pre><code data-trim class="javascript">
 							class MyComponent extends HTMLElement {
-
 							  &hellip;
-
 							}
 
 							customElements.define('d-my-component', MyComponent);
 						</code></pre>
+						<p class="fragment">
+							(<a href="https://developers.google.com/web/fundamentals/web-components/customelements">Google primer</a> on custom elements)
+						</p>
 
 						<aside class="notes">
 							<ul>
@@ -525,7 +527,7 @@
 									Custom elements are implemented as <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Classes">ES2015 classes</a>
 									and then defined in the <a href="https://developer.mozilla.org/docs/Web/API/CustomElementRegistry"><code>CustomElementRegistry</code></a> with their element name.
 								</li>
-								<li>The <code>-</code> in the element name is mandatory and avoids collisions with (future) built-in elements.</li>
+								<li>The dash (<code>-</code>) in the element name is mandatory and avoids collisions with (future) built-in elements.</li>
 								<li>Additionally at Disy, we prefix our component names with <code>d-</code> to avoid collisions with third-party components.</li>
 								<li>Right now you can extend only <code>HTMLElement</code> without polyfilling.</li>
 							</ul>
@@ -536,18 +538,16 @@
 						<h2>Extending Built-ins</h2>
 						<pre><code data-trim class="javascript">
 							class MyButton extends HTMLButtonElement {
-
 							  &hellip;
-
 							}
 
-							customElements.define('d-my-button', MyComponent);
+							customElements.define('d-my-button', MyComponent, {extends: 'button'});
 
 							// Usage:
-							document.createElement('d-my-button', {is: 'button'});
+							document.createElement('button', {is: 'd-my-button'});
 							// or
 							// new MyButton();
-							// &lt;d-my-button is="button"&gt;My Button&lt;/d-my-button&gt;
+							// &lt;button is="d-my-button"&gt;My Button&lt;/button&gt;
 						</code></pre>
 
 						<aside class="notes">
@@ -557,6 +557,7 @@
 									so that it's functional and accessible out-of-the-box.
 								</li>
 								<li>For example, you can trigger your button using the keyboard <em>without extra code</em>.</li>
+								<li>The required third parameter tells the browser which tag you're extending.</li>
 							</ul>
 						</aside>
 					</section>
@@ -564,11 +565,11 @@
 					<section>
 						<h2>Polyfilling Custom Elements</h2>
 						<pre><code data-trim class="html">
-							<script src="native-shim.js"></script>
 							<script src="custom-elements.min.js"></script>
+							<script src="native-shim.js"></script>
 						</code></pre>
 						<p>
-							<a href="https://caniuse.com/#feat=custom-elementsv1">caniuse.com/#feat=custom-elementsv1</a>,<br>
+							<a href="https://caniuse.com/#feat=custom-elementsv1">caniuse.com/#feat=custom-elementsv1</a><br>
 							<a href="https://github.com/webcomponents/custom-elements">Custom Elements Polyfill</a>
 						</p>
 
@@ -578,12 +579,12 @@
 
 						<aside class="notes">
 							<ul>
-								<li>Because we need to support IE (our customers are rather conservative), we need to polyfill custom elements.</li>
+								<li>Because we need to support IE (our customers are rather conservative in this respect), we need to polyfill custom elements.</li>
 								<li>Using transpiled classes requires an extra shim.</li>
 								<li>That's not a problem: Polyfilling custom elements works well and we transpile our code anyways.</li>
 								<li>
 									Because Apple opposes extending built-in elements, the implementers of the
-									major polyfill (which we use) hesitates to implement that feature.
+									major polyfill (which we use) hesitate to implement that feature.
 								</li>
 								<li>Note: Without IE support (without the polyfills) you can use components without any dependencies, right out-of-the-box.</li>
 							</ul>
@@ -595,20 +596,21 @@
 						<pre><code data-trim class="javascript">
 							class MyComponent extends HTMLElement {
 							  constructor () {
+							    // Called when the element is created or upgraded.
 							    super(); // Don't forget to call super().
-							      &hellip;
-							    }
-							    connectedCallback () {
-							      // Called when the element is connected to the DOM.
+							    &hellip;
+							  }
+							  connectedCallback () {
+							    // Called when the element is connected to the DOM.
 
-							      // If used in HTML, children are not loaded, yet.
-							      setTimeout (() => {
-							        // Children are loaded.
-							      });
-							    }
-							    disconnectedCallback () {
-							      // Complement of connectedCallback()
-							    }
+							    // If used in HTML, children might not be loaded, yet.
+							    setTimeout (() => {
+							      // Children are loaded.
+							    });
+							  }
+							  disconnectedCallback () {
+							    // Complement of connectedCallback()
+							  }
 							}
 						</code></pre>
 						<p>
@@ -623,14 +625,14 @@
 								</li>
 								<li>
 									<code>connectedCallback()</code> and <code>disconnectedCallback()</code> should be symmetric.
-									When implementing them, keep in mind that they could be called multiple times.
+									Keep in mind that they could be called multiple times.
 								</li>
 								<li>
 									For example, <code>classList.add()</code> and <code>setAttribute()</code> are idempotent,
 									while <code>append()</code> and <code>addEventListener()</code> are not.
 								</li>
 								<li>
-									When using your component in HTML, the <code>children</code> are not yet loaded
+									When using your component in HTML, the <code>children</code> might not yet be loaded
 									in the <code>connectedCallback()</code>. Use <code>setTimeout()</code> in this case.
 								</li>
 							</ul>
@@ -642,19 +644,22 @@
 						<pre><code data-trim class="javascript">
 							class MyComponent extends HTMLElement {
 							  static get observedAttributes() {
-							    return ['some-attribute']; // return attributes names
+							    return ['some-attribute']; // Return attributes names.
 							  }
 							  attributeChangedCallback (name, oldValue, newValue) {
-							    // called when the observed attributes' values change
+							    // Called when the observed attributes' values change.
 							  }
 							}
 						</code></pre>
 
 						<aside class="notes">
-							<p>
-								At Disy, we don't use the <code>attributeChangedCallback()</code>, because a programmatic
-								attribute change should rather call the corresponding property setter.
-							</p>
+							<ul>
+								<li>Attributes are there to configure an element declaratively.</li>
+								<li>
+									At Disy, we don't use the <code>attributeChangedCallback()</code>, because a programmatic
+									attribute change should rather call the corresponding property setter.
+								</li>
+							</ul>
 						</aside>
 					</section>
 
@@ -681,23 +686,66 @@
 							<ul>
 								<li>Using the DOM to maintain the state of your component supports a coherent UI.</li>
 								<li>Triggering change events only for user actions (and not in property setters) avoids endless update loops.</li>
+								<li>When mimicing native events, be sure to get the details right (see <a href="https://developer.mozilla.org/docs/Web/Events">MDN Event Reference</a>).</li>
 							</ul>
 						</aside>
 					</section>
 
 					<section>
 						<h2>Shadow DOM</h2>
-						Code Example
-						Can be used independently
-						Hide inertia of your component
-						Style scoping
-						Slots
+						<pre><code data-trim class="javascript">
+							class Tabs extends HTMLElement {
+							  constructor() {
+							    super();
+
+							    const shadowRoot = this.attachShadow({mode: 'open'});
+							    shadowRoot.innerHTML = `
+							      &lt;style>#tabs { border-bottom: 1px solid; }</style>
+							      &lt;div id="tabs">
+							        &lt;slot name="tabs" />
+							      &lt;/div>
+							      &lt;div id="panels">
+							        &lt;slot />
+							      &lt;/div>
+							    `;
+							  }
+							}
+						</code></pre>
+						<p>
+							<a href="https://jsfiddle.net/9kft3dvq/">jsfiddle.net/9kft3dvq/</a>
+							(<a href="https://developers.google.com/web/fundamentals/web-components/shadowdom">Google primer</a>)
+						</p>
+						<ul class="fragment">
+							<li>Scoped Styles</li>
+							<li>Declarative Composition</li>
+						</ul>
+
+						<aside class="notes">
+							<ul>
+								<li>The Shadow DOM can be used independently from Custom Elements.</li>
+								<li>The "Shadow Root" is attached to the "Host Element" and is local to that element.</li>
+								<li><code>'closed'</code> is used by built-in elements and is generally discouraged.</li>
+							</ul>
+						</aside>
+
+						<!--
 						Polyfill + Problems => We don't use it
 							SSR
 							Applying styles nicely
 							Caniuse
 							Link polyfill
-						SMACSS
+						SMACSS-->
+					</section>
+
+					<section>
+						<h2>Shadow DOM "Challenges"</h2>
+						<ul>
+							<li class="fragment"><a href="https://caniuse.com/#feat=shadowdomv1">Browser Support</a></li>
+							<li class="fragment"><a href="https://github.com/webcomponents/shadydom">Polyfills</a> are "shady" and horribly slow.</li>
+							<li class="fragment">Scoped styles require native CSS custom<br>properties to be really useful.</li>
+							<li class="fragment">No server-side rendering (although <a href="https://www.petergoes.nl/blog/my-stab-at-rendering-shadow-dom-server-side/">people try</a>)</li>
+						</ul>
+						<p class="fragment">&rArr; <del>Shadow DOM</del></p>
 					</section>
 
 					<section>
@@ -718,6 +766,7 @@
 							<li class="fragment">🔋 Batteries included</li>
 							<li class="fragment">🎓 Flat learning curve</li>
 							<li class="fragment">🛠️ Great devtools</li>
+							<li class="fragment">☮️ You can use &lt;x> with Web Components</li>
 						</ul>
 
 						<aside class="notes">
@@ -725,6 +774,10 @@
 								<li>In modern browsers, you can use custom elements out-of-the-box.</li>
 								<li>Custom elements are yet another API, not a whole new concept like JSX or Virtual DOM.</li>
 								<li>The browsers' devtools are <em>made</em> for DOM elements.</li>
+								<li>
+									Some frameworks support Web Components as compile target.
+									And there are Web Component frameworks which use JSX and Virtual DOM and stuff.
+								</li>
 							</ul>
 						</aside>
 					</section>
@@ -912,18 +965,26 @@
 					</div>
 				</section>
 
+				<!--
 				<section>
-						<section>
-							Would I use Vue?
-							- Klar, in Projekten, bei denen man weniger konservativ sein muss.
-							- Vue sieht auch recht leichtgewichtig aus (und hat schon fast Library-Charakter).
-							- Das Tooling und die konsistente Doku sind beeindruckend.
+					<section>
+						<h2>Would I use Vue?</h2>
+						<ul>
+							<li>Klar, in Projekten, bei denen man weniger konservativ sein muss.</li>
+							<li>Vue sieht auch recht leichtgewichtig aus (und hat schon fast Library-Charakter).</li>
+							<li>Das Tooling und die konsistente Doku sind beeindruckend.</li>
+						</ul>
+					</section>
 
-							Would I use Web Components?
-							- ich glaube sie haben großes Potential, zu einem standardisierten Format zu werden
-							- die Frameworks arbeiten hier leider eher entgegen, da jeder sein eigenes Süppchen kocht
-						</section>
+					<section>
+						<h2>Would I use Web Components?</h2>
+						<ul>
+							<li>Ich glaube sie haben großes Potential, zu einem standardisierten Format zu werden.</li>
+							<li>Die Frameworks arbeiten hier leider eher entgegen, da jeder sein eigenes Süppchen kocht.</li>
+						</ul>
+					</section>
 				</section>
+				-->
 
 			</div>
 		</div>
