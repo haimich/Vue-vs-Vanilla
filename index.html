@@ -157,9 +157,9 @@
 
 						<aside class="notes">
 							<ul>
-								<li>Desktop, Web, Mobile</li>
+								<li>Product suite with desktop, Web, and mobile apps.</li>
 								<li>Gather and analyze geo data, do reporting</li>
-								<li>Together ~ 2.000.000 lines of code</li>
+								<li>Together a lot more than 1.500.000 lines of code (Java and JS)</li>
 							</ul>
 						</aside>
 					</section>
@@ -196,18 +196,17 @@
 						</aside>
 					</section>
 
-					<!-- TODO color contrast -->
 					<section data-background="img/legacy-main-station.jpg">
 						<p class="text-with-bg" style="margin-bottom: 45vh; font-size: 1.5em">It's vivid and<br>constantly improved and extended</p>
 						<br><br><br><br><br><br><br><br><br>
-						<p class="text-with-bg" style="font-size: 0.6em"> <!-- <small> does not work properly -->
+						<p class="text-with-bg" style="font-size: 0.6em">
 							Frankfurt main station, © Urmelbeauftragter / <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA-3.0</a> (via Wikimedia Commons)
 						</p>
 
 						<aside class="notes">
 							<ul>
 								<li>Web is ~10 years old and getting more important, recently.</li>
-								<li>A lot of people use it (TODO order of magnitude?).</li>
+								<li>A lot of people use it (tens of thousands).</li>
 								<li>We add new features all the time.</li>
 								<li>We constantly improve the code base (e.g. always using the newest LTS Java version).</li>
 							</ul>
@@ -378,7 +377,6 @@
 						<h3 class="fragment">
 							<span class="text-with-bg">The Holy Grail</span>
 						</h3>
-						<!-- TODO line-height -->
 						<div class="fragment" id="solid-foundation">
 							<h3>
 								<span class="text-with-bg">A solid foundation<br><small>with the right level of abstraction</small></span>
@@ -391,7 +389,7 @@
 						<aside class="notes">
 							<ul>
 								<li>We bet - yes, it's a bet - that Web Components are more future proof than frameworks.</li>
-								<li>At least they move more slowly ;-)</li><!-- TODO emoji -->
+								<li>At least they move more slowly 😉</li>
 								<li>Because they're relatively low-level, they integrate well with other technologies.</li>
 							</ul>
 						</aside>
@@ -465,7 +463,10 @@
 							<ul>
 								<li>Design tools co-evolve with the component trend in frontend development.</li>
 								<li>In recent years we talk more about style guides and component libraries.</li>
-								<li>Designers use design tools like Adobe XD instead of canvas editors like Photoshop - and they work with components instead of pixels.</li><!-- TODO spelling -->
+								<li>
+									Designers use design tools like Adobe XD instead of "canvas editors" like Photoshop -
+									and they work with components instead of pixels.
+								</li>
 							</ul>
 						</aside>
 					</section>
@@ -474,7 +475,7 @@
 				<section>
 					<section>
 						<h2>Web Components</h2>
-						<img src="img/web-components.png" alt="Overview over the Web Component specs: TODO">
+						<img src="img/web-components.png" alt="Overview over the Web Component specs">
 
 						<aside class="notes">
 							<ul>
@@ -489,7 +490,6 @@
 
 					<section>
 						<h2>Custom elements</h2>
-						<!-- TODO Highlight sections? -->
 						<pre><code data-trim class="javascript">
 							class MyComponent extends HTMLElement {
 
@@ -545,12 +545,12 @@
 					<section>
 						<h2>Polyfilling Custom Elements</h2>
 						<pre><code data-trim class="html">
-							&lt;!-- Shim -->
-							&lt;!-- Polyfill -->
+							<script src="native-shim.js"></script>
+							<script src="custom-elements.min.js"></script>
 						</code></pre>
 						<p>
-							<a href="https://caniuse.com/#feat=custom-elementsv1">caniuse.com/#feat=custom-elementsv1</a>
-							TODO Link polyfill
+							<a href="https://caniuse.com/#feat=custom-elementsv1">caniuse.com/#feat=custom-elementsv1</a>,<br>
+							<a href="https://github.com/webcomponents/custom-elements">Custom Elements Polyfill</a>
 						</p>
 
 						<p class="fragment">
