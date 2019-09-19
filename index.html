@@ -45,6 +45,8 @@
 					</a>
 				</section>
 
+				<!-- About us -->
+
 				<section>
 					<section
 						data-background="img/jo-bicycle.jpg"
@@ -62,7 +64,7 @@
 								<img src="img/disy-logo.svg" alt="Disy Logo" class="inline" style="padding: 8px;"><br>
 								in Karlsruhe
 							</p>
-							<p>Enthusiastic about ...</p>
+							<p>Enthusiastic about &hellip;</p>
 							<ul class="nobullets-list">
 								<li>🔗 The Open Web</li>
 								<li>🚲 Cycling</li>
@@ -89,7 +91,7 @@
 								<img src="img/vue/echobot-logo.png" alt="Echobot Logo" class="inline" style="padding: 11px; height: 29px;"><br>
 								in Karlsruhe
 							</p>
-							<p>Enthusiastic about ...</p>
+							<p>Enthusiastic about &hellip;</p>
 							<ul class="nobullets-list">
 								<li>💻 Web Development</li>
 								<li>🍳 Cooking</li>
@@ -145,8 +147,8 @@
 							<li>1. You lay a foundation: Du nimmst Dir Zeit, eine gute Basis zu schaffen (für ein Produkt oder Feature).</li>
 							<li>2. You are lucky: The optimal case, nobody will complain. Your team is really potent and can deliver top quality in zero time.</li>
 							<li>3. You bet on the future: You trade quality for time, maybe to get some contract? You'll need to pay in the future.</li>
-							<li>4. You are lazy: WTF, why should you do that? Because you can? Come on ...</li>
-							<li>The truth is...it depends!</li>
+							<li>4. You are lazy: WTF, why should you do that? Because you can? Come on &hellip;</li>
+							<li>The truth is&hellip; it depends!</li>
 							<li>in welchem Quadranten wir uns mit unseren Projekten bewegt haben, erfahrt ihr jetzt!</li>
 						</ul>
 					</aside>
@@ -156,9 +158,9 @@
 
 				<section>
 					<section>
-						<h2>Cadenza is big ...</h2>
+						<h2>Cadenza is big &hellip;</h2>
 						<img src="img/cadenza.png" alt="Cadenza symbol image with different screens" class="noborder">
-						<p class="fragment">... and it's legacy, but ...</p>
+						<p class="fragment">&hellip; and it's legacy, but &hellip;</p>
 
 						<aside class="notes">
 							<ul>
@@ -170,7 +172,7 @@
 					</section>
 
 					<section>
-						<p>... not <em>that</em> kind of legacy ...</p>
+						<p>&hellip; not <em>that</em> kind of legacy &hellip;</p>
 						<figure>
 							<img src="img/legacy-dung-heap.jpg" alt="Dung Heap">
 							<figcaption>
@@ -186,7 +188,7 @@
 					</section>
 
 					<section>
-						<p>... or that kind:</p>
+						<p>&hellip; or that kind:</p>
 						<figure>
 							<img src="img/legacy-jenga.jpg" alt="Jenga Tower">
 							<figcaption>
@@ -300,7 +302,7 @@
 							customElements.define(ELEMENT_NAME, ToggleButton);
 						</code></pre>
 						<p>
-							<a href="https://jsfiddle.net/nx7rvj5p/">jsfiddle.net/nx7rvj5p</a>
+							<a href="https://jsfiddle.net/njrymhz2/">jsfiddle.net/njrymhz2/</a>
 						</p>
 
 						<aside class="notes">
@@ -334,13 +336,13 @@
 
 							// Constructor
 							const button = new ToggleButton();
-							...
+							&hellip;
 						</code></pre>
 
 						<aside class="notes">
 							<ul>
 								<li>Using the constructor in this case is equivalent to <code>document.createElement()</code>.</li>
-								<li>It only accepts arguments.</li>
+								<li>But it also accepts arguments.</li>
 								<li>Ideally, your components should work <em>with</em> and <em>without</em> constructor arguments.</li>
 							</ul>
 						</aside>
@@ -363,7 +365,7 @@
 							new Vue({
 							  el: '#app',
 							  template: `&lt;d-toggle-button
-							               :aria-pressed="String(pressed)"
+							               :pressed.prop="pressed"
 							               @toggle="onToggle"&gt;Button&lt;/d-toggle-button&gt;`,
 							  data: { pressed: true },
 							  methods: {
@@ -373,6 +375,10 @@
 							  }
 							});
 						</code></pre>
+						<p class="fragment">
+							Vue and Web Components can be BFFs 🍻:<br>
+							<a href="https://custom-elements-everywhere.com/#vue">100% interoperability</a>
+						</p>
 					</section>
 
 					<!-- https://commons.wikimedia.org/wiki/File:Holy-grail-round-table-bnf-ms_fr-116F-f610v-15th-detail.jpg -->
@@ -400,6 +406,8 @@
 						</aside>
 					</section>
 				</section>
+
+				<!-- Intro: Components in General -->
 
 				<section>
 					<section>
@@ -435,7 +443,7 @@
 							<span class="text-with-bg">Button</span>
 						</h2>
 						<p class="fragment">
-							<span class="text-with-bg">UI components have a name are reusable</span>
+							<span class="text-with-bg">UI components have a name and can be reused.</span>
 
 							<aside class="notes">
 								<ul>
@@ -454,7 +462,6 @@
 								Style guide<br>
 								<a href="https://zeplin.io/"><small>(Zeplin)</small></a>
 							</figcaption>
-
 						</figure>
 						<figure>
 							<img src="img/screenshot-catalog.png" alt="Screenshot of the Disy component library">
@@ -477,17 +484,24 @@
 					</section>
 				</section>
 
+				<!-- Web Components -->
+
 				<section>
 					<section>
 						<h2>Web Components</h2>
-						<img src="img/web-components.png" alt="Overview over the Web Component specs">
+						<ul>
+							<li>Custom Elements</li>
+							<li>Shadow DOM</li>
+							<li>HTML Templates</li>
+							<li>&hellip;</li>
+						</ul>
 
 						<aside class="notes">
 							<ul>
 								<li>A set of complementary, but independet standards.</li>
 								<li>
-									There's still movement (HTML imports): If you avoid frameworks because of long-term considerations,
-									you should avoid bleeding edge Web APIs, too.
+									There's still movement (e.g. HTML modules): If you avoid frameworks because of long-term considerations,
+									you should avoid bleeding edge Web APIs, too 😜
 								</li>
 							</ul>
 						</aside>
@@ -498,7 +512,7 @@
 						<pre><code data-trim class="javascript">
 							class MyComponent extends HTMLElement {
 
-								...
+							  &hellip;
 
 							}
 
@@ -523,7 +537,7 @@
 						<pre><code data-trim class="javascript">
 							class MyButton extends HTMLButtonElement {
 
-								...
+							  &hellip;
 
 							}
 
@@ -580,21 +594,21 @@
 						<h2>Lifecycle Callbacks</h2>
 						<pre><code data-trim class="javascript">
 							class MyComponent extends HTMLElement {
-								constructor () {
-								super(); // Don't forget to call super().
-								...
-								}
-								connectedCallback () {
-								// Called when the element is connected to the DOM.
+							  constructor () {
+							    super(); // Don't forget to call super().
+							      &hellip;
+							    }
+							    connectedCallback () {
+							      // Called when the element is connected to the DOM.
 
-								// If used in HTML, children are not loaded, yet.
-								setTimeout (() => {
-									// Children are loaded.
-								});
-								}
-								disconnectedCallback () {
-								// Complement of connectedCallback()
-								}
+							      // If used in HTML, children are not loaded, yet.
+							      setTimeout (() => {
+							        // Children are loaded.
+							      });
+							    }
+							    disconnectedCallback () {
+							      // Complement of connectedCallback()
+							    }
 							}
 						</code></pre>
 						<p>
@@ -624,15 +638,15 @@
 					</section>
 
 					<section>
-						<h2>Properties</h2>
+						<h2>Attributes</h2>
 						<pre><code data-trim class="javascript">
 							class MyComponent extends HTMLElement {
-								static get observedAttributes() {
-								return ['some-attribute']; // return attributes names
-								}
-								attributeChangedCallback (name, oldValue, newValue) {
-								// called when the observed attributes' values change
-								}
+							  static get observedAttributes() {
+							    return ['some-attribute']; // return attributes names
+							  }
+							  attributeChangedCallback (name, oldValue, newValue) {
+							    // called when the observed attributes' values change
+							  }
 							}
 						</code></pre>
 
@@ -648,18 +662,18 @@
 						<h2>Properties</h2>
 						<pre><code data-trim class="javascript">
 							class ToggleButton extends HTMLElement {
-								connectedCallback () {
-								this.addEventListener('click', () => {
-									this.pressed = !this.pressed;
-									this.dispatchEvent(new CustomEvent('toggle'));
-								});
-								}
-								set pressed (value) {
-								this.setAttribute('aria-pressed', value);
-								}
-								get pressed () {
-								return this.getAttribute('aria-pressed') === 'true';
-								}
+							  connectedCallback () {
+							    this.addEventListener('click', () => {
+							      this.pressed = !this.pressed;
+							      this.dispatchEvent(new CustomEvent('toggle'));
+							    });
+							  }
+							  set pressed (value) {
+							    this.setAttribute('aria-pressed', value);
+							  }
+							  get pressed () {
+							    return this.getAttribute('aria-pressed') === 'true';
+							  }
 							}
 						</code></pre>
 
@@ -696,6 +710,23 @@
 						Hyperscript is used behind the scenes of JSX, but we don't use a virtual DOM.
 						That's not an obstacle for unidirectional dataflow, though.
 						Outlook: HTML imports
+					</section>
+
+					<section>
+						<h2>And did I mention&hellip;</h2>
+						<ul class="nobullets-list">
+							<li class="fragment">🔋 Batteries included</li>
+							<li class="fragment">🎓 Flat learning curve</li>
+							<li class="fragment">🛠️ Great devtools</li>
+						</ul>
+
+						<aside class="notes">
+							<ul>
+								<li>In modern browsers, you can use custom elements out-of-the-box.</li>
+								<li>Custom elements are yet another API, not a whole new concept like JSX or Virtual DOM.</li>
+								<li>The browsers' devtools are <em>made</em> for DOM elements.</li>
+							</ul>
+						</aside>
 					</section>
 				</section>
 
@@ -768,7 +799,7 @@
 
 					<section data-background="img/vue/cat-unsplash.jpg">
 						<h2>
-							<span class="text-with-bg">There was only one problem...</span>
+							<span class="text-with-bg">There was only one problem&hellip;</span>
 						</h2>
 					</section>
 
