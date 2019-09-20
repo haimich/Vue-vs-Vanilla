@@ -351,7 +351,7 @@
 					<section>
 						<h2>jQuery</h2>
 						<pre><code data-trim class="javascript">
-							$('&lt;d-toggle-button&gt;')
+							$('&lt;d-toggle-button>')
 							  .text('Button')
 							  .prop('pressed', true)
 							  .on('toggle', event => console.log(event.target.pressed))
@@ -366,7 +366,7 @@
 							  el: '#app',
 							  template: `&lt;d-toggle-button
 							               :pressed.prop="pressed"
-							               @toggle="onToggle"&gt;Button&lt;/d-toggle-button&gt;`,
+							               @toggle="onToggle">Button&lt;/d-toggle-button>`,
 							  data: { pressed: true },
 							  methods: {
 							    onToggle (event) {
@@ -547,7 +547,7 @@
 							document.createElement('button', {is: 'd-my-button'});
 							// or
 							// new MyButton();
-							// &lt;button is="d-my-button"&gt;My Button&lt;/button&gt;
+							// &lt;button is="d-my-button">My Button&lt;/button>
 						</code></pre>
 
 						<aside class="notes">
@@ -564,9 +564,16 @@
 
 					<section>
 						<h2>Polyfilling Custom Elements</h2>
-						<pre><code data-trim class="html">
-							<script src="custom-elements.min.js"></script>
-							<script src="native-shim.js"></script>
+						<pre><code data-trim class="javascript">
+							&lt;script>
+							  if (window.customElements) {
+							    // make the browser work with transpiled custom elements
+							    document.write('&lt;script src="native-shim.js">&lt;/script>');
+							  } else {
+							    // polyfill custom elements
+							    document.write('&lt;script src="custom-elements.min.js">&lt;/script>');
+							  }
+							&lt;/script>
 						</code></pre>
 						<p>
 							<a href="https://caniuse.com/#feat=custom-elementsv1">caniuse.com/#feat=custom-elementsv1</a><br>
@@ -700,7 +707,7 @@
 
 							    const shadowRoot = this.attachShadow({mode: 'open'});
 							    shadowRoot.innerHTML = `
-							      &lt;style>#tabs { border-bottom: 1px solid; }</style>
+							      &lt;style>#tabs { border-bottom: 1px solid; }&lt;/style>
 							      &lt;div id="tabs">
 							        &lt;slot name="tabs" />
 							      &lt;/div>
