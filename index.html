@@ -166,7 +166,7 @@
 							<ul>
 								<li>Product suite with desktop, Web, and mobile apps.</li>
 								<li>Gather and analyze geo data, do reporting</li>
-								<li>Together a lot more than 1.500.000 lines of code (Java and JS)</li>
+								<li>The Java code base alone counts 1.500.000 lines of code, plus a lot of JavaScript.</li>
 							</ul>
 						</aside>
 					</section>
@@ -261,7 +261,6 @@
 									made us think about Cadenza Web's technical foundation.
 								</li>
 								<li>The problem: Frameworks tend to die or break their APIs.</li>
-								<li>We don't use frameworks for Web components either (like Google's <a href="https://www.polymer-project.org/">Polymer Project</a>).</li>
 							</ul>
 						</aside>
 					</section>
@@ -288,7 +287,7 @@
 							    this.setAttribute('role', 'button');
 							    this.addEventListener('click', () => {
 							      this.pressed = !this.pressed;
-							      this.dispatchEvent(new CustomEvent('toggle'));
+							      this.dispatchEvent(new CustomEvent('toggle', {bubbles: true}));
 							    });
 							  }
 							  set pressed (value) {
@@ -302,7 +301,7 @@
 							customElements.define(ELEMENT_NAME, ToggleButton);
 						</code></pre>
 						<p>
-							<a href="https://jsfiddle.net/njrymhz2/">jsfiddle.net/njrymhz2/</a>
+							<a href="https://jsfiddle.net/w15c8mpx/">jsfiddle.net/w15c8mpx/</a>
 						</p>
 
 						<aside class="notes">
@@ -315,7 +314,7 @@
 					</section>
 
 					<section>
-						<h2>Plain DOM</h2>
+						<h2>Usage with Plain DOM</h2>
 						<pre><code data-trim class="javascript">
 							const button = document.createElement('d-toggle-button');
 							button.textContent = 'Button';
@@ -328,7 +327,7 @@
 					</section>
 
 					<section>
-						<h2>Constructor</h2>
+						<h2>Usage with Constructor</h2>
 						<pre><code data-trim class="javascript">
 							import ToggleButton from 'ui/toggle-button';
 							// or
@@ -349,18 +348,18 @@
 					</section>
 
 					<section>
-						<h2>jQuery</h2>
+						<h2>Usage with jQuery</h2>
 						<pre><code data-trim class="javascript">
-							$('&lt;d-toggle-button>')
+							const $button = $('&lt;d-toggle-button>')
 							  .text('Button')
 							  .prop('pressed', true)
-							  .on('toggle', event => console.log(event.target.pressed))
+							  .on('toggle', () => console.log($button.prop('pressed')))
 							  .appendTo(document.body);
 						</code></pre>
 					</section>
 
 					<section>
-						<h2>Vue</h2>
+						<h2>Usage with Vue</h2>
 						<pre><code data-trim class="javascript">
 							new Vue({
 							  el: '#app',
@@ -369,9 +368,7 @@
 							               @toggle="onToggle">Button&lt;/d-toggle-button>`,
 							  data: { pressed: true },
 							  methods: {
-							    onToggle (event) {
-							      console.log(event.target.pressed);
-							    }
+							    onToggle: event => console.log(event.target.pressed)
 							  }
 							});
 						</code></pre>
@@ -433,6 +430,7 @@
 								<li>Now we think and build self-contained components and Webpack (or your preferred bundler) resolves their dependencies for you.</li>
 								<li>This affects the structure of our code base, our tooling, and our habits and practices.</li>
 								<li>Reusing components makes testing and documenting them more rewarding.</li>
+								<li>Even without reuse, there's profit.</li>
 							</ul>
 						</aside>
 					</section>
@@ -442,17 +440,17 @@
 						<h2>
 							<span class="text-with-bg">Button</span>
 						</h2>
-						<p class="fragment">
+						<p>
 							<span class="text-with-bg">UI components have a name and can be reused.</span>
-
-							<aside class="notes">
-								<ul>
-									<li>In frontend development, we usually talk about UI components.</li>
-									<li>Component reuse supports a consistent UI, hence a better UX.</li>
-									<li>People love them, because they make it easier to discuss certain parts of the UI.</li>
-								</ul>
-							</aside>
 						</p>
+
+						<aside class="notes">
+							<ul>
+								<li>In frontend development, we usually talk about UI components.</li>
+								<li>People love them, because they make it easier to discuss certain parts of the UI.</li>
+								<li>Component reuse supports a consistent UI, hence a better UX.</li>
+							</ul>
+						</aside>
 					</section>
 
 					<section class="section-twocolumn">
@@ -487,7 +485,7 @@
 				<!-- Web Components -->
 
 				<section>
-					<section>
+					<section data-background="img/web-components-logo.svg" data-background-size="contain">
 						<h2>Web Components</h2>
 						<ul>
 							<li>Custom Elements</li>
@@ -524,12 +522,12 @@
 						<aside class="notes">
 							<ul>
 								<li>
-									Custom elements are implemented as <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Classes">ES2015 classes</a>
-									and then defined in the <a href="https://developer.mozilla.org/docs/Web/API/CustomElementRegistry"><code>CustomElementRegistry</code></a> with their element name.
+									Custom elements are implemented as <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Classes">ES2015 classes</a>,
+									extending one of the built-in element types, and then defined in the <a href="https://developer.mozilla.org/docs/Web/API/CustomElementRegistry"><code>CustomElementRegistry</code></a>
+									with their element name.
 								</li>
 								<li>The dash (<code>-</code>) in the element name is mandatory and avoids collisions with (future) built-in elements.</li>
 								<li>Additionally at Disy, we prefix our component names with <code>d-</code> to avoid collisions with third-party components.</li>
-								<li>Right now you can extend only <code>HTMLElement</code> without polyfilling.</li>
 							</ul>
 						</aside>
 					</section>
@@ -557,9 +555,21 @@
 									so that it's functional and accessible out-of-the-box.
 								</li>
 								<li>For example, you can trigger your button using the keyboard <em>without extra code</em>.</li>
-								<li>The required third parameter tells the browser which tag you're extending.</li>
+								<li>When defining the Custom Element, the required third parameter tells the browser which tag you're extending.</li>
 							</ul>
 						</aside>
+					</section>
+
+					<section>
+						<h2>
+							Browser Support<br>
+							<small>Custom Elements</small>
+						</h2>
+						<p class="ciu_embed" data-feature="custom-elementsv1" data-periods="future_1,current,past_1,past_2" data-accessible-colours="false">
+							<a href="http://caniuse.com/#feat=custom-elementsv1">
+								<img src="https://res.cloudinary.com/ireaderinokun/image/upload/v1569016053/caniuse-embed/custom-elementsv1-2019-9-20.png" alt="Data on support for the custom-elementsv1 feature across the major browsers from caniuse.com">
+							</a>
+						</p>
 					</section>
 
 					<section>
@@ -567,17 +577,16 @@
 						<pre><code data-trim class="javascript">
 							&lt;script>
 							  if (window.customElements) {
-							    // make the browser work with transpiled custom elements
+							    // Make the browser work with transpiled custom elements.
 							    document.write('&lt;script src="native-shim.js">&lt;/script>');
 							  } else {
-							    // polyfill custom elements
+							    // Polyfill custom elements.
 							    document.write('&lt;script src="custom-elements.min.js">&lt;/script>');
 							  }
 							&lt;/script>
 						</code></pre>
 						<p>
-							<a href="https://caniuse.com/#feat=custom-elementsv1">caniuse.com/#feat=custom-elementsv1</a><br>
-							<a href="https://github.com/webcomponents/custom-elements">Custom Elements Polyfill</a>
+							<a href="https://github.com/webcomponents/polyfills/tree/master/packages/custom-elements">Custom Elements Polyfill</a>
 						</p>
 
 						<p class="fragment">
@@ -588,12 +597,11 @@
 							<ul>
 								<li>Because we need to support IE (our customers are rather conservative in this respect), we need to polyfill custom elements.</li>
 								<li>Using transpiled classes requires an extra shim.</li>
-								<li>That's not a problem: Polyfilling custom elements works well and we transpile our code anyways.</li>
+								<li>That's not a problem: Polyfilling custom elements is easy and works well.</li>
 								<li>
 									Because Apple opposes extending built-in elements, the implementers of the
 									major polyfill (which we use) hesitate to implement that feature.
 								</li>
-								<li>Note: Without IE support (without the polyfills) you can use components without any dependencies, right out-of-the-box.</li>
 							</ul>
 						</aside>
 					</section>
@@ -609,20 +617,12 @@
 							  }
 							  connectedCallback () {
 							    // Called when the element is connected to the DOM.
-
-							    // If used in HTML, children might not be loaded, yet.
-							    setTimeout (() => {
-							      // Children are loaded.
-							    });
 							  }
 							  disconnectedCallback () {
-							    // Complement of connectedCallback()
+							    // Complement to the connectedCallback()
 							  }
 							}
 						</code></pre>
-						<p>
-							<a href="https://developer.mozilla.org/docs/Web/Web_Components/Using_custom_elements#Using_the_lifecycle_callbacks">Using the lifecycle callbacks</a> on MDN
-						</p>
 
 						<aside class="notes">
 							<ul>
@@ -638,10 +638,6 @@
 									For example, <code>classList.add()</code> and <code>setAttribute()</code> are idempotent,
 									while <code>append()</code> and <code>addEventListener()</code> are not.
 								</li>
-								<li>
-									When using your component in HTML, the <code>children</code> might not yet be loaded
-									in the <code>connectedCallback()</code>. Use <code>setTimeout()</code> in this case.
-								</li>
 							</ul>
 						</aside>
 					</section>
@@ -651,7 +647,7 @@
 						<pre><code data-trim class="javascript">
 							class MyComponent extends HTMLElement {
 							  static get observedAttributes() {
-							    return ['some-attribute']; // Return attributes names.
+							    return ['some-attribute']; // Return attribute names to observe.
 							  }
 							  attributeChangedCallback (name, oldValue, newValue) {
 							    // Called when the observed attributes' values change.
@@ -661,11 +657,12 @@
 
 						<aside class="notes">
 							<ul>
-								<li>Attributes are there to configure an element declaratively.</li>
+								<li>Attributes are there to configure an element declaratively. We use that for server-side rendering.</li>
 								<li>
 									At Disy, we don't use the <code>attributeChangedCallback()</code>, because a programmatic
 									attribute change should rather call the corresponding property setter.
 								</li>
+								<li>It could be useful for integration with third-party libraries, though.</li>
 							</ul>
 						</aside>
 					</section>
@@ -677,7 +674,7 @@
 							  connectedCallback () {
 							    this.addEventListener('click', () => {
 							      this.pressed = !this.pressed;
-							      this.dispatchEvent(new CustomEvent('toggle'));
+							      this.dispatchEvent(new CustomEvent('toggle', {bubbles: true}));
 							    });
 							  }
 							  set pressed (value) {
@@ -692,6 +689,7 @@
 						<aside class="notes">
 							<ul>
 								<li>Using the DOM to maintain the state of your component supports a coherent UI.</li>
+								<li>If you keep that in mind when writing your CSS, e.g. by using related attribute selectors, the benefit will be even bigger.</li>
 								<li>Triggering change events only for user actions (and not in property setters) avoids endless update loops.</li>
 								<li>When mimicing native events, be sure to get the details right (see <a href="https://developer.mozilla.org/docs/Web/Events">MDN Event Reference</a>).</li>
 							</ul>
@@ -718,14 +716,14 @@
 							  }
 							}
 						</code></pre>
-						<p>
-							<a href="https://jsfiddle.net/9kft3dvq/">jsfiddle.net/9kft3dvq/</a>
-							(<a href="https://developers.google.com/web/fundamentals/web-components/shadowdom">Google primer</a>)
-						</p>
-						<ul class="fragment">
+						<ul>
 							<li>Scoped Styles</li>
 							<li>Declarative Composition</li>
 						</ul>
+						<p>
+							<a href="https://jsfiddle.net/84du91e7/">jsfiddle.net/84du91e7/</a>
+							(<a href="https://developers.google.com/web/fundamentals/web-components/shadowdom">Google primer</a>)
+						</p>
 
 						<aside class="notes">
 							<ul>
@@ -734,25 +732,32 @@
 								<li><code>'closed'</code> is used by built-in elements and is generally discouraged.</li>
 							</ul>
 						</aside>
+					</section>
 
-						<!--
-						Polyfill + Problems => We don't use it
-							SSR
-							Applying styles nicely
-							Caniuse
-							Link polyfill
-						SMACSS-->
+					<section>
+						<h2>
+							Browser Support<br>
+							<small>Shadow DOM</small>
+						</h2>
+						<p class="ciu_embed" data-feature="shadowdomv1" data-periods="future_1,current,past_1,past_2" data-accessible-colours="false">
+							<a href="http://caniuse.com/#feat=shadowdomv1">
+								<img src="https://res.cloudinary.com/ireaderinokun/image/upload/v1569016053/caniuse-embed/shadowdomv1-2019-9-20.png" alt="Data on support for the shadowdomv1 feature across the major browsers from caniuse.com">
+							</a>
+						</p>
 					</section>
 
 					<section>
 						<h2>Shadow DOM "Challenges"</h2>
 						<ul>
-							<li class="fragment"><a href="https://caniuse.com/#feat=shadowdomv1">Browser Support</a></li>
-							<li class="fragment"><a href="https://github.com/webcomponents/shadydom">Polyfills</a> are "shady" and horribly slow.</li>
+							<li class="fragment"><a href="https://github.com/webcomponents/polyfills/tree/master/packages/shadydom">Polyfills</a> are "shady" and horribly slow.</li>
 							<li class="fragment">Scoped styles require native CSS custom<br>properties to be really useful.</li>
 							<li class="fragment">No server-side rendering (although <a href="https://www.petergoes.nl/blog/my-stab-at-rendering-shadow-dom-server-side/">people try</a>)</li>
 						</ul>
-						<p class="fragment">&rArr; <del>Shadow DOM</del></p>
+						<p class="fragment"><del>Shadow DOM</del></p>
+
+						<aside class="notes">
+							<p>Style scoping was solved for us already by CSS conventions like BEM or - in our case - SMACSS.</p>
+						</aside>
 					</section>
 
 					<section>
@@ -779,7 +784,7 @@
 						<aside class="notes">
 							<ul>
 								<li>In modern browsers, you can use custom elements out-of-the-box.</li>
-								<li>Custom elements are yet another API, not a whole new concept like JSX or Virtual DOM.</li>
+								<li>Custom elements are just another API, not a whole new concept like JSX or Virtual DOM.</li>
 								<li>The browsers' devtools are <em>made</em> for DOM elements.</li>
 								<li>
 									Some frameworks support Web Components as compile target.
@@ -789,15 +794,30 @@
 						</aside>
 					</section>
 
-					<section>
-						<h2>Fazit</h2>
-						<p>Hintergrundbild: Fahrender Zug</p>
-						<ul>
-							<li>Wir haben jetzt drei Jahre Erfahrung mit Web Components</li>
-							<li>Wir haben gerade die letzte RichFaces-Komponente ausgebaut</li>
-							<li>Es ist mehr manuelles Plumbing, aber wir profitieren von Komponenten.</li>
-							<li>Wir fahren weiter in diese Richtung</li>
+					<section data-background="img/moving-train.jpg">
+						<h2 class="text-with-bg">Bottom line</h2>
+						<ul style="list-style: none">
+							<li style="margin: 0.5em 0">
+								<span class="text-with-bg">We have three years of experience with Custom Elements.</span>
+							</li>
+							<li class="fragment" style="margin: 0.5em 0">
+								<span class="text-with-bg">Recently, we replaced our last RichFaces component.</span>
+							</li>
+							<li class="fragment" style="margin: 0.5em 0">
+								<span class="text-with-bg">Pure Custom Elements are low level, but we benefit a lot.</span>
+							</li>
+							<li class="fragment" style="margin: 0.5em 0">
+								<span class="text-with-bg">We'll move on into that direction.</span>
+							</li>
 						</ul>
+						<p class="fragment">
+							<span class="text-with-bg">
+								Keep calm and <a href="https://twitter.com/hashtag/usetheplatform">#UseThePlatform</a>
+							</span>
+						</p>
+						<p>
+							<small class="text-with-bg">Departing train, © Xenotron / <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> (via Wikimedia Commons)</small>
+						</p>
 					</section>
 				</section>
 
@@ -1192,13 +1212,21 @@ new Vue({
                     </section>
                 </section>
 
+				<section>
+					<ul>
+						<li>Fragen?</li>
+						<li>Schaut Euch die Folien auch mal im Speaker-Mode an</li>
+						<li>Go forth an componentize your apps.</li>
+					</ul>
+				</section>
+
 				<!--
 				<section>
 					<section>
 						<h2>Would I use Vue?</h2>
 						<ul>
 							<li>Klar, in Projekten, bei denen man weniger konservativ sein muss.</li>
-							<li>Vue sieht auch recht leichtgewichtig aus (und hat schon fast Library-Charakter).</li>
+							<li>Vue sieht im Vergleich zu anderen anderen Frameworks recht leichtgewichtig aus.</li>
 							<li>Das Tooling und die konsistente Doku sind beeindruckend.</li>
 						</ul>
 					</section>
@@ -1250,5 +1278,7 @@ new Vue({
 				}
 			});
 		</script>
+
+		<script src="https://cdn.jsdelivr.net/gh/ireade/caniuse-embed/caniuse-embed.min.js"></script>
 	</body>
 </html>

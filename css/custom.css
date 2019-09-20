@@ -60,3 +60,7 @@
 .reveal pre code {
     max-height: none;
 }
+
+.reveal small {
+    vertical-align: middle;
+}
