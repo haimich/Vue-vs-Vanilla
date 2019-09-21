@@ -1098,6 +1098,18 @@
                             </ul>
                         </aside>
 					</section>
+
+					<!-- DEMO:
+						* vue cli
+					    * show project (vue.config.js is optional)
+						* vue ui
+						* vue devtools:
+						  - component tree
+						  - state inspection
+						  - fps
+						  - vuex
+						  - css component name
+					-->
 					
 					<section
 						class="section-twocolumn"
@@ -1262,15 +1274,16 @@ new Vue({
 
                             <ul class="section">
 								<li>"smart"</li>
-								<li>state (most of it)</li>
+								<li>manages state</li>
+								<li>contains layout</li>
 								<li>often synonym to a page</li>
 							</ul>
 							
 							<aside class="notes">
 								<ul>
 									<li>zentrale Stelle für Buisinesslogik</li>
+									<li>den Großteil des States (oder Redux/Vuex)</li>
 									<li>https://www.shade.codes/dumb-components-and-smart-components/</li>
-									<li>wenn man eine library wie Redux der vuex verwendet, ist der State global</li>
 								</ul>
 							</aside>
                         </div>
@@ -1288,17 +1301,43 @@ new Vue({
 								<li>specialized</li>
 								<li>few dependencies</li>
 								<li>only receive state they need (via props></li>
-								<li>easily testable</li>
+								<li>good testability</li>
 							</ul>
 							
 							<aside class="notes">
 								<ul>
-									<li>https://www.shade.codes/dumb-components-and-smart-components/</li>
+									<li>gute Testbarkeit wiegt bei mir nicht so schwer, weil ich UI selten teste</li>
 								</ul>
 							</aside>
                         </div>
                     </section>
-                </section>
+				</section>
+				
+				<!-- Developer UX -->
+				<section>
+					<section
+                        class="section-twocolumn"
+                    >
+                        <div style="background-color: rgba(0, 43, 54, 0.65); padding: 20px 0">
+                            <h3>What I ❤️ about Vue</h3>
+
+                            <ul class="section">
+								<li>Simplicity</li>
+								<li>Vue documentation</li>
+								<li>Vue Devtools</li>
+							</ul>
+							
+							<aside class="notes">
+								<ul>
+									<li>keine dependency injection</li>
+									<li>kleine Basislibrary</li>
+									<li>simpel, aber trotzdem sehr mächtig</li>
+									<li>alle verwenden Vuepress</li>
+								</ul>
+							</aside>
+                        </div>
+					</section>
+				</section>
 
 				<section>
 					<ul>
