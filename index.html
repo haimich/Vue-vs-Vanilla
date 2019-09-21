@@ -66,9 +66,9 @@
 							</p>
 							<p>Enthusiastic about &hellip;</p>
 							<ul class="nobullets-list">
-								<li>🔗 The Open Web</li>
-								<li>🚲 Cycling</li>
-								<li>🎶 Singing</li>
+								<li><span class="emoji">🔗</span> The Open Web</li>
+								<li><span class="emoji">🚲</span> Cycling</li>
+								<li><span class="emoji">🎶</span> Singing</li>
 							</ul>
 						</div>
 					</section>
@@ -93,9 +93,9 @@
 							</p>
 							<p>Enthusiastic about &hellip;</p>
 							<ul class="nobullets-list">
-								<li>💻 Web Development</li>
-								<li>🍳 Cooking</li>
-								<li>🎶 Singing</li>
+								<li><span class="emoji">💻</span> Web Development</li>
+								<li><span class="emoji">🍳</span> Cooking</li>
+								<li><span class="emoji">🎶</span> Singing</li>
 							</ul>
 						</div>
 
@@ -515,7 +515,7 @@
 
 							customElements.define('d-my-component', MyComponent);
 						</code></pre>
-						<p class="fragment">
+						<p>
 							(<a href="https://developers.google.com/web/fundamentals/web-components/customelements">Google primer</a> on custom elements)
 						</p>
 
@@ -533,7 +533,9 @@
 					</section>
 
 					<section>
-						<h2>Extending Built-ins</h2>
+						<h2>
+							<span class="text-muted">Custom Elements:</span> Extending Built-ins
+						</h2>
 						<pre><code data-trim class="javascript">
 							class MyButton extends HTMLButtonElement {
 							  &hellip;
@@ -562,10 +564,9 @@
 
 					<section>
 						<h2>
-							Browser Support<br>
-							<small>Custom Elements</small>
+							<span class="text-muted">Custom Elements:</span> Browser Support
 						</h2>
-						<p class="ciu_embed" data-feature="custom-elementsv1" data-periods="future_1,current,past_1,past_2" data-accessible-colours="false">
+						<p class="ciu_embed" data-feature="custom-elementsv1" data-periods="future_1,current,past_1,past_2">
 							<a href="http://caniuse.com/#feat=custom-elementsv1">
 								<img src="https://res.cloudinary.com/ireaderinokun/image/upload/v1569016053/caniuse-embed/custom-elementsv1-2019-9-20.png" alt="Data on support for the custom-elementsv1 feature across the major browsers from caniuse.com">
 							</a>
@@ -573,7 +574,9 @@
 					</section>
 
 					<section>
-						<h2>Polyfilling Custom Elements</h2>
+						<h2>
+							<span class="text-muted">Custom Elements:</span> Polyfilling
+						</h2>
 						<pre><code data-trim class="javascript">
 							&lt;script>
 							  if (window.customElements) {
@@ -586,12 +589,10 @@
 							&lt;/script>
 						</code></pre>
 						<p>
-							<a href="https://github.com/webcomponents/polyfills/tree/master/packages/custom-elements">Custom Elements Polyfill</a>
+							<a href="https://github.com/webcomponents/polyfills/tree/master/packages/custom-elements">Polyfill for Custom Elements</a>
 						</p>
 
-						<p class="fragment">
-							<del>Extending Built-ins</del>
-						</p>
+						<p class="fragment">&rArr; We look forward to extend built-in elements in the future.</p>
 
 						<aside class="notes">
 							<ul>
@@ -607,7 +608,9 @@
 					</section>
 
 					<section>
-						<h2>Lifecycle Callbacks</h2>
+						<h2>
+							<span class="text-muted">Custom Elements:</span> Lifecycle Callbacks
+						</h2>
 						<pre><code data-trim class="javascript">
 							class MyComponent extends HTMLElement {
 							  constructor () {
@@ -643,7 +646,9 @@
 					</section>
 
 					<section>
-						<h2>Attributes</h2>
+						<h2>
+							<span class="text-muted">Custom Elements:</span> Attributes
+						</h2>
 						<pre><code data-trim class="javascript">
 							class MyComponent extends HTMLElement {
 							  static get observedAttributes() {
@@ -668,7 +673,9 @@
 					</section>
 
 					<section>
-						<h2>Properties</h2>
+						<h2>
+							<span class="text-muted">Custom Elements:</span> Properties
+						</h2>
 						<pre><code data-trim class="javascript">
 							class ToggleButton extends HTMLElement {
 							  connectedCallback () {
@@ -730,55 +737,116 @@
 								<li>The Shadow DOM can be used independently from Custom Elements.</li>
 								<li>The "Shadow Root" is attached to the "Host Element" and is local to that element.</li>
 								<li><code>'closed'</code> is used by built-in elements and is generally discouraged.</li>
+								<li>You cannot attach a shadow root to elements, which already have one.</li>
 							</ul>
 						</aside>
 					</section>
 
 					<section>
 						<h2>
-							Browser Support<br>
-							<small>Shadow DOM</small>
+							<span class="text-muted">Shadow DOM:</span> Browser Support
 						</h2>
-						<p class="ciu_embed" data-feature="shadowdomv1" data-periods="future_1,current,past_1,past_2" data-accessible-colours="false">
+						<p class="ciu_embed" data-feature="shadowdomv1" data-periods="future_1,current,past_1,past_2">
 							<a href="http://caniuse.com/#feat=shadowdomv1">
 								<img src="https://res.cloudinary.com/ireaderinokun/image/upload/v1569016053/caniuse-embed/shadowdomv1-2019-9-20.png" alt="Data on support for the shadowdomv1 feature across the major browsers from caniuse.com">
 							</a>
 						</p>
+						<p>
+							<a href="https://github.com/webcomponents/polyfills/tree/master/packages/shadydom">Polyfill for the Shadow DOM</a>
+						</p>
 					</section>
 
 					<section>
-						<h2>Shadow DOM "Challenges"</h2>
+						<h2>
+							<span class="text-muted">Shadow DOM:</span> "Challenges"
+						</h2>
 						<ul>
-							<li class="fragment"><a href="https://github.com/webcomponents/polyfills/tree/master/packages/shadydom">Polyfills</a> are "shady" and horribly slow.</li>
+							<li class="fragment">Polyfills are "shady" and horribly slow.</li>
 							<li class="fragment">Scoped styles require native CSS custom<br>properties to be really useful.</li>
 							<li class="fragment">No server-side rendering (although <a href="https://www.petergoes.nl/blog/my-stab-at-rendering-shadow-dom-server-side/">people try</a>)</li>
 						</ul>
-						<p class="fragment"><del>Shadow DOM</del></p>
+						<p class="fragment">
+							&rArr; We do not use the Shadow DOM and do not recommend it.
+						</p>
 
 						<aside class="notes">
-							<p>Style scoping was solved for us already by CSS conventions like BEM or - in our case - SMACSS.</p>
+							<p>Style scoping was solved for us already by CSS conventions like BEM or - in our case - <a href="http://smacss.com/book/categorizing">SMACSS</a>.</p>
 						</aside>
 					</section>
 
 					<section>
-						<h2>Templates</h2>
-						Code Example
-						Is inert, but that part cannot be polyfilled
-						Caniuse
-						Link polyfill
-						We don't use it, because we create our DOM programmatically using Hyperscript.
-						Hyperscript is used behind the scenes of JSX, but we don't use a virtual DOM.
-						That's not an obstacle for unidirectional dataflow, though.
-						Outlook: HTML imports
+						<h2>HTML Templates</h2>
+						<pre><code data-trim class="html">
+							&lt;ul id="todoList">&lt;/ul>
+							&lt;template id="todoTemplate">
+							  &lt;li>
+							    &lt;label>
+							      &lt;input type="checkbox">
+							    &lt;/label>
+							  &lt;/li>
+							&lt;/template>
+						</code></pre>
+
+						<pre><code data-trim class="javascript">
+							const todos = document.querySelector('#todoList');
+							const template = document.querySelector('#todoTemplate');
+							template.content.querySelector('label').append('Go rest');
+							template.content.querySelector('input').checked = true;
+							todos.append(document.importNode(template.content, true));
+						</code></pre>
+
+						<p>
+							<a href="https://jsfiddle.net/orw0s5vg/">jsfiddle.net/orw0s5vg/</a>
+						</p>
+
+						<aside class="notes">
+							<ul>
+								<li>
+									HTML Templates are special, because they're not text based and
+									work with the regular DOM APIs instead of custom binding syntax.
+								</li>
+								<li>Because it's not text based it's XSS safe by default.</li>
+								<li>
+									The content is inert until activated: <code>&lt;script></code>s do not run,
+									<code>&lt;img></code>s do not load, the content is effectively not part of the host document.
+								</li>
+							</ul>
+						</aside>
+					</section>
+
+					<section>
+						<h2>
+							<span class="text-muted">HTML Templates:</span> Browser Support
+						</h2>
+						<p class="ciu_embed" data-feature="template" data-periods="future_1,current,past_1,past_2">
+							<a href="http://caniuse.com/#feat=template">
+								<img src="https://res.cloudinary.com/ireaderinokun/image/upload/v1569016053/caniuse-embed/template-2019-9-20.png" alt="Data on support for the template feature across the major browsers from caniuse.com">
+							</a>
+						</p>
+						<p>
+							<a href="https://github.com/webcomponents/polyfills/tree/master/packages/template">Polyfill for HTML Templates</a>
+						</p>
+						<p class="fragment">&rArr; HTML Templates work nicely, but we don't use them, yet.</p>
+
+						<aside class="notes">
+							<ul>
+								<li>Browser support is better than for Custom Elements or Shadow DOM.</li>
+								<li>Polyfilling the inert property is impossible.</li>
+								<li>
+									We don't use it, because we create our DOM programmatically using <a href="https://github.com/hyperhype/hyperscript">Hyperscript</a>
+									(which is basically the same as <a href="https://reactjs.org/docs/react-api.html#createelement"><code>React.createElement()</code></a>).
+								</li>
+							</ul>
+						</aside>
 					</section>
 
 					<section>
 						<h2>And did I mention&hellip;</h2>
 						<ul class="nobullets-list">
-							<li class="fragment">🔋 Batteries included</li>
-							<li class="fragment">🎓 Flat learning curve</li>
-							<li class="fragment">🛠️ Great devtools</li>
-							<li class="fragment">☮️ You can use &lt;x> with Web Components</li>
+							<li class="fragment"><span class="emoji">🔋</span> Batteries included</li>
+							<li class="fragment"><span class="emoji">🎓</span> Flat learning curve</li>
+							<li class="fragment"><span class="emoji">🛠️</span> Great devtools</li>
+							<li class="fragment"><span class="emoji">☮</span>️ You can use &lt;x> with Web Components</li>
 						</ul>
 
 						<aside class="notes">
@@ -796,17 +864,17 @@
 
 					<section data-background="img/moving-train.jpg">
 						<h2 class="text-with-bg">Bottom line</h2>
-						<ul style="list-style: none">
-							<li style="margin: 0.5em 0">
+						<ul class="nobullets-list">
+							<li class="fragment">
 								<span class="text-with-bg">We have three years of experience with Custom Elements.</span>
 							</li>
-							<li class="fragment" style="margin: 0.5em 0">
+							<li class="fragment">
 								<span class="text-with-bg">Recently, we replaced our last RichFaces component.</span>
 							</li>
-							<li class="fragment" style="margin: 0.5em 0">
+							<li class="fragment">
 								<span class="text-with-bg">Pure Custom Elements are low level, but we benefit a lot.</span>
 							</li>
-							<li class="fragment" style="margin: 0.5em 0">
+							<li class="fragment">
 								<span class="text-with-bg">We'll move on into that direction.</span>
 							</li>
 						</ul>

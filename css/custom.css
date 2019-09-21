@@ -42,6 +42,10 @@
     margin-left: 0;
 }
 
+.nobullets-list li {
+    margin: 0.5em 0;
+}
+
 .section-twocolumn {
     display: flex !important;
 }
@@ -63,4 +67,13 @@
 
 .reveal small {
     vertical-align: middle;
+}
+
+.text-muted {
+    color: rgba(238, 232, 213, 0.35);
+}
+
+.emoji {
+    display: inline-block;
+    width: 1em;
 }
