@@ -890,16 +890,27 @@
 				</section>
 
 				<!-- VUE PART -->
-				<section class="section-twocolumn">
-					<img src="img/vue/vuejs-logo.png" alt="Vue.js Logo">
+				<section>
+					<section
+						data-background="img/vue/warning1.jpg"
+						data-background-size="cover"
+					>
+						<aside class="notes">
+							<ul>
+								<li>wir haben jetzt viel über Disy erfahren, und wie sie erfolgreich auf Webstandards bauen</li>
+								<li>bevor wir zum nächsten Thema kommen, muss ich leider vorab noch eine Warnung aussprechen.</li>
+								<li>Das Thema über das ich sprechen werde ist nicht ganz ungefährlich</li>
+								<li>klick</li>
+								<li>ich spreche aus Erfahrung</li>
+							</ul>
+						</aside>
+					</section>
 
-					<aside class="notes">
-						<ul>
-							<li>wir haben jetzt viel über Disy erfahren, und wie sie erfolgreich auf Webstandards bauen</li>
-							<li>gibt es irgendwelche dringenden Fragen? Sonst gibt es am Ende des Vortrags nochmal die Möglichkeit, diese zu stellen</li>
-							<li>jetzt möchte ich euch aber gerne in die Welt der Frameworks mitnehmen - wer braucht schon Webstandards :)</li>
-						</ul>
-					</aside>
+					<section
+						data-background="img/vue/warning2.jpg"
+						data-background-size="cover"
+					>
+					</section>
 				</section>
 
 				<!-- Motivation -->
@@ -909,9 +920,10 @@
 						data-background-size="cover"
 						class="section-twocolumn"
 					>
-						<div style="background-color: rgba(0, 43, 54, 0.65); padding: 20px 0">
+						<div class="fragment" style="background-color: rgba(0, 43, 54, 0.65); padding: 20px 0">
 							<ul>
-								<li>~100 Servers &lt;&gt; 4 Developers</li>
+								<li>~100 Servers</li>
+								<li>4 Developers</li>
 								<li>every project has one responsible person</li>
 								<li>goal is uniform technology landscape</li>
 							</ul>
@@ -919,6 +931,7 @@
 
 						<aside class="notes">
 							<ul>
+								<li>PHP + SPAs</li>
 								<li>das heißt nicht ein Hauptverantwortlicher sondern wirklich jemand, der sich alleinig um das Projekt kümmert</li>
 								<li>Reduziert Kommunikationsaufwand, lässt mehr Freiheiten + weniger Diskussionen auf Codeebene</li>
 								<li>deswegen ist es auch wichtig, eine möglichst homogene Technologielandschaft zu haben</li>
@@ -950,8 +963,7 @@
 							<ul>
 								<li>Name: DATACARE</li>
 								<li>Cleaning and enrichment of company data</li>
-								<li>Done till DMEXCO</li>
-								<li>use existing technologies when possible</li>
+								<li>Prototype ready for DMEXCO</li>
 							</ul>
 						</div>
 					</section>
@@ -963,61 +975,102 @@
 					</section>
 
 					<section>
-						<img src="img/vue/angularjs.png">
+						<img src="img/vue/angularjs.png" alt="AngularJS">
+
+						<aside class="notes">
+							<ul>
+								<li>kennt noch jemand das Logo?</li>
+							</ul>
+						</aside>
 					</section>
 
 					<section
 						data-background="img/vue/cat-show.jpg"
 						data-background-size="cover"
-						class="section-twocolumn"
 					>
-						<div class="fragment" style="background-color: rgba(0, 43, 54, 0.65); padding: 20px 0">
-							<h3>Analysizing JS frameworks</h3>
+						<div style="background-color: rgba(0, 43, 54, 0.65); padding: 20px 0">
+							<h3>Analyzing JS frameworks</h3>
 
 							<ul>
 								<li>Angular is too heavy weighted</li>
-								<li>I knew Vue from an internal project</li>
 								<li>WTF is a Web Component?!</li>
+								<li>I knew Vue from an internal project</li>
 							</ul>
 						</div>
 					</section>
 
-					<section data-background="img/vue/beach.jpg">
-						<img src="img/vue/vue-patreon.png" alt="Vue Logo" style="border: none; box-shadow: none; background: none;">
-					</section>
+					<section
+						data-background="img/vue/cat-show.jpg"
+						data-background-size="cover"
+					>
+						<div style="background-color: rgba(0, 43, 54, 0.65); padding: 20px 0">
+							<h3>The technologies we agreed on</h3>
 
-					<aside class="notes">
-						<ul>
-							<li>Vue.js</li>
-							<li>TypeScript</li>
-							<li>Element UI</li>
-						</ul>
-					</aside>
+							<ul style="list-style: none; display: flex; justify-content: space-around; align-items: center;">
+								<li><img src="img/vue/vue-logo.jpg" alt="Vue Logo" style="border: none; max-width: 245px;"></li>
+								<li><img src="img/vue/ts-logo.png" alt="TypeScript Logo" style="border: none; max-width: 245px;"></li>
+								<li><img src="img/vue/element-logo.png" alt="Element UI Logo" style="border: none; max-width: 245px;"></li>
+							</ul>
+						</div>
+
+						<aside class="notes">
+							<ul>
+								<li>TypeScript war der Wunsch meines Chefs</li>
+								<li>von Element UI wusste mein Chef ehrlich gesagt am Anfang nichts :)</li>
+								<li>das ist ein UI framework ähnlich wie Bootstrap mit dem Vorteil, dass es direkt für Vue geschrieben wurde</li>
+								<li>die API funktioniert aber nicht über CSS-Klassen, was of unnötig verbose ist</li>
+							</ul>
+						</aside>
+					</section>
 				</section>
 
                 <section>
                     <section
                         class="section-twocolumn"
-                    >
+					>
+						<div>
+							<img src="img/vue/evanyou.jpeg" alt="Evan You" />
+						</div>
+
                         <div style="background-color: rgba(0, 43, 54, 0.65); padding: 20px 0">
                             <h3>What is Vue.js?</h3>
 
-                            <ul class="section">
-                                <li>Evan You</li>
-                                <li>worked at Google (with AngularJS)</li>
-                                <li>started as side project</li>
-                                <li>financed via Patreon</li>
+                            <ul>
+								<li>pronounced like "view"</li>
+                                <li>created in 2014 by Evan You</li>
+                                <li>started as a side project when he worked for Google</li>
                             </ul>
-
-                            <blockquote>"I figured, what if I could just extract the part that I really liked about Angular and build something really lightweight."</blockquote>
                         </div>
 
                         <aside class="notes">
                             <ul>
-                                <li>man merkt, dass AngularJS als Vorbild gedient hat (z. B. vue-if; aber: vue-else!)</li>
+								<li>kommt aus China</li>
+                                <li>hat bei Google schon mit AngularJS gearbeitet</li>
                             </ul>
                         </aside>
-                    </section>
+					</section>
+
+					<section>
+							<blockquote>
+								<p>I figured, what if I could just extract the part that I really liked about <strong>Angular</strong> and build something really <strong>lightweight</strong>?</p>
+								<footer>
+									<small>Evan you</small>
+								</footer>
+							</blockquote>
+					</section>
+					
+					<section
+						data-background="img/vue/vue-team.png"
+						data-background-size="cover"
+					>
+						<h2>Vue Core Team</h2>
+
+						<aside class="notes">
+							<ul>
+								<li>financed via Patreon</li>
+							</ul>
+						</aside>
+					</section>
 
                     <section
                         class="section-twocolumn"
@@ -1033,7 +1086,13 @@
                                 <li>Single File Components (SFC)</li>
                                 <li>jquery.min.js: 84,8 KB | vue.min.js: 85,6 KB</li>
                             </ul>
-                        </div>
+						</div>
+						
+						<aside class="notes">
+							<ul>
+								<li>Components = reusability</li>
+							</ul>
+						</aside>
                     </section>
 
                     <!-- Vue example #1 -->
@@ -1183,24 +1242,35 @@
 						class="section-twocolumn"
 					>
 						<div style="background-color: rgba(0, 43, 54, 0.65); padding: 20px 0">
-							<h3>TypeScript</h3>
-
-							<h4>Pro</h4>
+							<h3>TypeScript: the good parts</h3>
 
 							<ul>
-								<li>love it</li>
+								<li>I love it</li>
 								<li>excellent syntax</li>
 								<li>short development cycles</li>
 								<li>easy refactorings</li>
 								<li>perfect for own code</li>
 								<li>good fit with Vue</li>
-								<li>can be added to any project (if you are willing to fix a lot of compile errors)</li>>
+								<li>can be added to any project (if you are willing to fix a lot of compile errors)</li>
 							</ul>
+						</div>
 
-							<h4>Contra</h4>
+						<aside class="notes">
+							<ul>
+								<li>ich würde gerne mehr darüber erzählen, aber da es hier um Vue geht nur die wichtigsten Erkenntnisse</li>
+								<li>Empfehlung: externe Validierung deaktivieren</li>
+							</ul>
+						</aside>
+					</section>
+
+					<section
+						class="section-twocolumn"
+					>
+						<div style="background-color: rgba(0, 43, 54, 0.65); padding: 20px 0">
+							<h3>TypeScript: the bad parts</h3>
 
 							<ul>
-								<li>hate it</li>
+								<li>I hate it</li>
 								<li>not so perfect for library code</li>
 								<li>no runtime checks</li>
 								<li>added complexity</li>
@@ -1233,6 +1303,7 @@
 							<aside class="notes">
 								<ul>
 									<li>in den Angular 1 Projekten auf der Arbeit muss ich immer suchen</li>
+									<li>das schöne ist, dass das tatsächlich valides Html ist</li>
 								</ul>
 							</aside>
                         </div>
@@ -1298,6 +1369,14 @@ new Vue({
                                 <li></li>
                             </ul>
                         </aside>
+					</section>
+
+					<!-- Smart vs. dumb components -->
+					<section
+						data-background="img/vue/architecture.jpg"
+						data-background-size="contain"
+					>
+						<h3>How to structure a Vue app?</h3>
 					</section>
 
 					<!-- Components screenshot -->
@@ -1381,7 +1460,6 @@ new Vue({
                     </section>
 				</section>
 				
-				<!-- Developer UX -->
 				<section>
 					<section
                         class="section-twocolumn"
@@ -1392,19 +1470,109 @@ new Vue({
                             <ul class="section">
 								<li>Simplicity</li>
 								<li>Vue documentation</li>
-								<li>Vue Devtools</li>
+								<li>Vue ecosystem:
+									<ul>
+										<li>vue-router</li>
+										<li>vuex</li>
+										<li>vue-i18n</li>
+									</ul>
+								</li>
 							</ul>
 							
 							<aside class="notes">
 								<ul>
+									<li>simpel, aber trotzdem sehr mächtig</li>
 									<li>keine dependency injection</li>
 									<li>kleine Basislibrary</li>
-									<li>simpel, aber trotzdem sehr mächtig</li>
+									<li>nice update policy</li>
+									<li>man kann z. B. direkt preventDefault an Html-Element schreiben</li>
 									<li>alle verwenden Vuepress</li>
+									<li>es gibt in jedem Bereich ein Standardtool</li>
+									<li>vue-i18n: hat sich bewährt, weil die Übersetzungen einfach nahe am Code sind</li>
+									<li>alles enthalten, was man braucht: Pluralization, number formatting, date formatting</li>
 								</ul>
 							</aside>
                         </div>
 					</section>
+				</section>
+
+				<section>
+					<h2 class="text-with-bg">What does the Vueture bring?</h2>
+
+					<ul>
+						<li>Vue 3 is around the corner</li>
+						<li>Nuxt.js</li>
+						<li>Vue Native</li>
+					</ul>
+
+					<aside class="notes">
+						<ul>
+							<li>Vue 3: besserer TS support (Vue selbst wird in TS umgeschrieben), kaum breaking changes</li>
+							<li>Targets evergreen browsers only</li>
+						</ul>
+					</aside>
+				</section>
+
+				<section data-background="img/vue/zebrastreifen.jpg">
+					<h2 class="text-with-bg">Bottom line</h2>
+
+					<ul style="list-style: none">
+						<li style="margin: 0.5em 0">
+							<span class="text-with-bg">The prototype got finished in time.</span>
+						</li>
+						<li class="fragment" style="margin: 0.5em 0">
+							<span class="text-with-bg">After 6 months my boss was finally convinced.</span>
+						</li>
+						<li class="fragment" style="margin: 0.5em 0">
+							<span class="text-with-bg">I can't go back to AngularJS.</span>
+						</li>
+						<li class="fragment" style="margin: 0.5em 0">
+							<span class="text-with-bg"></span>
+						</li>
+					</ul>
+					<p class="fragment">
+						<span class="text-with-bg">
+							Keep calm and <a href="https://twitter.com/hashtag/becomeaddicted">#becomeaddicted</a>
+						</span>
+					</p>
+					<p>
+						<small class="text-with-bg">
+							© Ryoji Iwata <a href="https://unsplash.com/photos/HDbavxACggA">via unsplash.com</a>
+						</small>
+					</p>
+
+					<aside class="notes">
+						<ul>
+							<li>mein Chef ist nicht jemand, der mir sofort auf die Schulter klopft und sagt: "du hattest Recht mit Vue!"</li>
+							<li>der Erfolg ist aber nicht zu leugnen: Entwickler auf meiner Seite, weiteres Projekt, Bewerbern wird gesagt dass wir Projekte nur noch mit Vue machen</li>
+							<li>44 s deploy time / very responsive ui</li>
+							<li>easy reusability</li>
+							<li>Umstellung Export Modal nach extra Seite war sehr einfach</li>
+							<li>Angular: die Tage versucht, eine Tabelle mit Sortierung und DragnDrop zu bauen</li>
+							<li>ich hoffe ich konnte heute ein wenig mit dem Vue-Virus infizieren</li>
+							<li>ein Vortrag kann ein guter Start sein, aber wirklich lernen kann man Vue nur Hands On</li>
+						</ul>
+					</aside>
+				</section>
+
+				<section data-background="img/vue/change.jpg">
+					<h2 class="text-with-bg">How to convince YOUR boss?</h2>
+
+					<aside class="notes">
+						<ul>
+							<li>Change takes time (DBeaver, Devtool)</li>
+							<li>Build something with the new technology</li>
+							<li>Erst mal sagst du, dass das vorhandene Schlecht ist</li>
+							<li>Entwickler (und Chefs), die schon länger dabei sind, sind bestehende Technologien gewöhnt und gut darin</li>
+							<li>die Ängste nehmen</li>
+							<li>Argumente sammeln (z. B. gut für Bewerber)</li>
+						</ul>
+					</aside>
+				</section>
+
+				<!-- Abschlussfolie Vue -->
+				<section data-background="img/vue/beach.jpg">
+					<img src="img/vue/vue-patreon.png" alt="Vue Logo" style="border: none; box-shadow: none; background: none;">
 				</section>
 
 				<section>
@@ -1429,8 +1597,10 @@ new Vue({
 					<section>
 						<h2>Would I use Web Components?</h2>
 						<ul>
+							<li>jetzt wo ich gehört hab wie einfach man sie einsetzt, kann ich es mir schon vorstellen ;)</li>
 							<li>Ich glaube sie haben großes Potential, zu einem standardisierten Format zu werden.</li>
 							<li>Die Frameworks arbeiten hier leider eher entgegen, da jeder sein eigenes Süppchen kocht.</li>
+							<li>tatsächlich kann man aber von Vue aus Web Components exportieren</li>
 						</ul>
 					</section>
 				</section>
@@ -1448,6 +1618,7 @@ new Vue({
 			Reveal.initialize({
 				history: true,
 				transitionSpeed: 'fast',
+				center: true,
 				dependencies: [
 					{ src: 'plugin/highlight/highlight.js', async: true },
 					{ src: 'plugin/notes/notes.js', async: true }
