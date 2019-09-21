@@ -1165,7 +1165,56 @@
                                 <li>wer schon mal TypeScript from scratch aufgesetzt hat inkl. Watches usw. weiß das zu schätzen</li>
                             </ul>
                         </aside>
-                    </section>
+					</section>
+
+					<!-- DEMO:
+						* vue cli
+					    * show project (vue.config.js is optional)
+						* vue ui
+						* vue devtools:
+						  - component tree
+						  - state inspection
+						  - fps
+						  - vuex
+						  - css component name
+					-->
+					
+					<section
+						class="section-twocolumn"
+					>
+						<div style="background-color: rgba(0, 43, 54, 0.65); padding: 20px 0">
+							<h3>TypeScript</h3>
+
+							<h4>Pro</h4>
+
+							<ul>
+								<li>love it</li>
+								<li>excellent syntax</li>
+								<li>short development cycles</li>
+								<li>easy refactorings</li>
+								<li>perfect for own code</li>
+								<li>good fit with Vue</li>
+								<li>can be added to any project (if you are willing to fix a lot of compile errors)</li>>
+							</ul>
+
+							<h4>Contra</h4>
+
+							<ul>
+								<li>hate it</li>
+								<li>not so perfect for library code</li>
+								<li>no runtime checks</li>
+								<li>added complexity</li>
+								<li>harder for beginners to see difference to JS</li>
+							</ul>
+						</div>
+
+						<aside class="notes">
+							<ul>
+								<li>ich würde gerne mehr darüber erzählen, aber da es hier um Vue geht nur die wichtigsten Erkenntnisse</li>
+								<li>Empfehlung: externe Validierung deaktivieren</li>
+							</ul>
+						</aside>
+					</section>
 
                     <section
                         class="section-twocolumn"
@@ -1179,9 +1228,15 @@
                                 <li>if your SFC gets too big: create a subcomponent!</li>
                                 <li>SFCs are opt-in</li>
                                 <li>JSX is also possible</li>
-                            </ul>
+							</ul>
+							
+							<aside class="notes">
+								<ul>
+									<li>in den Angular 1 Projekten auf der Arbeit muss ich immer suchen</li>
+								</ul>
+							</aside>
                         </div>
-                    </section>
+					</section>
 
                     <!-- SFC example #1 -->
                     <section>
@@ -1243,42 +1298,114 @@ new Vue({
                                 <li></li>
                             </ul>
                         </aside>
-                    </section>
+					</section>
 
-                    <section
+					<!-- Components screenshot -->
+					<section
+						data-background="img/vue/components/1.jpg"
+						data-background-size="contain"
+					>
+					</section>
+
+					<!-- Components screenshot -->
+					<section
+						data-background="img/vue/components/2.jpg"
+						data-background-size="contain"
+					>
+					</section>
+
+					<!-- Components screenshot -->
+					<section
+						data-background="img/vue/components/3.jpg"
+						data-background-size="contain"
+					>
+					</section>
+
+					<!-- Components screenshot -->
+					<section
+						data-background="img/vue/components/4.jpg"
+						data-background-size="contain"
+					>
+						<aside class="notes">
+							<ul>
+								<li>was würdet ihr mit der Suchbox machen?</li>
+							</ul>
+						</aside>
+					</section>
+					
+					<!-- Components #2 -->
+					<section
                         class="section-twocolumn"
                     >
                         <div style="background-color: rgba(0, 43, 54, 0.65); padding: 20px 0">
-                            <h3>TypeScript</h3>
+                            <h3>Container Components</h3>
 
-                            <h4>Pro</h4>
-
-                            <ul>
-                                <li>love it</li>
-                                <li>excellent syntax</li>
-                                <li>continuous development</li>
-                                <li>easy refactorings</li>
-                                <li>perfect for own code</li>
-                            </ul>
-
-                            <h4>Contra</h4>
-
-                            <ul>
-                                <li>hate it</li>
-                                <li>not so perfect for library code</li>
-                                <li>no runtime checks</li>
-                                <li>adds compile complexity</li>
-                                <li>harder for beginners to see difference to JS</li>
-                            </ul>
+                            <ul class="section">
+								<li>"smart"</li>
+								<li>manages state</li>
+								<li>contains layout</li>
+								<li>often synonym to a page</li>
+							</ul>
+							
+							<aside class="notes">
+								<ul>
+									<li>zentrale Stelle für Buisinesslogik</li>
+									<li>den Großteil des States (oder Redux/Vuex)</li>
+									<li>https://www.shade.codes/dumb-components-and-smart-components/</li>
+								</ul>
+							</aside>
                         </div>
+					</section>
+					
+					<!-- Components #3 -->
+					<section
+                        class="section-twocolumn"
+                    >
+                        <div style="background-color: rgba(0, 43, 54, 0.65); padding: 20px 0">
+                            <h3>Reusable Components</h3>
 
-                        <aside class="notes">
-                            <ul>
-                                <li>Empfehlung: externe Validierung deaktivieren</li>
-                            </ul>
-                        </aside>
+                            <ul class="section">
+								<li>"dumb"</li>
+								<li>specialized</li>
+								<li>few dependencies</li>
+								<li>only receive state they need (via props></li>
+								<li>good testability</li>
+							</ul>
+							
+							<aside class="notes">
+								<ul>
+									<li>gute Testbarkeit wiegt bei mir nicht so schwer, weil ich UI selten teste</li>
+								</ul>
+							</aside>
+                        </div>
                     </section>
-                </section>
+				</section>
+				
+				<!-- Developer UX -->
+				<section>
+					<section
+                        class="section-twocolumn"
+                    >
+                        <div style="background-color: rgba(0, 43, 54, 0.65); padding: 20px 0">
+                            <h3>What I ❤️ about Vue</h3>
+
+                            <ul class="section">
+								<li>Simplicity</li>
+								<li>Vue documentation</li>
+								<li>Vue Devtools</li>
+							</ul>
+							
+							<aside class="notes">
+								<ul>
+									<li>keine dependency injection</li>
+									<li>kleine Basislibrary</li>
+									<li>simpel, aber trotzdem sehr mächtig</li>
+									<li>alle verwenden Vuepress</li>
+								</ul>
+							</aside>
+                        </div>
+					</section>
+				</section>
 
 				<section>
 					<ul>
