@@ -44,6 +44,10 @@
     margin-left: 0;
 }
 
+.reveal pre code {
+    white-space: pre-wrap;
+}
+
 .nobullets-list li {
     margin: 0.5em 0;
 }

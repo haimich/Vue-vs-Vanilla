@@ -43,7 +43,7 @@
                     </p>
 
                     <a href="https://2019.accento.dev/">
-                        <img src="img/accento-logo.png" alt="Accento Logo" style="border: none; background: none; box-shadow: none; width: 21%; padding: 10px;">
+                        <img src="img/accento-logo.png" alt="Accento Logo" style="border: none; background: none; box-shadow: none; width: 23%; padding: 10px;">
                     </a>
                 </section>
 
@@ -1004,11 +1004,7 @@
                 </section>
 
                 <section>
-                    <section class="section-twocolumn">
-                        <div>
-                            <img src="img/vue/evanyou.jpeg" alt="Evan You" />
-                        </div>
-
+                    <section>
                         <div style="background-color: rgba(0, 43, 54, 0.65); padding: 20px 0">
                             <h3>What is Vue.js?</h3>
 
@@ -1027,7 +1023,11 @@
                         </aside>
                     </section>
 
-                    <section>
+                    <section class="section-twocolumn">
+                        <div>
+                            <img src="img/vue/evanyou.jpeg" alt="Evan You" />
+                        </div>
+        
                         <blockquote>
                             <p>I figured, what if I could just extract the part that I really liked about <strong>Angular</strong> and build something really <strong>lightweight</strong>?</p>
                             <footer>
@@ -1072,23 +1072,25 @@
                         <img src="img/vue/todo.jpg" alt="Todo example">
 
                         <pre class="fragment" style="margin-top: 0;"><code data-trim class="html">
-    <div id="app">
-        <ul>
-            <li v-for="todo in todos">
-                <label>
-                    <input
-                        type="checkbox" @change="todo.done = !todo.done" :checked="todo.done">
+                            <div id="app">
+                              <ul>
+                                <li v-for="todo in todos">
+                                  <label>
+                                    <input type="checkbox"
+                                      @change="todo.done = !todo.done"
+                                      :checked="todo.done">
 
-                    <del v-if="todo.done">
-                        {{ todo.text }}
-                    </del>
-                    <span v-else>
-                        {{ todo.text }}
-                    </span>
-                </label>
-            </li>
-        </ul>
-    </div></code></pre>
+                                    <del v-if="todo.done">
+                                      {{ todo.text }}
+                                    </del>
+                                    <span v-else>
+                                      {{ todo.text }}
+                                    </span>
+                                  </label>
+                                </li>
+                              </ul>
+                            </div>
+                        </code></pre>
 
                         <p style="font-size: 15px;">
                             <a href="https://jsfiddle.net/mreqpocg/">jsfiddle.net/mreqpocg</a>
@@ -1098,34 +1100,34 @@
                     <!-- Vue example #2 -->
                     <section>
                         <pre style="margin-top: 0;"><code data-trim class="javascript">
-        new Vue({
-            el: "#app",
-            data: {
-                todos: [
-                    { text: "Learn JavaScript", done: true },
-                    { text: "Learn Vue", done: false },
-                ]
-            }
-        });</code></pre>
+                            new Vue({
+                              el: "#app",
+                              data: {
+                                todos: [
+                                  { text: "Learn JavaScript", done: true },
+                                  { text: "Learn Vue", done: false },
+                                ]
+                              }
+                            });
+                        </code></pre>
 
                         <pre style="margin-top: 0;"><code data-trim class="html">
-            <div id="app">
-                <ul>
-                    <li v-for="todo in todos">
-                        <label>
-                            <input
-                                type="checkbox" @change="todo.done = !todo.done" :checked="todo.done">
+                            <div id="app">
+                              <ul>
+                                <li v-for="todo in todos">
+                                  <label>
+                                    <input type="checkbox" @change="todo.done = !todo.done" :checked="todo.done">
 
-                            <del v-if="todo.done">
-                                {{ todo.text }}
-                            </del>
-                            <span v-else>
-                                {{ todo.text }}
-                            </span>
-                        </label>
-                    </li>
-                </ul>
-            </div></code></pre>
+                                    <del v-if="todo.done">
+                                      {{ todo.text }}
+                                    </del>
+                                    <span v-else>
+                                      {{ todo.text }}
+                                    </span>
+                                  </label>
+                                </li>
+                              </ul>
+                            </div></code></pre>
                     </section>
 
                     <section class="section-twocolumn">
@@ -1174,11 +1176,9 @@
                                 <li>no config eject</li>
                             </ul>
 
-                            <pre class="fragment">
-                                    <code data-trim class="html">
-                                        npm install -g @vue/cli
-                                    </code>
-                                </pre>
+                            <pre class="fragment"><code data-trim class="html">
+                                npm install -g @vue/cli
+                            </code></pre>
                         </div>
 
                         <aside class="notes">
@@ -1206,7 +1206,7 @@
 
                     <section class="section-twocolumn">
                         <div style="background-color: rgba(0, 43, 54, 0.65); padding: 20px 0">
-                            <h3>TypeScript: the good parts</h3>
+                            <h3><span class="text-muted">TypeScript:</span> the good parts</h3>
 
                             <ul>
                                 <li>I love it</li>
@@ -1229,7 +1229,7 @@
 
                     <section class="section-twocolumn">
                         <div style="background-color: rgba(0, 43, 54, 0.65); padding: 20px 0">
-                            <h3>TypeScript: the bad parts</h3>
+                            <h3><h3><span class="text-muted">TypeScript:</span> the bad parts</h3>
 
                             <ul>
                                 <li>I hate it</li>
@@ -1273,26 +1273,27 @@
                     <section>
                         <h3>HelloWorld.vue</h3>
                         <pre style="margin-top: 0;"><code data-trim class="vue">
-    <template>
-        <p>{{ greeting }} World!</p>
-    </template>
+                            <template>
+                              <p>{{ greeting }} World!</p>
+                            </template>
 
-    <script>
-        export default {
-            data: function () {
-                return {
-                    greeting: 'Hello'
-                }
-            }
-        }
-    </script>
+                            <script>
+                              export default {
+                                data: function () {
+                                  return {
+                                    greeting: 'Hello'
+                                  }
+                                }
+                              }
+                            </script>
 
-    <style>
-        p {
-            font-size: 2em;
-            text-align: center;
-        }
-    </style></code></pre>
+                            <style>
+                              p {
+                                font-size: 2em;
+                                text-align: center;
+                              }
+                            </style>
+                        </code></pre>
 
                         <p style="font-size: 15px;">
                             <a href="https://codesandbox.io/s/vue-template-eikjx?fontsize=14">codesandbox.io/s/vue-template-eikjx</a>
@@ -1309,16 +1310,16 @@
                     <section>
                         <h3>main.js</h3>
                         <pre style="margin-top: 0;"><code data-trim class="javascript">
-    import Vue from "vue";
-    import HelloWorld from "./HelloWorld.vue";
+                            import Vue from "vue";
+                            import HelloWorld from "./HelloWorld.vue";
 
-    Vue.component("hello-world", HelloWorld);
+                            Vue.component("hello-world", HelloWorld);
 
-    new Vue({
-        el: "#app",
-        template: "<hello-world></hello-world>"
-    });
-    </code></pre>
+                            new Vue({
+                              el: "#app",
+                              template: "<hello-world></hello-world>"
+                            });
+                            </code></pre>
 
                         <p style="font-size: 15px;">
                             <a href="https://codesandbox.io/s/vue-template-eikjx?fontsize=14">codesandbox.io/s/vue-template-eikjx</a>
@@ -1332,8 +1333,8 @@
                     </section>
 
                     <!-- Smart vs. dumb components -->
-                    <section data-background="img/vue/architecture.jpg" data-background-size="contain">
-                        <h3>How to structure a Vue app?</h3>
+                    <section data-background="img/vue/architecture.jpg" data-no-center data-background-size="contain">
+                        <h2 class="text-with-bg">How to structure a Vue app?</h2>
                     </section>
 
                     <!-- Components screenshot -->
@@ -1374,6 +1375,7 @@
                                     <li>zentrale Stelle für Buisinesslogik</li>
                                     <li>den Großteil des States (oder Redux/Vuex)</li>
                                     <li>https://www.shade.codes/dumb-components-and-smart-components/</li>
+                                    <li>Konzept bei WC analog</li>
                                 </ul>
                             </aside>
                         </div>
@@ -1388,7 +1390,7 @@
                                 <li>"dumb"</li>
                                 <li>specialized</li>
                                 <li>few dependencies</li>
-                                <li>only receive state they need (via props></li>
+                                <li>only receive state they need (via props)</li>
                                 <li>good testability</li>
                             </ul>
 
@@ -1409,11 +1411,12 @@
                             <ul class="section">
                                 <li>Simplicity</li>
                                 <li>Vue documentation</li>
-                                <li>Vue ecosystem:
-                                    <ul>
+                                <li>Vue ecosystem
+                                    <ul class="fragment">
                                         <li>vue-router</li>
                                         <li>vuex</li>
                                         <li>vue-i18n</li>
+                                        <li>Nuxt.js</li>
                                     </ul>
                                 </li>
                             </ul>
@@ -1435,19 +1438,44 @@
                     </section>
                 </section>
 
-                <section>
-                    <h2 class="text-with-bg">What does the <span style="font-style: italic">Vueture</span>&nbsp;&nbsp;bring?</h2>
+                <section data-background="img/vue/zebrastreifen.jpg">
+                    <h2 class="text-with-bg">Bottom line</h2>
 
-                    <ul>
-                        <li>Vue 3 is around the corner</li>
-                        <li>Vue Native</li>
-                        <li>Nuxt.js</li>
+                    <ul style="list-style: none">
+                        <li class="fragment" style="margin: 0.5em 0">
+                            <span class="text-with-bg">The prototype got finished in time.</span>
+                        </li>
+                        <li class="fragment" style="margin: 0.5em 0">
+                            <span class="text-with-bg">After 6 months my boss was finally convinced.</span>
+                        </li>
+                        <li class="fragment" style="margin: 0.5em 0">
+                            <span class="text-with-bg">New Vue projects are spreading.</span>
+                        </li>
+                        <li class="fragment" style="margin: 0.5em 0">
+                            <span class="text-with-bg">I can't go back to AngularJS.</span>
+                        </li>
                     </ul>
+                    <p class="fragment">
+                        <span class="text-with-bg">
+                            Keep calm and <a href="https://twitter.com/hashtag/becomeaddicted">#becomeaddicted</a>
+                        </span>
+                    </p>
+                    <p>
+                        <small class="text-with-bg">
+                            © Ryoji Iwata <a href="https://unsplash.com/photos/HDbavxACggA">via unsplash.com</a>
+                        </small>
+                    </p>
 
                     <aside class="notes">
                         <ul>
-                            <li>Vue 3: besserer TS support (Vue selbst wird in TS umgeschrieben), kaum breaking changes</li>
-                            <li>Targets evergreen browsers only</li>
+                            <li>mein Chef ist nicht jemand, der mir sofort auf die Schulter klopft und sagt: "du hattest Recht mit Vue!"</li>
+                            <li>der Erfolg ist aber nicht zu leugnen: Entwickler auf meiner Seite, weiteres Projekt, Bewerbern wird gesagt dass wir Projekte nur noch mit Vue machen</li>
+                            <li>44 s deploy time / very responsive ui</li>
+                            <li>easy reusability</li>
+                            <li>Umstellung Export Modal nach extra Seite war sehr einfach</li>
+                            <li>Angular: die Tage versucht, eine Tabelle mit Sortierung und DragnDrop zu bauen</li>
+                            <li>jetzt kann ich es ja sagen, dass ich euch eigentlich mit dem Vue-Virus anstecken wollte</li>
+                            <li>ein Vortrag kann ein guter Start sein, aber wirklich lernen kann man Vue nur Hands On</li>
                         </ul>
                     </aside>
                 </section>
@@ -1488,7 +1516,7 @@
                                 <ul>
                                     <li>du musst deinem Chef ja nichts davon erzählen ;)</li>
                                     <li>Innovation Week</li>
-                                    <li>Frezeitprojekt</li>
+                                    <li>Freizeitprojekt</li>
                                 </ul>
                             </aside>
                         </div>
@@ -1544,58 +1572,19 @@
                         </div>
                     </section>
                 </section>
-
-                <section data-background="img/vue/zebrastreifen.jpg">
-                    <h2 class="text-with-bg">Bottom line</h2>
-
-                    <ul style="list-style: none">
-                        <li class="fragment" style="margin: 0.5em 0">
-                            <span class="text-with-bg">The prototype got finished in time.</span>
-                        </li>
-                        <li class="fragment" style="margin: 0.5em 0">
-                            <span class="text-with-bg">After 6 months my boss was finally convinced.</span>
-                        </li>
-                        <li class="fragment" style="margin: 0.5em 0">
-                            <span class="text-with-bg">I can't go back to AngularJS.</span>
-                        </li>
-                    </ul>
-                    <p class="fragment">
-                        <span class="text-with-bg">
-                                Keep calm and <a href="https://twitter.com/hashtag/becomeaddicted">#becomeaddicted</a>
-                            </span>
-                    </p>
-                    <p>
-                        <small class="text-with-bg">
-                                © Ryoji Iwata <a href="https://unsplash.com/photos/HDbavxACggA">via unsplash.com</a>
-                            </small>
-                    </p>
-
-                    <aside class="notes">
-                        <ul>
-                            <li>mein Chef ist nicht jemand, der mir sofort auf die Schulter klopft und sagt: "du hattest Recht mit Vue!"</li>
-                            <li>der Erfolg ist aber nicht zu leugnen: Entwickler auf meiner Seite, weiteres Projekt, Bewerbern wird gesagt dass wir Projekte nur noch mit Vue machen</li>
-                            <li>44 s deploy time / very responsive ui</li>
-                            <li>easy reusability</li>
-                            <li>Umstellung Export Modal nach extra Seite war sehr einfach</li>
-                            <li>Angular: die Tage versucht, eine Tabelle mit Sortierung und DragnDrop zu bauen</li>
-                            <li>jetzt kann ich es ja sagen, dass ich euch eigentlich mit dem Vue-Virus anstecken wollte</li>
-                            <li>ein Vortrag kann ein guter Start sein, aber wirklich lernen kann man Vue nur Hands On</li>
-                        </ul>
-                    </aside>
-                </section>
-
-                <!-- Abschlussfolie Vue -->
+    
                 <section data-background="img/vue/beach.jpg">
-                    <img src="img/vue/vue-patreon.png" alt="Vue Logo" style="border: none; box-shadow: none; background: none;">
+                    <h2 class="text-with-bg">Questions?</h2>
                 </section>
-
+                
+                <!-- Abschlussfolie
                 <section>
                     <ul>
                         <li>Fragen?</li>
                         <li>Schaut Euch die Folien auch mal im Speaker-Mode an</li>
                         <li>Go forth an componentize your apps.</li>
                     </ul>
-                </section>
+                </section>-->
 
                 <!--
                 <section>
