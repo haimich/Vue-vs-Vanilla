@@ -1,277 +1,289 @@
 <!doctype html>
 <html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<title>Vue vs Vanilla - Components for the Web</title>
 
-    <title>Vue vs Vanilla - Components for the Web</title>
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/moon.css">
+		<link rel="stylesheet" href="css/custom.css">
 
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/reveal.css">
-    <link rel="stylesheet" href="css/theme/moon.css">
-    <link rel="stylesheet" href="css/custom.css">
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
 
-    <!-- Theme used for syntax highlighting of code -->
-    <link rel="stylesheet" href="lib/css/zenburn.css">
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement('link');
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.head.append(link);
+		</script>
 
-    <!-- Printing and PDF exports -->
-    <script>
-        var link = document.createElement('link');
-        link.rel = 'stylesheet';
-        link.type = 'text/css';
-        link.href = location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
-        document.head.append(link);
-    </script>
+		<base target="_blank">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
 
-    <base target="_blank">
-</head>
-
-<body>
-    <div class="reveal">
-        <div class="slides">
-
-            <section data-background="img/title/art-materials-art-supplies-blocks-1148496.jpg">
-                <h1>
-                    Vue vs Vanilla<br>
-                    <small>Components for the Web</small>
-                </h1>
-                <p>
-                    <small>
-							Johannes Kissel & <a href="http://github.com/haimich/" target="_blank">Michael Müller</a><br>
+				<section
+					data-background="img/title/art-materials-art-supplies-blocks-1148496.jpg"
+				>
+					<h1>
+						<span class="text-with-bg">Vue vs Vanilla</span><br>
+						<small class="text-with-bg">Components for the Web</small>
+					</h1>
+					<p>
+						<small class="text-with-bg">
+							Johannes Kissel &amp; <a href="http://github.com/haimich/" target="_blank">Michael Müller</a><br>
 						</small>
-                </p>
+					</p>
 
-                <a href="https://2019.accento.dev/">
-                    <img src="img/accento-logo.png" alt="Accento Logo" style="border: none; background: none; box-shadow: none; width: 21%; padding: 10px;">
-                </a>
-            </section>
+					<a href="https://2019.accento.dev/">
+						<img src="img/accento-logo.png" alt="Accento Logo" style="border: none; background: none; box-shadow: none; width: 21%; padding: 10px;">
+					</a>
+				</section>
 
-            <!-- About us -->
+				<!-- About us -->
 
-            <section>
-                <section data-background="img/jo-bicycle.jpg" data-background-size="cover" class="section-twocolumn">
-                    <div>
-                        <img src="img/jo.jpg" alt="Johannes Kissel" />
-                    </div>
+				<section>
+					<section
+						data-background="img/jo-bicycle.jpg"
+						data-background-size="cover"
+						class="section-twocolumn"
+					>
+						<div>
+							<img src="img/jo.jpg" alt="Johannes Kissel" />
+						</div>
 
-                    <div style="background-color: rgba(0, 43, 54, 0.65); padding: 20px 0">
-                        <h2>Johannes Kissel</h2>
-                        <p>
-                            Software Developer<br>at
-                            <img src="img/disy-logo.svg" alt="Disy Logo" class="inline" style="padding: 8px;"><br> in Karlsruhe
-                        </p>
-                        <p>Enthusiastic about &hellip;</p>
-                        <ul class="nobullets-list">
-                            <li><span class="emoji">🔗</span> The Open Web</li>
-                            <li><span class="emoji">🚲</span> Cycling</li>
-                            <li><span class="emoji">🎶</span> Singing</li>
-                        </ul>
-                    </div>
-                </section>
+						<div style="background-color: rgba(0, 43, 54, 0.65); padding: 20px 0">
+							<h2>Johannes Kissel</h2>
+							<p>
+								Software Developer<br>at
+								<img src="img/disy-logo.svg" alt="Disy Logo" class="inline" style="padding: 8px;"><br>
+								in Karlsruhe
+							</p>
+							<p>Enthusiastic about &hellip;</p>
+							<ul class="nobullets-list">
+								<li><span class="emoji">🔗</span> The Open Web</li>
+								<li><span class="emoji">🚲</span> Cycling</li>
+								<li><span class="emoji">🎶</span> Singing</li>
+							</ul>
+						</div>
+					</section>
 
-                <section data-background="img/vue/varka-bar-2.jpg" data-background-size="cover" class="section-twocolumn" style="color:#c9cece;">
-                    <div>
-                        <img src="img/vue/cookbooks.jpg" alt="Michael Müller" />
-                    </div>
+					<section
+						data-background="img/vue/varka-bar-2.jpg"
+						data-background-size="cover"
+						class="section-twocolumn"
+						style="color:#c9cece;"
+					>
+						<div>
+							<img src="img/vue/cookbooks.jpg" alt="Michael Müller" />
+						</div>
 
-                    <div style="background-color: rgba(0, 43, 54, 0.65); padding: 20px 0">
-                        <h2>Michael Müller</h2>
+						<div style="background-color: rgba(0, 43, 54, 0.65); padding: 20px 0">
+							<h2>Michael Müller</h2>
 
-                        <p>
-                            Full Stack Developer<br>at
-                            <img src="img/vue/echobot-logo.png" alt="Echobot Logo" class="inline" style="padding: 11px; height: 29px;"><br> in Karlsruhe
-                        </p>
-                        <p>Enthusiastic about &hellip;</p>
-                        <ul class="nobullets-list">
-                            <li><span class="emoji">💻</span> Web Development</li>
-                            <li><span class="emoji">🍳</span> Cooking</li>
-                            <li><span class="emoji">🎶</span> Singing</li>
-                        </ul>
-                    </div>
+							<p>
+								Full Stack Developer<br>at
+								<img src="img/vue/echobot-logo.png" alt="Echobot Logo" class="inline" style="padding: 11px; height: 29px;"><br>
+								in Karlsruhe
+							</p>
+							<p>Enthusiastic about &hellip;</p>
+							<ul class="nobullets-list">
+								<li><span class="emoji">💻</span> Web Development</li>
+								<li><span class="emoji">🍳</span> Cooking</li>
+								<li><span class="emoji">🎶</span> Singing</li>
+							</ul>
+						</div>
 
-                    <aside class="notes">
-                        <ul>
-                            <li>arbeite bei der Firma Echobot - ein Startup, das eigentlich keins mehr ist</li>
-                            <li>ich war früher reiner Backendentwickler, aber durch Johannes habe ich vor 5 Jahren die Webentwicklung für mich entdeckt</li>
-                            <li>wir waren damals beide bei 1&1, Johannes im Frontend und ich im Backendteam</li>
-                            <li>ich habe dann ab und zu mal rübergeschielt, was die da so machen</li>
-                            <li>ich habe mich dann zwei Jahre jeden Tag weitergebildet (und mache kein Java mehr)</li>
-                            <li>zum Kochen: wir schaffen es auch immer mal wieder, das Kochen mit dem Coden zu verbinden</li>
-                            <li>zum Singen: auch ein gemeinsames Hobby, wir singen beide beim Karlsruhe Chor Jazzika</li>
-                            <li>zum Bild: das passiert, wenn der Vorbereitungszeitraum für die Konferenz in die Urlaubszeit fällt ;)</li>
-                        </ul>
-                    </aside>
-                </section>
-            </section>
+						<aside class="notes">
+							<ul>
+								<li>arbeite bei der Firma Echobot - ein Startup, das eigentlich keins mehr ist</li>
+								<li>ich war früher reiner Backendentwickler, aber durch Johannes habe ich vor 5 Jahren die Webentwicklung für mich entdeckt</li>
+								<li>wir waren damals beide bei 1&1, Johannes im Frontend und ich im Backendteam</li>
+								<li>ich habe dann ab und zu mal rübergeschielt, was die da so machen</li>
+								<li>ich habe mich dann zwei Jahre jeden Tag weitergebildet (und mache kein Java mehr)</li>
+								<li>zum Kochen: wir schaffen es auch immer mal wieder, das Kochen mit dem Coden zu verbinden</li>
+								<li>zum Singen: auch ein gemeinsames Hobby, wir singen beide beim Karlsruhe Chor Jazzika</li>
+								<li>zum Bild: das passiert, wenn der Vorbereitungszeitraum für die Konferenz in die Urlaubszeit fällt ;)</li>
+							</ul>
+						</aside>
+					</section>
+				</section>
 
-            <section>
-                <h2>Quick and Dirty &hellip;</h2>
-                
-                <img class="fragment" src="img/quick-and-dirty.svg" alt="Quick and Dirty - it depends" style="background-color: white;">
-                
-                <p class="fragment">&hellip; it depends.</p>
+				<section>
+					<h2>Quick and Dirty &hellip;</h2>
+					<img class="fragment" src="img/quick-and-dirty.svg" alt="Quick and Dirty - it depends" style="background-color: white;">
+					<p class="fragment">&hellip; it depends.</p>
 
-                <aside class="notes">
-                    <ul>
-                        <li>wir haben das Konferenzmotto mal in eine Koordinatensystem überführt</li>
-                        <li>wenn man so ein Projekt anfängt, stellt sich natürlich erst mal die Frage: wie geht man an das Ganze ran</li>
-                        <li>das muss jedes Team für sich selbst entscheiden, aber gehen wir es doch mal durch:</li>
-                        <li>1. You lay a foundation: Du nimmst Dir Zeit, eine gute Basis zu schaffen (für ein Produkt oder Feature).</li>
-                        <li>2. You are lucky: The optimal case, nobody will complain. Your team is really potent and can deliver top quality in zero time.</li>
-                        <li>3. You bet on the future: You trade quality for time, maybe to get some contract? You'll need to pay in the future.</li>
-                        <li>4. You are lazy: WTF, why should you do that? Because you can? Come on &hellip;</li>
-                        <li>The truth is&hellip; it depends!</li>
-                        <li>in welchem Quadranten wir uns mit unseren Projekten bewegt haben, erfahrt ihr jetzt!</li>
-                    </ul>
-                </aside>
-            </section>
+					<aside class="notes">
+						<ul>
+							<li>wir haben das Konferenzmotto mal in eine Koordinatensystem überführt</li>
+							<li>wenn man so ein Projekt anfängt, stellt sich natürlich erst mal die Frage: wie geht man an das Ganze ran</li>
+							<li>das muss jedes Team für sich selbst entscheiden, aber gehen wir es doch mal durch:</li>
+							<li>1. You lay a foundation: Du nimmst Dir Zeit, eine gute Basis zu schaffen (für ein Produkt oder Feature).</li>
+							<li>2. You are lucky: The optimal case, nobody will complain. Your team is really potent and can deliver top quality in zero time.</li>
+							<li>3. You bet on the future: You trade quality for time, maybe to get some contract? You'll need to pay in the future.</li>
+							<li>4. You are lazy: WTF, why should you do that? Because you can? Come on &hellip;</li>
+							<li>The truth is&hellip; it depends!</li>
+							<li>in welchem Quadranten wir uns mit unseren Projekten bewegt haben, erfahrt ihr jetzt!</li>
+						</ul>
+					</aside>
+				</section>
 
-            <!-- INTRO -->
-            <section data-background="img/intro/stage-7-photography-q_mKaIlcg6o-unsplash.jpg">
-                <aside class="notes">
-                    <ul>
-                        <li>jetzt wisst ihr wer wir sind, bleibt die Frage wie es eigentlich zu diesem Vortrag kam</li>
-                        <li>wir ihr vielleicht schon an unseren Hobbies gesehen habt, gibt es da einige Überschneidungen</li>
-                        <li>eine davon ist das Fahrrad fahren, bei dem man sich ziemlich gut u. a. über die Arbeit austauschen kann</li>
-                        <li>hatten beide im letzten Jahr die Herausforderung, eine Technologieentscheidung für ein großes Projekt treffen zu müssen</li>
-                        <li>wir haben dabei ziemlich unterschiedliche Wege verfolgt</li>
-                        <li>wir wollen euch heute vorstellen, was das für Projekte waren, welche Technologien wir gewählt haben und was am Ende draus geworden ist :)</li>
-                        <li>Zuhörer sollen die Konzepte hinter Vue.js und WebComponents kennenlernen</li>
-                        <li>unser Ziel ist es euch zu helfen, es einzuordnen (vor allem für Technikentscheidungen)</li>
-                        <li>Vortrag ist in zwei Teile aufgeteilt</li>
-                        <li>Vorteile/Nachteile der jeweiligen Lösung aufzeigen</li>
-                        <li>Außerdem werden Erfahrungen aus dem direkten Projekteinsatz geteilt.</li>
-                        <li>Es gibt viele Technologien im Webkosmos, aber die meisten Entwickler haben nicht die Zeit, sich mit allen eingehend zu beschäftigen.</li>
-                        <li>Trotzdem finden wir, dass es insbesondere für erfahrene Entwickler wichtig ist, die verfügbaren Technologien zu kennen und einordnen zu können. Dies erlaubt es, im beruflichen Umfeld informierte Technologie-Entscheidungen zu treffen.</li>
-                        <li>damit übergebe ich an Johannes und wünsche euch viel Spaß mit den Web Components</li>
-                    </ul>
-                </aside>
-            </section>
+				<!-- INTRO -->
+				<section
+					data-background="img/intro/stage-7-photography-q_mKaIlcg6o-unsplash.jpg"
+				>
+					<aside class="notes">
+						<ul>
+							<li>jetzt wisst ihr wer wir sind, bleibt die Frage wie es eigentlich zu diesem Vortrag kam</li>
+							<li>wir ihr vielleicht schon an unseren Hobbies gesehen habt, gibt es da einige Überschneidungen</li>
+							<li>eine davon ist das Fahrrad fahren, bei dem man sich ziemlich gut u. a. über die Arbeit austauschen kann</li>
+							<li>hatten beide im letzten Jahr die Herausforderung, eine Technologieentscheidung für ein großes Projekt treffen zu müssen</li>
+							<li>wir haben dabei ziemlich unterschiedliche Wege verfolgt</li>
+							<li>wir wollen euch heute vorstellen, was das für Projekte waren, welche Technologien wir gewählt haben und was am Ende draus geworden ist :)</li>
+							<li>Zuhörer sollen die Konzepte hinter Vue.js und WebComponents kennenlernen</li>
+							<li>unser Ziel ist es euch zu helfen, es einzuordnen (vor allem für Technikentscheidungen)</li>
+							<li>Vortrag ist in zwei Teile aufgeteilt</li>
+							<li>Vorteile/Nachteile der jeweiligen Lösung aufzeigen</li>
+							<li>Außerdem werden Erfahrungen aus dem direkten Projekteinsatz geteilt.</li>
+							<li>Es gibt viele Technologien im Webkosmos, aber die meisten Entwickler haben nicht die Zeit, sich mit allen eingehend zu beschäftigen.</li>
+							<li>Trotzdem finden wir, dass es insbesondere für erfahrene Entwickler wichtig ist, die verfügbaren Technologien zu kennen und einordnen zu können. Dies erlaubt es, im beruflichen Umfeld informierte Technologie-Entscheidungen zu treffen.</li>
+							<li>damit übergebe ich an Johannes und wünsche euch viel Spaß mit den Web Components</li>
+						</ul>
+					</aside>
+				</section>
 
-            <!-- Motivation Web Components -->
+				<!-- Motivation Web Components -->
 
-            <section>
-                <section>
-                    <h2>Cadenza is big &hellip;</h2>
-                    <img src="img/cadenza.png" alt="Cadenza sreenshot showing a map" class="noborder">
-                    <p class="fragment">&hellip; and it's legacy, but &hellip;</p>
+				<section>
+					<section>
+						<h2>Cadenza is big &hellip;</h2>
+						<img src="img/cadenza.png" alt="Cadenza sreenshot showing a map" class="noborder">
+						<p class="fragment">&hellip; and it's legacy, but &hellip;</p>
 
-                    <aside class="notes">
-                        <ul>
-                            <li>Product suite with desktop, Web, and mobile apps.</li>
-                            <li>Gather and analyze geo data, do reporting</li>
-                            <li>The Java code base alone counts 1.500.000 lines of code, plus a lot of JavaScript.</li>
-                        </ul>
-                    </aside>
-                </section>
+						<aside class="notes">
+							<ul>
+								<li>Product suite with desktop, Web, and mobile apps.</li>
+								<li>Gather and analyze geo data, do reporting</li>
+								<li>The Java code base alone counts 1.500.000 lines of code, plus a lot of JavaScript.</li>
+							</ul>
+						</aside>
+					</section>
 
-                <section>
-                    <p>&hellip; not <em>that</em> kind of legacy &hellip;</p>
-                    <figure>
-                        <img src="img/legacy-dung-heap.jpg" alt="Dung Heap">
-                        <figcaption>
-                            <small>Dung heap, © Superbass / <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA-3.0</a> (via Wikimedia Commons)</small>
-                        </figcaption>
-                    </figure>
+					<section>
+						<p>&hellip; not <em>that</em> kind of legacy &hellip;</p>
+						<figure>
+							<img src="img/legacy-dung-heap.jpg" alt="Dung Heap">
+							<figcaption>
+								<small>Dung heap, © Superbass / <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA-3.0</a> (via Wikimedia Commons)</small>
+							</figcaption>
+						</figure>
 
-                    <aside class="notes">
-                        <ul>
-                            <li>It doesn't steam up while it rots.</li>
-                        </ul>
-                    </aside>
-                </section>
+						<aside class="notes">
+							<ul>
+								<li>It doesn't steam up while it rots.</li>
+							</ul>
+						</aside>
+					</section>
 
-                <section>
-                    <p>&hellip; or that kind:</p>
-                    <figure>
-                        <img src="img/legacy-jenga.jpg" alt="Jenga Tower">
-                        <figcaption>
-                            <small>Jenga tower, © Marco Verch / <a href="https://creativecommons.org/licenses/by/2.0/">CC-BY-2.0</a> (via Flickr)</small>
-                        </figcaption>
-                    </figure>
+					<section>
+						<p>&hellip; or that kind:</p>
+						<figure>
+							<img src="img/legacy-jenga.jpg" alt="Jenga Tower">
+							<figcaption>
+								<small>Jenga tower, © Marco Verch / <a href="https://creativecommons.org/licenses/by/2.0/">CC-BY-2.0</a> (via Flickr)</small>
+							</figcaption>
+						</figure>
 
-                    <aside class="notes">
-                        <ul>
-                            <li>We're <em>not</em> afraid it will fall.</li>
-                        </ul>
-                    </aside>
-                </section>
+						<aside class="notes">
+							<ul>
+								<li>We're <em>not</em> afraid it will fall.</li>
+							</ul>
+						</aside>
+					</section>
 
-                <section data-background="img/legacy-main-station.jpg">
-                    <p class="text-with-bg" style="margin-bottom: 45vh; font-size: 1.5em">It's vivid and<br>constantly improved and extended</p>
-                    <br><br><br><br><br><br><br><br><br>
-                    <p class="text-with-bg" style="font-size: 0.6em">
-                        Frankfurt main station, © Urmelbeauftragter / <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA-3.0</a> (via Wikimedia Commons)
-                    </p>
+					<section data-background="img/legacy-main-station.jpg">
+						<p class="text-with-bg" style="margin-bottom: 45vh; font-size: 1.5em">It's vivid and<br>constantly improved and extended</p>
+						<br><br><br><br><br><br><br><br><br>
+						<p class="text-with-bg" style="font-size: 0.6em">
+							Frankfurt main station, © Urmelbeauftragter / <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA-3.0</a> (via Wikimedia Commons)
+						</p>
 
-                    <aside class="notes">
-                        <ul>
-                            <li>Web is ~10 years old and getting more important, recently.</li>
-                            <li>A lot of people use it (tens of thousands).</li>
-                            <li>We add new features all the time.</li>
-                            <li>We constantly improve the code base (e.g. always using the newest LTS Java version).</li>
-                        </ul>
-                    </aside>
-                </section>
+						<aside class="notes">
+							<ul>
+								<li>Web is ~10 years old and getting more important, recently.</li>
+								<li>A lot of people use it (tens of thousands).</li>
+								<li>We add new features all the time.</li>
+								<li>We constantly improve the code base (e.g. always using the newest LTS Java version).</li>
+							</ul>
+						</aside>
+					</section>
 
-                <section>
-                    <h2 class="fragment">How to be future proof?</h2>
-                    <ul class="nobullets-list" style="text-align: center">
-                        <li>
-                            <a href="https://richfaces.jboss.org/">
-                                <img src="img/richfaces-logo.png" alt="RichFaces Logo" class="noborder" style="height: 2em">
-                            </a>
-                        </li>
-                        <li class="fragment">
-                            <a href="https://angularjs.org/">
-                                <img src="img/angularjs-logo.png" alt="AngularJS (aka &quot;Angular 1&quot;) Logo" class="noborder" style="height: 2em">
-                            </a>
-                        </li>
-                        <li class="fragment">
-                            <a href="https://backbonejs.org/">
-                                <img src="img/backbone-logo.png" alt="Backbone Logo" class="noborder" style="height: 2em; background-color: white">
-                            </a>
-                        </li>
-                        <li class="fragment">
-                            <a href="https://openlayers.org/two/">
-                                <img src="img/openlayers2-logo.png" alt="OpenLayers 2 Logo" class="noborder" style="height: 2em">
-                            </a>
-                        </li>
-                        <li class="fragment">
-                            <a href="http://www.qooxdoo.org/">
-                                <img src="img/qooxdoo-logo.png" alt="OpenLayers 2 Logo" class="noborder" style="height: 2em">
-                            </a>
-                            <br> &hellip;
-                        </li>
+					<section>
+						<h2 class="fragment">How to be future proof?</h2>
+						<ul class="nobullets-list" style="text-align: center">
+							<li>
+								<a href="https://richfaces.jboss.org/">
+									<img src="img/richfaces-logo.png" alt="RichFaces Logo" class="noborder" style="height: 2em">
+								</a>
+							</li>
+							<li class="fragment">
+								<a href="https://angularjs.org/">
+									<img src="img/angularjs-logo.png" alt="AngularJS (aka &quot;Angular 1&quot;) Logo" class="noborder" style="height: 2em">
+								</a>
+							</li>
+							<li class="fragment">
+								<a href="https://backbonejs.org/">
+									<img src="img/backbone-logo.png" alt="Backbone Logo" class="noborder" style="height: 2em; background-color: white">
+								</a>
+							</li>
+							<li class="fragment">
+								<a href="https://openlayers.org/two/">
+									<img src="img/openlayers2-logo.png" alt="OpenLayers 2 Logo" class="noborder" style="height: 2em">
+								</a>
+							</li>
+							<li class="fragment">
+								<a href="http://www.qooxdoo.org/">
+									<img src="img/qooxdoo-logo.png" alt="OpenLayers 2 Logo" class="noborder" style="height: 2em">
+								</a><br>
+								&hellip;
+							</li>
 
-                        <img src="img/forbidden.svg" alt="" class="fragment noborder" style="height: 50vh; left: 50%; position: absolute; top: 50%; transform: translate(-50%, -50%);">
-                    </ul>
+							<img src="img/forbidden.svg" alt="" class="fragment noborder" style="height: 50vh; left: 50%; position: absolute; top: 50%; transform: translate(-50%, -50%);">
+						</ul>
 
-                    <aside class="notes">
-                        <ul>
-                            <li>
-                                The RichFaces end-of-life in 2016 together with an exploding number of feature requests made us think about Cadenza Web's technical foundation.
-                            </li>
-                            <li>The problem: Frameworks tend to die or break their APIs.</li>
-                        </ul>
-                    </aside>
-                </section>
+						<aside class="notes">
+							<ul>
+								<li>
+									The RichFaces end-of-life in 2016 together with an exploding number of feature requests
+									made us think about Cadenza Web's technical foundation.
+								</li>
+								<li>The problem: Frameworks tend to die or break their APIs.</li>
+							</ul>
+						</aside>
+					</section>
 
-                <!-- https://commons.wikimedia.org/wiki/File:RU800S_atepitovonat_1.jpg -->
-                <section data-background="img/refactor-on-the-go.jpg" data-background-size="contain" data-no-center style="text-align: left; padding-top: 15%">
-                    <p class="text-with-bg">Refactoring on the go demands<br>maximum interoperability</p>
+					<!-- https://commons.wikimedia.org/wiki/File:RU800S_atepitovonat_1.jpg -->
+					<section data-background="img/refactor-on-the-go.jpg" data-background-size="contain" data-no-center style="text-align: left; padding-top: 15%">
+						<p class="text-with-bg">Refactoring on the go demands<br>maximum interoperability</p>
 
-                    <aside class="notes">
-                        <ul>
-                            <li>Re-writing the app is not an option.</li>
-                            <li>We need maximum interoperability with existing code and future libs.</li>
-                        </ul>
-                    </aside>
-                </section>
+						<aside class="notes">
+							<ul>
+								<li>Re-writing the app is not an option.</li>
+								<li>We need maximum interoperability with existing code and know-how and also with future libs.</li>
+							</ul>
+						</aside>
+					</section>
 
-                <section>
-                    <pre><code data-trim class="javascript">
+					<section>
+						<pre><code data-trim class="javascript">
 							const ELEMENT_NAME = 'd-toggle-button';
 
 							class ToggleButton extends HTMLElement {
@@ -293,22 +305,22 @@
 
 							customElements.define(ELEMENT_NAME, ToggleButton);
 						</code></pre>
-                    <p>
-                        <a href="https://jsfiddle.net/w15c8mpx/">jsfiddle.net/w15c8mpx/</a>
-                    </p>
+						<p>
+							<a href="https://jsfiddle.net/w15c8mpx/">jsfiddle.net/w15c8mpx/</a>
+						</p>
 
-                    <aside class="notes">
-                        <ul>
-                            <li>A simple toggle button component as example: The following slides show it's usage with various technologies.</li>
-                            <li>The example already shows some of our best practices, which will be discussed later.</li>
-                            <li>Web components are low-level, so you should know the DOM.</li>
-                        </ul>
-                    </aside>
-                </section>
+						<aside class="notes">
+							<ul>
+								<li>A simple toggle button component as example: The following slides show it's usage with various technologies.</li>
+								<li>The example already shows some of our best practices, which will be discussed later.</li>
+								<li>Web components are low-level, so you should know the DOM.</li>
+							</ul>
+						</aside>
+					</section>
 
-                <section>
-                    <h2>Usage with Plain DOM</h2>
-                    <pre><code data-trim class="javascript">
+					<section>
+						<h2>Usage with Plain DOM</h2>
+						<pre><code data-trim class="javascript">
 							const button = document.createElement('d-toggle-button');
 							button.textContent = 'Button';
 							button.pressed = true;
@@ -317,11 +329,15 @@
 							});
 							document.body.append(button);
 						</code></pre>
-                </section>
 
-                <section>
-                    <h2>Usage with Constructor</h2>
-                    <pre><code data-trim class="javascript">
+						<aside class="notes">
+							<p>Custom Elements can be used like a built-in element.</p>
+						</aside>
+					</section>
+
+					<section>
+						<h2>Usage with Constructor</h2>
+						<pre><code data-trim class="javascript">
 							import ToggleButton from 'ui/toggle-button';
 							// or
 							const ToggleButton = customElements.get('d-toggle-button');
@@ -331,29 +347,29 @@
 							&hellip;
 						</code></pre>
 
-                    <aside class="notes">
-                        <ul>
-                            <li>Using the constructor in this case is equivalent to <code>document.createElement()</code>.</li>
-                            <li>But it also accepts arguments.</li>
-                            <li>Ideally, your components should work <em>with</em> and <em>without</em> constructor arguments.</li>
-                        </ul>
-                    </aside>
-                </section>
+						<aside class="notes">
+							<ul>
+								<li>Using the constructor in this case is equivalent to <code>document.createElement()</code>.</li>
+								<li>But it also accepts arguments.</li>
+								<li>Ideally, your components should work <em>with</em> and <em>without</em> constructor arguments.</li>
+							</ul>
+						</aside>
+					</section>
 
-                <section>
-                    <h2>Usage with jQuery</h2>
-                    <pre><code data-trim class="javascript">
+					<section>
+						<h2>Usage with jQuery</h2>
+						<pre><code data-trim class="javascript">
 							const $button = $('&lt;d-toggle-button>')
 							  .text('Button')
 							  .prop('pressed', true)
 							  .on('toggle', () => console.log($button.prop('pressed')))
 							  .appendTo(document.body);
 						</code></pre>
-                </section>
+					</section>
 
-                <section>
-                    <h2>Usage with Vue</h2>
-                    <pre><code data-trim class="javascript">
+					<section>
+						<h2>Usage with Vue</h2>
+						<pre><code data-trim class="javascript">
 							new Vue({
 							  el: '#app',
 							  template: `&lt;d-toggle-button
@@ -365,167 +381,171 @@
 							  }
 							});
 						</code></pre>
-                    <p class="fragment">
-                        Vue and Web Components can be BFFs 🍻:<br>
-                        <a href="https://custom-elements-everywhere.com/#vue">100% interoperability</a>
-                    </p>
-                </section>
 
-                <!-- https://commons.wikimedia.org/wiki/File:Holy-grail-round-table-bnf-ms_fr-116F-f610v-15th-detail.jpg -->
-                <section data-background="img/holy-grail.jpg" data-background-size="contain" data-no-center>
-                    <h2><span class="text-with-bg">Web Components</span></h2>
-                    <br><br><br><br><br>
-                    <h3 class="fragment">
-                        <span class="text-with-bg">The Holy Grail</span>
-                    </h3>
-                    <div class="fragment" id="solid-foundation">
-                        <h3>
-                            <span class="text-with-bg">A solid foundation<br><small>with the right level of abstraction</small></span>
-                        </h3>
-                        <p>
-                            <small class="text-with-bg">Railroad ties, © Störfix / <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA-3.0</a> (via Wikimedia Commons)</small>
-                        </p>
-                    </div>
+						<aside class="notes">
+							<p>Note: Vue binds to attributes instead of properties by default.</p>
+						</aside>
+					</section>
 
-                    <aside class="notes">
-                        <ul>
-                            <li>We bet - yes, it's a bet - that Web Components are more future proof than frameworks.</li>
-                            <li>At least they move more slowly 😉</li>
-                            <li>Because they're relatively low-level, they integrate well with other technologies.</li>
-                        </ul>
-                    </aside>
-                </section>
-            </section>
+					<!-- https://commons.wikimedia.org/wiki/File:Holy-grail-round-table-bnf-ms_fr-116F-f610v-15th-detail.jpg -->
+					<section data-background="img/holy-grail.jpg" data-background-size="contain" data-no-center>
+						<h2><span class="text-with-bg">Web Components</span></h2>
+						<br><br><br><br><br>
+						<h3 class="fragment">
+							<span class="text-with-bg">The Holy Grail</span>
+						</h3>
+						<div class="fragment" id="solid-foundation">
+							<h3>
+								<span class="text-with-bg">A solid foundation<br><small>with the right level of abstraction</small></span>
+							</h3>
+							<p>
+								<small class="text-with-bg">Railroad ties, © Störfix / <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA-3.0</a> (via Wikimedia Commons)</small>
+							</p>
+						</div>
 
-            <!-- Intro: Components in General -->
+						<aside class="notes">
+							<ul>
+								<li>We bet - yes, it's a bet - that Web Components are more future proof than frameworks.</li>
+								<li>At least they move more slowly 😉</li>
+								<li>Because they're relatively low-level, they integrate well with other technologies.</li>
+							</ul>
+						</aside>
+					</section>
+				</section>
 
-            <section>
-                <section>
-                    <blockquote>
-                        <p>A software component is a<br><strong>unit of composition</strong> with contractually specified <strong>interfaces</strong> and explicit context <strong>dependencies</strong> only.</p>
-                        <footer>
-                            <small>Szyperski, Gruntz, Murer; <cite><a href="https://books.google.de/books?id=U896iwmtiagC">Component Software</a></cite></small>
-                        </footer>
-                    </blockquote>
+				<!-- Intro: Components in General -->
 
-                    <aside class="notes">
-                        <p>Components are building blocks - for your app and for other components of your app.</p>
-                    </aside>
-                </section>
+				<section>
+					<section>
+						<blockquote>
+							<p>A software component is a<br><strong>unit of composition</strong> with contractually specified <strong>interfaces</strong> and explicit context <strong>dependencies</strong> only.</p>
+							<footer>
+								<small>Szyperski, Gruntz, Murer; <cite><a href="https://books.google.de/books?id=U896iwmtiagC">Component Software</a></cite></small>
+							</footer>
+						</blockquote>
 
-                <section>
-                    <h2>The effect is <strong style="font-size: 1.5em; font-weight: normal; vertical-align: middle">HUGE!</strong></h2>
-                    <img src="img/grunt-webpack-transition.svg" class="noborder" alt="Arrow pointing from the Grunt logo to the Webpack logo, indicating the transition from one tool to the other.">
+						<aside class="notes">
+							<p>Components are building blocks - for your app and for other components of your app.</p>
+						</aside>
+					</section>
 
-                    <aside class="notes">
-                        <ul>
-                            <li>We came from a world with strictly separated technologies: HTML, CSS, JS</li>
-                            <li>Now we think and build self-contained components and Webpack (or your preferred bundler) resolves their dependencies for you.</li>
-                            <li>This affects the structure of our code base, our tooling, and our habits and practices.</li>
-                            <li>Reusing components makes testing and documenting them more rewarding.</li>
-                            <li>Even without reuse, there's profit.</li>
-                        </ul>
-                    </aside>
-                </section>
+					<section>
+						<h2>The effect is <strong style="font-size: 1.5em; font-weight: normal; vertical-align: middle">HUGE!</strong></h2>
+						<img src="img/grunt-webpack-transition.svg" class="noborder" alt="Arrow pointing from the Grunt logo to the Webpack logo, indicating the transition from one tool to the other.">
 
-                <!-- https://www.pexels.com/photo/button-buttons-color-colour-670673/ -->
-                <section data-background="img/buttons.jpg">
-                    <h2>
-                        <span class="text-with-bg">Button</span>
-                    </h2>
-                    <p>
-                        <span class="text-with-bg">UI components have a name and can be reused.</span>
-                    </p>
+						<aside class="notes">
+							<ul>
+								<li>We came from a world with strictly separated technologies: HTML, CSS, JS</li>
+								<li>Now we think and build self-contained components and Webpack (or your preferred bundler) resolves their dependencies for you.</li>
+								<li>This affects the structure of our code base, our tooling, and our habits and practices.</li>
+								<li>Reusing components makes testing and documenting them more rewarding.</li>
+								<li>Even without reuse, you benefit from the improved code structure and tooling.</li>
+							</ul>
+						</aside>
+					</section>
 
-                    <aside class="notes">
-                        <ul>
-                            <li>In frontend development, we usually talk about UI components.</li>
-                            <li>People love them, because they make it easier to discuss certain parts of the UI.</li>
-                            <li>Component reuse supports a consistent UI, hence a better UX.</li>
-                        </ul>
-                    </aside>
-                </section>
+					<!-- https://www.pexels.com/photo/button-buttons-color-colour-670673/ -->
+					<section data-background="img/buttons.jpg">
+						<h2>
+							<span class="text-with-bg">Button</span>
+						</h2>
+						<p>
+							<span class="text-with-bg">UI components have a name and can be reused.</span>
+						</p>
 
-                <section class="section-twocolumn">
-                    <figure>
-                        <img src="img/screenshot-zeplin.png" alt="Screenshot of the Disy style guide">
-                        <figcaption>
-                            Style guide<br>
-                            <a href="https://zeplin.io/"><small>(Zeplin)</small></a>
-                        </figcaption>
-                    </figure>
-                    <figure>
-                        <img src="img/screenshot-catalog.png" alt="Screenshot of the Disy component library">
-                        <figcaption>
-                            Component library<br>
-                            <a href="https://www.catalog.style/"><small>(Catalog)</small></a>
-                        </figcaption>
-                    </figure>
+						<aside class="notes">
+							<ul>
+								<li>In frontend development, we usually talk about UI components.</li>
+								<li>People love them, because they make it easier to discuss certain parts of the UI.</li>
+								<li>Component reuse supports a consistent UI, hence a better UX.</li>
+							</ul>
+						</aside>
+					</section>
 
-                    <aside class="notes">
-                        <ul>
-                            <li>Design tools co-evolve with the component trend in frontend development.</li>
-                            <li>In recent years we talk more about style guides and component libraries.</li>
-                            <li>
-                                Designers use design tools like Adobe XD instead of "canvas editors" like Photoshop - and they work with components instead of pixels.
-                            </li>
-                        </ul>
-                    </aside>
-                </section>
-            </section>
+					<section class="section-twocolumn">
+						<figure>
+							<img src="img/screenshot-zeplin.png" alt="Screenshot of the Disy style guide">
+							<figcaption>
+								Style guide<br>
+								<a href="https://zeplin.io/"><small>(Zeplin)</small></a>
+							</figcaption>
+						</figure>
+						<figure>
+							<img src="img/screenshot-catalog.png" alt="Screenshot of the Disy component library">
+							<figcaption>
+								Component library<br>
+								<a href="https://www.catalog.style/"><small>(Catalog)</small></a>
+							</figcaption>
+						</figure>
 
-            <!-- Web Components -->
+						<aside class="notes">
+							<ul>
+								<li>Design tools co-evolve with the component trend in frontend development.</li>
+								<li>In recent years we talk more about style guides and component libraries.</li>
+								<li>
+									Designers use design tools like Adobe XD instead of "canvas editors" like Photoshop -
+									and they work with components instead of pixels.
+								</li>
+							</ul>
+						</aside>
+					</section>
+				</section>
 
-            <section>
-                <section data-background="img/web-components-logo.svg" data-background-size="contain">
-                    <h2>Web Components</h2>
-                    <ul>
-                        <li>Custom Elements</li>
-                        <li>Shadow DOM</li>
-                        <li>HTML Templates</li>
-                        <li>&hellip;</li>
-                    </ul>
+				<!-- Web Components -->
 
-                    <aside class="notes">
-                        <ul>
-                            <li>A set of complementary, but independet standards.</li>
-                            <li>There's still movement (e.g. HTML modules).
-                                <li>
-                                    Note: If you avoid frameworks because of long-term considerations, you should avoid bleeding edge Web APIs, too 😜
-                                </li>
-                        </ul>
-                    </aside>
-                </section>
+				<section>
+					<section data-background="img/web-components-logo.svg" data-background-size="contain">
+						<h2>Web Components</h2>
+						<ul>
+							<li>Custom Elements</li>
+							<li>Shadow DOM</li>
+							<li>HTML Templates</li>
+							<li>&hellip;</li>
+						</ul>
 
-                <section>
-                    <h2>Custom elements</h2>
-                    <pre><code data-trim class="javascript">
+						<aside class="notes">
+							<ul>
+								<li>A set of complementary, but independet standards.</li>
+								<li>There's still movement (e.g. HTML modules).
+								<li>
+									Note: If you avoid frameworks because of long-term considerations,
+									you should avoid bleeding edge Web APIs, too 😜
+								</li>
+							</ul>
+						</aside>
+					</section>
+
+					<section>
+						<h2>Custom elements</h2>
+						<pre><code data-trim class="javascript">
 							class MyComponent extends HTMLElement {
 							  &hellip;
 							}
 
 							customElements.define('d-my-component', MyComponent);
 						</code></pre>
-                    <p>
-                        (<a href="https://developers.google.com/web/fundamentals/web-components/customelements">Google primer</a> on custom elements)
-                    </p>
+						<p>
+							(<a href="https://developers.google.com/web/fundamentals/web-components/customelements">Google primer</a> on custom elements)
+						</p>
 
-                    <aside class="notes">
-                        <ul>
-                            <li>
-                                Custom elements are implemented as <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Classes">ES2015 classes</a>, extending one of the built-in element types, and then defined in the <a href="https://developer.mozilla.org/docs/Web/API/CustomElementRegistry"><code>CustomElementRegistry</code></a>                                with their element name.
-                            </li>
-                            <li>The dash (<code>-</code>) in the element name is mandatory and avoids collisions with (future) built-in elements.</li>
-                            <li>Additionally at Disy, we prefix our component names with <code>d-</code> to avoid collisions with third-party components.</li>
-                        </ul>
-                    </aside>
-                </section>
+						<aside class="notes">
+							<ul>
+								<li>
+									Custom elements are implemented as <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Classes">ES2015 classes</a>,
+									extending one of the built-in element types, and then defined in the <a href="https://developer.mozilla.org/docs/Web/API/CustomElementRegistry"><code>CustomElementRegistry</code></a>
+									with their element name.
+								</li>
+								<li>The dash (<code>-</code>) in the element name is mandatory and avoids collisions with (future) built-in elements.</li>
+								<li>Additionally at Disy, we prefix our component names with <code>d-</code> to avoid collisions with third-party components.</li>
+							</ul>
+						</aside>
+					</section>
 
-                <section>
-                    <h2>
-                        <span class="text-muted">Custom Elements:</span> Extending Built-ins
-                    </h2>
-                    <pre><code data-trim class="javascript">
+					<section>
+						<h2>
+							<span class="text-muted">Custom Elements:</span> Extending Built-ins
+						</h2>
+						<pre><code data-trim class="javascript">
 							class MyButton extends HTMLButtonElement {
 							  &hellip;
 							}
@@ -539,33 +559,34 @@
 							// &lt;button is="d-my-button">My Button&lt;/button>
 						</code></pre>
 
-                    <aside class="notes">
-                        <ul>
-                            <li>
-                                Benefit: Your component inherits the semantics and behavior of the built-in component, so that it's functional and accessible out-of-the-box.
-                            </li>
-                            <li>For example, you can trigger your button using the keyboard <em>without extra code</em>.</li>
-                            <li>When defining the Custom Element, the required third parameter tells the browser which tag you're extending.</li>
-                        </ul>
-                    </aside>
-                </section>
+						<aside class="notes">
+							<ul>
+								<li>
+									Benefit: Your component inherits the semantics and behavior of the built-in component,
+									so that it's functional and accessible out-of-the-box.
+								</li>
+								<li>For example, you can trigger your button using the keyboard <em>without extra code</em>.</li>
+								<li>When defining the Custom Element, the required third parameter tells the browser which tag you're extending.</li>
+							</ul>
+						</aside>
+					</section>
 
-                <section>
-                    <h2>
-                        <span class="text-muted">Custom Elements:</span> Browser Support
-                    </h2>
-                    <p class="ciu_embed" data-feature="custom-elementsv1" data-periods="future_1,current,past_1,past_2">
-                        <a href="http://caniuse.com/#feat=custom-elementsv1">
-                            <img src="https://res.cloudinary.com/ireaderinokun/image/upload/v1569016053/caniuse-embed/custom-elementsv1-2019-9-20.png" alt="Data on support for the custom-elementsv1 feature across the major browsers from caniuse.com">
-                        </a>
-                    </p>
-                </section>
+					<section>
+						<h2>
+							<span class="text-muted">Custom Elements:</span> Browser Support
+						</h2>
+						<p class="ciu_embed" data-feature="custom-elementsv1" data-periods="future_1,current,past_1,past_2">
+							<a href="http://caniuse.com/#feat=custom-elementsv1">
+								<img src="https://res.cloudinary.com/ireaderinokun/image/upload/v1569016053/caniuse-embed/custom-elementsv1-2019-9-20.png" alt="Data on support for the custom-elementsv1 feature across the major browsers from caniuse.com">
+							</a>
+						</p>
+					</section>
 
-                <section>
-                    <h2>
-                        <span class="text-muted">Custom Elements:</span> Polyfilling
-                    </h2>
-                    <pre><code data-trim class="javascript">
+					<section>
+						<h2>
+							<span class="text-muted">Custom Elements:</span> Polyfilling
+						</h2>
+						<pre><code data-trim class="javascript">
 							&lt;script>
 							  if (window.customElements) {
 							    // Make the browser work with transpiled custom elements.
@@ -576,29 +597,30 @@
 							  }
 							&lt;/script>
 						</code></pre>
-                    <p>
-                        <a href="https://github.com/webcomponents/polyfills/tree/master/packages/custom-elements">Polyfill for Custom Elements</a>
-                    </p>
+						<p>
+							<a href="https://github.com/webcomponents/polyfills/tree/master/packages/custom-elements">Polyfill for Custom Elements</a>
+						</p>
 
-                    <p class="fragment">&rArr; We look forward to extend built-in elements in the future.</p>
+						<p class="fragment">&rArr; We look forward to extend built-in elements in the future.</p>
 
-                    <aside class="notes">
-                        <ul>
-                            <li>Because we need to support IE (our customers are rather conservative in this respect), we need to polyfill custom elements.</li>
-                            <li>Using transpiled classes requires an extra shim.</li>
-                            <li>That's not a problem: Polyfilling custom elements is easy and works well.</li>
-                            <li>
-                                Because Apple opposes extending built-in elements, the implementers of the major polyfill (which we use) hesitate to implement that feature.
-                            </li>
-                        </ul>
-                    </aside>
-                </section>
+						<aside class="notes">
+							<ul>
+								<li>Because we need to support IE (our customers are rather conservative in this respect), we need to polyfill custom elements.</li>
+								<li>Using transpiled classes requires an extra shim.</li>
+								<li>That's not a problem: Polyfilling custom elements is easy and works well.</li>
+								<li>
+									Because Apple opposes extending built-in elements, the implementers of the
+									major polyfill (which we use) hesitate to implement that feature.
+								</li>
+							</ul>
+						</aside>
+					</section>
 
-                <section>
-                    <h2>
-                        <span class="text-muted">Custom Elements:</span> Lifecycle Callbacks
-                    </h2>
-                    <pre><code data-trim class="javascript">
+					<section>
+						<h2>
+							<span class="text-muted">Custom Elements:</span> Lifecycle Callbacks
+						</h2>
+						<pre><code data-trim class="javascript">
 							class MyComponent extends HTMLElement {
 							  constructor () {
 							    // Called when the element is created or upgraded.
@@ -614,26 +636,29 @@
 							}
 						</code></pre>
 
-                    <aside class="notes">
-                        <ul>
-                            <li>
-                                When <code>document.createElement()</code> is used to create the element, it is not allowed to have attributes or children after the constructor was called.
-                            </li>
-                            <li>
-                                <code>connectedCallback()</code> and <code>disconnectedCallback()</code> should be symmetric. Keep in mind that they could be called multiple times.
-                            </li>
-                            <li>
-                                For example, <code>classList.add()</code> and <code>setAttribute()</code> are idempotent, while <code>append()</code> and <code>addEventListener()</code> are not.
-                            </li>
-                        </ul>
-                    </aside>
-                </section>
+						<aside class="notes">
+							<ul>
+								<li>
+									When <code>document.createElement()</code> is used to create the element,
+									it is not allowed to have attributes or children after the constructor was called.
+								</li>
+								<li>
+									<code>connectedCallback()</code> and <code>disconnectedCallback()</code> should be symmetric.
+									Keep in mind that they could be called multiple times.
+								</li>
+								<li>
+									For example, <code>classList.add()</code> and <code>setAttribute()</code> are idempotent,
+									while <code>append()</code> and <code>addEventListener()</code> are not.
+								</li>
+							</ul>
+						</aside>
+					</section>
 
-                <section>
-                    <h2>
-                        <span class="text-muted">Custom Elements:</span> Attributes
-                    </h2>
-                    <pre><code data-trim class="javascript">
+					<section>
+						<h2>
+							<span class="text-muted">Custom Elements:</span> Attributes
+						</h2>
+						<pre><code data-trim class="javascript">
 							class MyComponent extends HTMLElement {
 							  static get observedAttributes() {
 							    return ['some-attribute']; // Return attribute names to observe.
@@ -644,22 +669,23 @@
 							}
 						</code></pre>
 
-                    <aside class="notes">
-                        <ul>
-                            <li>Attributes are there to configure an element declaratively. We use that for server-side rendering.</li>
-                            <li>
-                                At Disy, we don't use the <code>attributeChangedCallback()</code>, because a programmatic attribute change should rather call the corresponding property setter.
-                            </li>
-                            <li>It could be useful for integration with third-party libraries, though.</li>
-                        </ul>
-                    </aside>
-                </section>
+						<aside class="notes">
+							<ul>
+								<li>Attributes are there to configure an element declaratively. We use that for server-side rendering.</li>
+								<li>
+									At Disy, we don't use the <code>attributeChangedCallback()</code>, because a programmatic
+									attribute change should rather call the corresponding property setter.
+								</li>
+								<li>It could be useful for integration with third-party libraries, though.</li>
+							</ul>
+						</aside>
+					</section>
 
-                <section>
-                    <h2>
-                        <span class="text-muted">Custom Elements:</span> Properties
-                    </h2>
-                    <pre><code data-trim class="javascript">
+					<section>
+						<h2>
+							<span class="text-muted">Custom Elements:</span> Properties
+						</h2>
+						<pre><code data-trim class="javascript">
 							class ToggleButton extends HTMLElement {
 							  connectedCallback () {
 							    this.addEventListener('click', () => {
@@ -676,19 +702,19 @@
 							}
 						</code></pre>
 
-                    <aside class="notes">
-                        <ul>
-                            <li>Using the DOM to maintain the state of your component supports a coherent UI.</li>
-                            <li>If you keep that in mind when writing your CSS, e.g. by using related attribute selectors, the benefit will be even bigger.</li>
-                            <li>Triggering change events only for user actions (and not in property setters) avoids endless update loops.</li>
-                            <li>When mimicing native events, be sure to get the details right (see <a href="https://developer.mozilla.org/docs/Web/Events">MDN Event Reference</a>).</li>
-                        </ul>
-                    </aside>
-                </section>
+						<aside class="notes">
+							<ul>
+								<li>Using the DOM to maintain the state of your component supports a coherent UI.</li>
+								<li>If you keep that in mind when writing your CSS, e.g. by using related attribute selectors, the benefit will be even bigger.</li>
+								<li>Triggering change events only for user actions (and not in property setters) avoids endless update loops.</li>
+								<li>When mimicing native events, be sure to get the details right (see <a href="https://developer.mozilla.org/docs/Web/Events">MDN Event Reference</a>).</li>
+							</ul>
+						</aside>
+					</section>
 
-                <section>
-                    <h2>Shadow DOM</h2>
-                    <pre><code data-trim class="javascript">
+					<section>
+						<h2>Shadow DOM</h2>
+						<pre><code data-trim class="javascript">
 							class Tabs extends HTMLElement {
 							  constructor() {
 							    super();
@@ -706,873 +732,872 @@
 							  }
 							}
 						</code></pre>
-                    <ul>
-                        <li>Scoped Styles</li>
-                        <li>Declarative Composition</li>
-                    </ul>
-                    <p>
-                        <a href="https://jsfiddle.net/84du91e7/">jsfiddle.net/84du91e7/</a> (
-                        <a href="https://developers.google.com/web/fundamentals/web-components/shadowdom">Google primer</a>)
-                    </p>
+						<ul>
+							<li>Scoped Styles</li>
+							<li>Declarative Composition</li>
+						</ul>
+						<p>
+							<a href="https://jsfiddle.net/09dyg34p/1/">jsfiddle.net/09dyg34p/1/</a>
+							(<a href="https://developers.google.com/web/fundamentals/web-components/shadowdom">Google primer</a>)
+						</p>
 
-                    <aside class="notes">
-                        <ul>
-                            <li>The Shadow DOM can be used independently from Custom Elements.</li>
-                            <li>The "Shadow Root" is attached to the "Host Element" and is local to that element.</li>
-                            <li><code>'closed'</code> is used by built-in elements and is generally discouraged.</li>
-                            <li>You cannot attach a shadow root to elements, which already have one.</li>
-                        </ul>
-                    </aside>
-                </section>
+						<aside class="notes">
+							<ul>
+								<li>The "Shadow Root" is attached to the "Host Element" and is local to that element.</li>
+								<li><code>'closed'</code> is used by built-in elements and is generally discouraged.</li>
+								<li>You cannot attach a shadow root to elements, which already have one.</li>
+							</ul>
+						</aside>
+					</section>
 
-                <section>
-                    <h2>
-                        <span class="text-muted">Shadow DOM:</span> Browser Support
-                    </h2>
-                    <p class="ciu_embed" data-feature="shadowdomv1" data-periods="future_1,current,past_1,past_2">
-                        <a href="http://caniuse.com/#feat=shadowdomv1">
-                            <img src="https://res.cloudinary.com/ireaderinokun/image/upload/v1569016053/caniuse-embed/shadowdomv1-2019-9-20.png" alt="Data on support for the shadowdomv1 feature across the major browsers from caniuse.com">
-                        </a>
-                    </p>
-                    <p>
-                        <a href="https://github.com/webcomponents/polyfills/tree/master/packages/shadydom">Polyfill for the Shadow DOM</a>
-                    </p>
-                </section>
+					<section>
+						<h2>
+							<span class="text-muted">Shadow DOM:</span> Browser Support
+						</h2>
+						<p class="ciu_embed" data-feature="shadowdomv1" data-periods="future_1,current,past_1,past_2">
+							<a href="http://caniuse.com/#feat=shadowdomv1">
+								<img src="https://res.cloudinary.com/ireaderinokun/image/upload/v1569016053/caniuse-embed/shadowdomv1-2019-9-20.png" alt="Data on support for the shadowdomv1 feature across the major browsers from caniuse.com">
+							</a>
+						</p>
+						<p>
+							<a href="https://github.com/webcomponents/polyfills/tree/master/packages/shadydom">Polyfill for the Shadow DOM</a>
+						</p>
+					</section>
 
-                <section>
-                    <h2>
-                        <span class="text-muted">Shadow DOM:</span> "Challenges"
-                    </h2>
-                    <ul>
-                        <li class="fragment">Polyfills are "shady" and horribly slow.</li>
-                        <li class="fragment">Scoped styles require native CSS custom<br>properties to be really useful.</li>
-                        <li class="fragment">No server-side rendering (although <a href="https://www.petergoes.nl/blog/my-stab-at-rendering-shadow-dom-server-side/">people try</a>)</li>
-                    </ul>
-                    <p class="fragment">
-                        &rArr; We do not use the Shadow DOM and do not recommend it.
-                    </p>
+					<section>
+						<h2>
+							<span class="text-muted">Shadow DOM:</span> "Challenges"
+						</h2>
+						<ul>
+							<li class="fragment">Polyfills are "shady" and horribly slow.</li>
+							<li class="fragment">Scoped styles require native CSS custom<br>properties to be really useful.</li>
+							<li class="fragment">No server-side rendering (although <a href="https://www.petergoes.nl/blog/my-stab-at-rendering-shadow-dom-server-side/">people try</a>)</li>
+						</ul>
+						<p class="fragment">
+							&rArr; We do not use the Shadow DOM and do not recommend it.
+						</p>
 
-                    <aside class="notes">
-                        <p>Style scoping was solved for us already by CSS conventions like BEM or - in our case - <a href="http://smacss.com/book/categorizing">SMACSS</a>.</p>
-                    </aside>
-                </section>
+						<aside class="notes">
+							<p>Style scoping was solved for us already by CSS conventions like BEM or - in our case - <a href="http://smacss.com/book/categorizing">SMACSS</a>.</p>
+						</aside>
+					</section>
 
-                <section>
-                    <h2>HTML Templates</h2>
-                    <pre><code data-trim class="html">
+					<section>
+						<h2>HTML Templates</h2>
+						<pre><code data-trim class="html">
 							&lt;ul id="todoList">&lt;/ul>
 							&lt;template id="todoTemplate">
 							  &lt;li>
 							    &lt;label>
-							      &lt;input type="checkbox">
+							      &lt;input type="checkbox"> &lt;span class="text">&lt;/span>
 							    &lt;/label>
 							  &lt;/li>
 							&lt;/template>
 						</code></pre>
 
-                    <pre><code data-trim class="javascript">
+						<pre><code data-trim class="javascript">
 							const todos = document.querySelector('#todoList');
 							const template = document.querySelector('#todoTemplate');
-							template.content.querySelector('label').append('Go rest');
+							template.content.querySelector('.text').textContent = 'Give a talk';
 							template.content.querySelector('input').checked = true;
 							todos.append(document.importNode(template.content, true));
 						</code></pre>
 
-                    <p>
-                        <a href="https://jsfiddle.net/orw0s5vg/">jsfiddle.net/orw0s5vg/</a>
-                    </p>
+						<p>
+							<a href="https://jsfiddle.net/teg37rao/">jsfiddle.net/teg37rao/</a>
+						</p>
 
-                    <aside class="notes">
-                        <ul>
-                            <li>
-                                HTML Templates are special, because they're not text based and work with the regular DOM APIs instead of custom binding syntax.
-                            </li>
-                            <li>Because it's not text based it's XSS safe by default.</li>
-                            <li>
-                                The content is inert until activated: <code>&lt;script></code>s do not run,
-                                <code>&lt;img></code>s do not load, the content is effectively not part of the host document.
-                            </li>
-                        </ul>
-                    </aside>
+						<aside class="notes">
+							<ul>
+								<li>
+									HTML Templates are special, because they're not text based and
+									work with the regular DOM APIs instead of custom binding syntax.
+								</li>
+								<li>
+									The content is inert until activated: <code>&lt;script></code>s do not run,
+									<code>&lt;img></code>s do not load, the content is effectively not part of the host document.
+								</li>
+							</ul>
+						</aside>
+					</section>
+
+					<section>
+						<h2>
+							<span class="text-muted">HTML Templates:</span> Browser Support
+						</h2>
+						<p class="ciu_embed" data-feature="template" data-periods="future_1,current,past_1,past_2">
+							<a href="http://caniuse.com/#feat=template">
+								<img src="https://res.cloudinary.com/ireaderinokun/image/upload/v1569016053/caniuse-embed/template-2019-9-20.png" alt="Data on support for the template feature across the major browsers from caniuse.com">
+							</a>
+						</p>
+						<p>
+							<a href="https://github.com/webcomponents/polyfills/tree/master/packages/template">Polyfill for HTML Templates</a>
+						</p>
+						<p class="fragment">&rArr; HTML Templates work nicely, but we don't use them, yet.</p>
+
+						<aside class="notes">
+							<ul>
+								<li>Browser support is better than for Custom Elements or Shadow DOM.</li>
+								<li>Polyfilling the inert property is impossible.</li>
+								<li>
+									We don't use it, because we create our DOM programmatically using <a href="https://github.com/hyperhype/hyperscript">Hyperscript</a>
+									(which is basically the same as <a href="https://reactjs.org/docs/react-api.html#createelement"><code>React.createElement()</code></a>).
+								</li>
+							</ul>
+						</aside>
+					</section>
+
+					<section>
+						<h2>And did I mention&hellip;</h2>
+						<ul class="nobullets-list">
+							<li class="fragment"><span class="emoji">🔋</span> Batteries included</li>
+							<li class="fragment"><span class="emoji">🎓</span> Flat learning curve</li>
+							<li class="fragment"><span class="emoji">🛠️</span> Great devtools</li>
+							<li class="fragment"><span class="emoji">☮</span>️ You can use &lt;x> with Web Components</li>
+							<li class="fragment"><span class="emoji">📈</span> Bigger companies do commitments	</li>
+						</ul>
+
+						<aside class="notes">
+							<ul>
+								<li>In modern browsers, you can use custom elements out-of-the-box.</li>
+								<li>Custom elements are just another API, not a whole new concept like JSX or Virtual DOM.</li>
+								<li>The browsers' devtools are <em>made</em> for DOM elements.</li>
+								<li>
+									Some frameworks support Web Components as compile target.
+									And there are Web Component frameworks which use JSX and Virtual DOM and stuff.
+								</li>
+							</ul>
+						</aside>
+					</section>
+
+					<section data-background="img/moving-train.jpg">
+						<h2 class="text-with-bg">Bottom line</h2>
+						<ul class="nobullets-list">
+							<li class="fragment">
+								<span class="text-with-bg">We have three years of experience with Custom Elements.</span>
+							</li>
+							<li class="fragment">
+								<span class="text-with-bg">Recently, we replaced our last RichFaces component.</span>
+							</li>
+							<li class="fragment">
+								<span class="text-with-bg">We benefit a lot and we'll move on into that direction.</span>
+							</li>
+						</ul>
+						<p class="fragment">
+							<span class="text-with-bg">
+								Keep calm and <a href="https://twitter.com/hashtag/usetheplatform">#UseThePlatform</a>
+							</span>
+						</p>
+						<p>
+							<small class="text-with-bg">Departing train, © Xenotron / <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> (via Wikimedia Commons)</small>
+						</p>
+					</section>
+				</section>
+
+            <!-- VUE PART -->
+            <section>
+                    <section data-background="img/vue/warning1.jpg" data-background-size="cover">
+                        <aside class="notes">
+                            <ul>
+                                <li>wir haben jetzt viel über Disy erfahren, und wie sie erfolgreich auf Webstandards bauen</li>
+                                <li>bevor wir zum nächsten Thema kommen, muss ich leider vorab noch eine Warnung aussprechen.</li>
+                                <li>ich kann verstehen, wenn jemand jetzt den Raum verlassen möchte, denn das Thema über das ich sprechen werde ist nicht ganz ungefährlich.</li>
+                                <li>Ja es stimmt: klick</li>
+                                <li>ich spreche aus Erfahrung</li>
+                            </ul>
+                        </aside>
+                    </section>
+
+                    <section data-background="img/vue/warning2.jpg" data-background-size="cover">
+                    </section>
+                </section>
+
+                <!-- Motivation -->
+                <section>
+                    <section data-background="img/vue/eb-bg.png" data-background-size="cover" class="section-twocolumn">
+                        <div class="fragment" style="background-color: rgba(0, 43, 54, 0.65); padding: 20px 0">
+                            <ul>
+                                <li>~100 Servers</li>
+                                <li>4 Developers</li>
+                                <li>every project has one responsible person</li>
+                                <li>goal is uniform technology landscape</li>
+                            </ul>
+                        </div>
+
+                        <aside class="notes">
+                            <ul>
+                                <li>PHP + SPAs</li>
+                                <li>das heißt nicht ein Hauptverantwortlicher sondern wirklich jemand, der sich alleinig um das Projekt kümmert</li>
+                                <li>Reduziert Kommunikationsaufwand, lässt mehr Freiheiten + weniger Diskussionen auf Codeebene</li>
+                                <li>deswegen ist es auch wichtig, eine möglichst homogene Technologielandschaft zu haben</li>
+                            </ul>
+                        </aside>
+                    </section>
+
+                    <section data-background="img/vue/dc-motivation.jpg" data-background-size="cover" class="section-twocolumn">
+                        <aside class="notes">
+                            <ul>
+                                <li>ich wurde letztes Jahr mit der Aufgabe betreut, das neueste Produkt der Echobot-Familie from scratch zu entwickeln</li>
+                                <li>das Problem was wir damit lösen wollten war, dass viele Kunden z. B. in Ihren CRM-Systemen veraltete Firmendaten haben, da Firmen umziehen/sich auflösen etc.</li>
+                                <li>das Produkt sollte den Kunden ermöglichen, Firmendaten zu importieren, diese zu bereinigen und gegebenenfalls noch um weitere Merkmale wie z. B. Firmengröße oder Ansprechpartner anzureichern</li>
+                                <li>jetzt war es an mir, ein technisches Konzept zu erstellen</li>
+                            </ul>
+                        </aside>
+                    </section>
+
+                    <section data-background="img/vue/dc-motivation.jpg" data-background-size="cover" class="section-twocolumn">
+                        <div style="background-color: rgba(0, 43, 54, 0.65); padding: 20px 0">
+                            <ul>
+                                <li>Name: DATACARE</li>
+                                <li>Cleaning and enrichment of company data</li>
+                                <li>Prototype ready for DMEXCO</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section data-background="img/vue/cat-unsplash.jpg">
+                        <h2>
+                            <span class="text-with-bg">There was only one problem&hellip;</span>
+                        </h2>
+
+                        <img class="fragment" src="img/vue/angularjs.png" alt="AngularJS" style="background-color: white;">
+
+                        <aside class="notes">
+                            <ul>
+                                <li>kennt noch jemand das Logo?</li>
+                            </ul>
+                        </aside>
+                    </section>
+
+                    <section data-background="img/vue/cat-show.jpg" data-background-size="cover">
+                        <div class="fragment" style="background-color: rgba(0, 43, 54, 0.65); padding: 20px 0">
+                            <h3>Analyzing JS frameworks</h3>
+
+                            <ul>
+                                <li>Angular is too heavy weighted</li>
+                                <li>WTF is a Web Component?!</li>
+                                <li>I knew Vue from an internal project</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section data-background="img/vue/cat-show.jpg" data-background-size="cover">
+                        <div style="background-color: rgba(0, 43, 54, 0.65); padding: 20px 0">
+                            <h3>The technologies we agreed on</h3>
+
+                            <ul style="list-style: none; display: flex; justify-content: space-around; align-items: center;">
+                                <li><img src="img/vue/vue-logo.jpg" alt="Vue Logo" style="border: none; max-width: 245px;"></li>
+                                <li><img src="img/vue/ts-logo.png" alt="TypeScript Logo" style="border: none; max-width: 245px;"></li>
+                                <li><img src="img/vue/element-logo.png" alt="Element UI Logo" style="border: none; max-width: 245px;"></li>
+                            </ul>
+                        </div>
+
+                        <aside class="notes">
+                            <ul>
+                                <li>TypeScript war der Wunsch meines Chefs</li>
+                                <li>von Element UI wusste mein Chef ehrlich gesagt am Anfang nichts :)</li>
+                                <li>das ist ein UI framework ähnlich wie Bootstrap mit dem Vorteil, dass es direkt für Vue geschrieben wurde</li>
+                                <li>die API funktioniert aber nicht über CSS-Klassen, was of unnötig verbose ist</li>
+                            </ul>
+                        </aside>
+                    </section>
                 </section>
 
                 <section>
-                    <h2>
-                        <span class="text-muted">HTML Templates:</span> Browser Support
-                    </h2>
-                    <p class="ciu_embed" data-feature="template" data-periods="future_1,current,past_1,past_2">
-                        <a href="http://caniuse.com/#feat=template">
-                            <img src="https://res.cloudinary.com/ireaderinokun/image/upload/v1569016053/caniuse-embed/template-2019-9-20.png" alt="Data on support for the template feature across the major browsers from caniuse.com">
-                        </a>
-                    </p>
-                    <p>
-                        <a href="https://github.com/webcomponents/polyfills/tree/master/packages/template">Polyfill for HTML Templates</a>
-                    </p>
-                    <p class="fragment">&rArr; HTML Templates work nicely, but we don't use them, yet.</p>
+                    <section class="section-twocolumn">
+                        <div>
+                            <img src="img/vue/evanyou.jpeg" alt="Evan You" />
+                        </div>
 
-                    <aside class="notes">
-                        <ul>
-                            <li>Browser support is better than for Custom Elements or Shadow DOM.</li>
-                            <li>Polyfilling the inert property is impossible.</li>
-                            <li>
-                                We don't use it, because we create our DOM programmatically using <a href="https://github.com/hyperhype/hyperscript">Hyperscript</a> (which is basically the same as <a href="https://reactjs.org/docs/react-api.html#createelement"><code>React.createElement()</code></a>).
-                            </li>
-                        </ul>
-                    </aside>
+                        <div style="background-color: rgba(0, 43, 54, 0.65); padding: 20px 0">
+                            <h3>What is Vue.js?</h3>
+
+                            <ul>
+                                <li>pronounced like "view"</li>
+                                <li>created in 2014 by Evan You</li>
+                                <li>started as a side project when he worked for Google</li>
+                            </ul>
+                        </div>
+
+                        <aside class="notes">
+                            <ul>
+                                <li>kommt aus China</li>
+                                <li>hat bei Google schon mit AngularJS gearbeitet</li>
+                            </ul>
+                        </aside>
+                    </section>
+
+                    <section>
+                        <blockquote>
+                            <p>I figured, what if I could just extract the part that I really liked about <strong>Angular</strong> and build something really <strong>lightweight</strong>?</p>
+                            <footer>
+                                <small>Evan you</small>
+                            </footer>
+                        </blockquote>
+                    </section>
+
+                    <section data-background="img/vue/vue-team.png" data-background-size="cover">
+                        <h2>Vue Core Team</h2>
+
+                        <aside class="notes">
+                            <ul>
+                                <li>financed via Patreon</li>
+                            </ul>
+                        </aside>
+                    </section>
+
+                    <section class="section-twocolumn">
+                        <div style="background-color: rgba(0, 43, 54, 0.65); padding: 20px 0">
+                            <h3>Main Vue.js concepts</h3>
+
+                            <ul class="section">
+                                <li>Components</li>
+                                <li>Reactiveness</li>
+                                <li>One way data flow</li>
+                                <li>Template syntax</li>
+                                <li>Single File Components (SFC)</li>
+                                <li>jquery.min.js: 84,8 KB | vue.min.js: 85,6 KB</li>
+                            </ul>
+                        </div>
+
+                        <aside class="notes">
+                            <ul>
+                                <li>Components = reusability</li>
+                            </ul>
+                        </aside>
+                    </section>
+
+                    <!-- Vue example #1 -->
+                    <section>
+                        <img src="img/vue/todo.jpg" alt="Todo example">
+
+                        <pre class="fragment" style="margin-top: 0;"><code data-trim class="html">
+    <div id="app">
+        <ul>
+            <li v-for="todo in todos">
+                <label>
+                    <input
+                        type="checkbox" @change="todo.done = !todo.done" :checked="todo.done">
+
+                    <del v-if="todo.done">
+                        {{ todo.text }}
+                    </del>
+                    <span v-else>
+                        {{ todo.text }}
+                    </span>
+                </label>
+            </li>
+        </ul>
+    </div></code></pre>
+
+                        <p style="font-size: 15px;">
+                            <a href="https://jsfiddle.net/mreqpocg/">jsfiddle.net/mreqpocg</a>
+                        </p>
+                    </section>
+
+                    <!-- Vue example #2 -->
+                    <section>
+                        <pre style="margin-top: 0;"><code data-trim class="javascript">
+        new Vue({
+            el: "#app",
+            data: {
+                todos: [
+                    { text: "Learn JavaScript", done: true },
+                    { text: "Learn Vue", done: false },
+                ]
+            }
+        });</code></pre>
+
+                        <pre style="margin-top: 0;"><code data-trim class="html">
+            <div id="app">
+                <ul>
+                    <li v-for="todo in todos">
+                        <label>
+                            <input
+                                type="checkbox" @change="todo.done = !todo.done" :checked="todo.done">
+
+                            <del v-if="todo.done">
+                                {{ todo.text }}
+                            </del>
+                            <span v-else>
+                                {{ todo.text }}
+                            </span>
+                        </label>
+                    </li>
+                </ul>
+            </div></code></pre>
+                    </section>
+
+                    <section class="section-twocolumn">
+                        <div style="background-color: rgba(0, 43, 54, 0.65); padding: 20px 0">
+                            <h3>Template syntax</h3>
+
+                            <ul class="section">
+                                <li>{{ variable }}</li>
+                                <li>v-if, v-else-if, v-else</li>
+                                <li>:href="value"</li>
+                                <li>@click="doSomething()"</li>
+                                <li>{{ variable | filter }}</li>
+                            </ul>
+                        </div>
+
+                        <aside class="notes">
+                            <ul>
+                                <li>similar to AngularJS</li>
+                            </ul>
+                        </aside>
+                    </section>
+
+                    <section class="section-twocolumn">
+                        <div style="background-color: rgba(0, 43, 54, 0.65); padding: 20px 0">
+                            <h3>Project setup</h3>
+
+                            <ul class="section">
+                                <li>Option #1: include JavaScript dependency</li>
+                                <li>Option #2: Vue CLI</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section class="section-twocolumn">
+                        <div style="background-color: rgba(0, 43, 54, 0.65); padding: 20px 0">
+                            <h3>Vue CLI</h3>
+
+                            <ul>
+                                <li>based on Webpack</li>
+                                <li>Babel compilation</li>
+                                <li>scss compilation</li>
+                                <li>enables Vue Single File Components</li>
+                                <li>hot reloading</li>
+                                <li>source maps</li>
+                                <li>deployment (minification, code splitting,...)</li>
+                                <li>no config eject</li>
+                            </ul>
+
+                            <pre class="fragment">
+                                    <code data-trim class="html">
+                                        npm install -g @vue/cli
+                                    </code>
+                                </pre>
+                        </div>
+
+                        <aside class="notes">
+                            <ul>
+                                <li>als ich einem ehemaligen Kollegen von 1&1 Vue erklärt habe, konnte er nicht glauben dass ich das Projekt mit einem CLI generiere</li>
+                                <li>ich wollte ungerne die Kontrolle abgeben</li>
+                                <li>es hat sich aber einiges geändert (z. B. no config eject)</li>
+                                <li>es ist nicht zu leugnen, dass sie einen schneller machen</li>
+                                <li>wer schon mal TypeScript from scratch aufgesetzt hat inkl. Watches usw. weiß das zu schätzen</li>
+                            </ul>
+                        </aside>
+                    </section>
+
+                    <!-- DEMO:
+                            * vue cli
+                            * show project (vue.config.js is optional)
+                            * vue ui
+                            * vue devtools:
+                              - component tree
+                              - state inspection
+                              - fps
+                              - vuex
+                              - css component name
+                        -->
+
+                    <section class="section-twocolumn">
+                        <div style="background-color: rgba(0, 43, 54, 0.65); padding: 20px 0">
+                            <h3>TypeScript: the good parts</h3>
+
+                            <ul>
+                                <li>I love it</li>
+                                <li>excellent syntax</li>
+                                <li>short development cycles</li>
+                                <li>easy refactorings</li>
+                                <li>perfect for own code</li>
+                                <li>good fit with Vue</li>
+                                <li>can be added to any project (if you are willing to fix a lot of compile errors)</li>
+                            </ul>
+                        </div>
+
+                        <aside class="notes">
+                            <ul>
+                                <li>ich würde gerne mehr darüber erzählen, aber da es hier um Vue geht nur die wichtigsten Erkenntnisse</li>
+                                <li>Empfehlung: externe Validierung deaktivieren</li>
+                            </ul>
+                        </aside>
+                    </section>
+
+                    <section class="section-twocolumn">
+                        <div style="background-color: rgba(0, 43, 54, 0.65); padding: 20px 0">
+                            <h3>TypeScript: the bad parts</h3>
+
+                            <ul>
+                                <li>I hate it</li>
+                                <li>not so perfect for library code</li>
+                                <li>no runtime checks</li>
+                                <li>added complexity</li>
+                                <li>harder for beginners to see difference to JS</li>
+                            </ul>
+                        </div>
+
+                        <aside class="notes">
+                            <ul>
+                                <li>ich würde gerne mehr darüber erzählen, aber da es hier um Vue geht nur die wichtigsten Erkenntnisse</li>
+                                <li>Empfehlung: externe Validierung deaktivieren</li>
+                            </ul>
+                        </aside>
+                    </section>
+
+                    <section class="section-twocolumn">
+                        <div style="background-color: rgba(0, 43, 54, 0.65); padding: 20px 0">
+                            <h3>Single File Components</h3>
+
+                            <ul class="section">
+                                <li>need some time getting used to but make total sense</li>
+                                <li>all the parts that belong together in one file!</li>
+                                <li>if your SFC gets too big: create a subcomponent!</li>
+                                <li>SFCs are opt-in</li>
+                                <li>JSX is also possible</li>
+                            </ul>
+
+                            <aside class="notes">
+                                <ul>
+                                    <li>in den Angular 1 Projekten auf der Arbeit muss ich immer suchen</li>
+                                    <li>das schöne ist, dass das tatsächlich valides Html ist</li>
+                                </ul>
+                            </aside>
+                        </div>
+                    </section>
+
+                    <!-- SFC example #1 -->
+                    <section>
+                        <h3>HelloWorld.vue</h3>
+                        <pre style="margin-top: 0;"><code data-trim class="vue">
+    <template>
+        <p>{{ greeting }} World!</p>
+    </template>
+
+    <script>
+        export default {
+            data: function () {
+                return {
+                    greeting: 'Hello'
+                }
+            }
+        }
+    </script>
+
+    <style>
+        p {
+            font-size: 2em;
+            text-align: center;
+        }
+    </style></code></pre>
+
+                        <p style="font-size: 15px;">
+                            <a href="https://codesandbox.io/s/vue-template-eikjx?fontsize=14">codesandbox.io/s/vue-template-eikjx</a>
+                        </p>
+                        <aside class="notes">
+                            <ul>
+                                <li>so sieht eine Vue-Komponente aus</li>
+                                <li>zu beachten: data ist jetzt eine function</li>
+                            </ul>
+                        </aside>
+                    </section>
+
+                    <!-- SFC example #2 -->
+                    <section>
+                        <h3>main.js</h3>
+                        <pre style="margin-top: 0;"><code data-trim class="javascript">
+    import Vue from "vue";
+    import HelloWorld from "./HelloWorld.vue";
+
+    Vue.component("hello-world", HelloWorld);
+
+    new Vue({
+        el: "#app",
+        template: "<hello-world></hello-world>"
+    });
+    </code></pre>
+
+                        <p style="font-size: 15px;">
+                            <a href="https://codesandbox.io/s/vue-template-eikjx?fontsize=14">codesandbox.io/s/vue-template-eikjx</a>
+                        </p>
+
+                        <aside class="notes">
+                            <ul>
+                                <li></li>
+                            </ul>
+                        </aside>
+                    </section>
+
+                    <!-- Smart vs. dumb components -->
+                    <section data-background="img/vue/architecture.jpg" data-background-size="contain">
+                        <h3>How to structure a Vue app?</h3>
+                    </section>
+
+                    <!-- Components screenshot -->
+                    <section data-background="img/vue/components/1.jpg" data-background-size="contain">
+                    </section>
+
+                    <!-- Components screenshot -->
+                    <section data-background="img/vue/components/2.jpg" data-background-size="contain">
+                    </section>
+
+                    <!-- Components screenshot -->
+                    <section data-background="img/vue/components/3.jpg" data-background-size="contain">
+                    </section>
+
+                    <!-- Components screenshot -->
+                    <section data-background="img/vue/components/4.jpg" data-background-size="contain">
+                        <aside class="notes">
+                            <ul>
+                                <li>was würdet ihr mit der Suchbox machen?</li>
+                            </ul>
+                        </aside>
+                    </section>
+
+                    <!-- Components #2 -->
+                    <section class="section-twocolumn">
+                        <div style="background-color: rgba(0, 43, 54, 0.65); padding: 20px 0">
+                            <h3>Container Components</h3>
+
+                            <ul class="section">
+                                <li>"smart"</li>
+                                <li>manages state</li>
+                                <li>contains layout</li>
+                                <li>often synonym to a page</li>
+                            </ul>
+
+                            <aside class="notes">
+                                <ul>
+                                    <li>zentrale Stelle für Buisinesslogik</li>
+                                    <li>den Großteil des States (oder Redux/Vuex)</li>
+                                    <li>https://www.shade.codes/dumb-components-and-smart-components/</li>
+                                </ul>
+                            </aside>
+                        </div>
+                    </section>
+
+                    <!-- Components #3 -->
+                    <section class="section-twocolumn">
+                        <div style="background-color: rgba(0, 43, 54, 0.65); padding: 20px 0">
+                            <h3>Reusable Components</h3>
+
+                            <ul class="section">
+                                <li>"dumb"</li>
+                                <li>specialized</li>
+                                <li>few dependencies</li>
+                                <li>only receive state they need (via props></li>
+                                <li>good testability</li>
+                            </ul>
+
+                            <aside class="notes">
+                                <ul>
+                                    <li>gute Testbarkeit wiegt bei mir nicht so schwer, weil ich UI selten teste</li>
+                                </ul>
+                            </aside>
+                        </div>
+                    </section>
                 </section>
 
                 <section>
-                    <h2>And did I mention&hellip;</h2>
-                    <ul class="nobullets-list">
-                        <li class="fragment"><span class="emoji">🔋</span> Batteries included</li>
-                        <li class="fragment"><span class="emoji">🎓</span> Flat learning curve</li>
-                        <li class="fragment"><span class="emoji">🛠️</span> Great devtools</li>
-                        <li class="fragment"><span class="emoji">☮</span>️ You can use &lt;x> with Web Components</li>
+                    <section class="section-twocolumn">
+                        <div style="background-color: rgba(0, 43, 54, 0.65); padding: 20px 0">
+                            <h3>What I ❤️ about Vue</h3>
+
+                            <ul class="section">
+                                <li>Simplicity</li>
+                                <li>Vue documentation</li>
+                                <li>Vue ecosystem:
+                                    <ul>
+                                        <li>vue-router</li>
+                                        <li>vuex</li>
+                                        <li>vue-i18n</li>
+                                    </ul>
+                                </li>
+                            </ul>
+
+                            <aside class="notes">
+                                <ul>
+                                    <li>simpel, aber trotzdem sehr mächtig</li>
+                                    <li>keine dependency injection</li>
+                                    <li>kleine Basislibrary</li>
+                                    <li>nice update policy</li>
+                                    <li>man kann z. B. direkt preventDefault an Html-Element schreiben</li>
+                                    <li>alle verwenden Vuepress</li>
+                                    <li>es gibt in jedem Bereich ein Standardtool</li>
+                                    <li>vue-i18n: hat sich bewährt, weil die Übersetzungen einfach nahe am Code sind</li>
+                                    <li>alles enthalten, was man braucht: Pluralization, number formatting, date formatting</li>
+                                </ul>
+                            </aside>
+                        </div>
+                    </section>
+                </section>
+
+                <section>
+                    <h2 class="text-with-bg">What does the <span style="font-style: italic">Vueture</span>&nbsp;&nbsp;bring?</h2>
+
+                    <ul>
+                        <li>Vue 3 is around the corner</li>
+                        <li>Vue Native</li>
+                        <li>Nuxt.js</li>
                     </ul>
 
                     <aside class="notes">
                         <ul>
-                            <li>In modern browsers, you can use custom elements out-of-the-box.</li>
-                            <li>Custom elements are just another API, not a whole new concept like JSX or Virtual DOM.</li>
-                            <li>The browsers' devtools are <em>made</em> for DOM elements.</li>
-                            <li>
-                                Some frameworks support Web Components as compile target. And there are Web Component frameworks which use JSX and Virtual DOM and stuff.
-                            </li>
+                            <li>Vue 3: besserer TS support (Vue selbst wird in TS umgeschrieben), kaum breaking changes</li>
+                            <li>Targets evergreen browsers only</li>
                         </ul>
                     </aside>
                 </section>
 
-                <section data-background="img/moving-train.jpg">
+                <!-- Tipps für Technologieentscheidungen -->
+                <section>
+                    <section data-background="img/vue/change.jpg">
+                        <h2 class="text-with-bg">How to convince YOUR boss?</h2>
+
+                        <aside class="notes">
+                            <ul>
+                                <li>Change takes time (DBeaver, Devtool)</li>
+                                <li>Build something with the new technology</li>
+                                <li>Erst mal sagst du, dass das vorhandene Schlecht ist</li>
+                                <li>Entwickler (und Chefs), die schon länger dabei sind, sind bestehende Technologien gewöhnt und gut darin</li>
+                                <li>die Ängste nehmen</li>
+                                <li>Argumente sammeln (z. B. gut für Bewerber)</li>
+                            </ul>
+                        </aside>
+                    </section>
+
+                    <section data-background="img/vue/bg_chalkboard_orange.jpg">
+                        <div class="tip">
+                            <div class="tip-number">
+                                <div class="tip-number-circle">
+                                    <span>#1</span>
+                                </div>
+                            </div>
+                            <div class="tip-content">
+                                <img data-src="img/vue/build.gif" style="border-color: #fff;" />
+
+                                <div>
+                                    <h2>Build something with it</h2>
+                                </div>
+                            </div>
+
+                            <aside class="notes">
+                                <ul>
+                                    <li>du musst deinem Chef ja nichts davon erzählen ;)</li>
+                                    <li>Innovation Week</li>
+                                    <li>Frezeitprojekt</li>
+                                </ul>
+                            </aside>
+                        </div>
+                    </section>
+
+                    <section data-background="img/vue/bg_chalkboard_orange.jpg">
+                        <div class="tip">
+                            <div class="tip-number">
+                                <div class="tip-number-circle">
+                                    <span>#2</span>
+                                </div>
+                            </div>
+                            <div class="tip-content">
+                                <img data-src="img/vue/punch.gif" style="border-color: #fff;" />
+
+                                <div>
+                                    <h2>Collect arguments</h2>
+                                </div>
+                            </div>
+
+                            <aside class="notes">
+                                <ul>
+                                    <li>gut für Bewerber</li>
+                                </ul>
+                            </aside>
+                        </div>
+                    </section>
+
+                    <section data-background="img/vue/bg_chalkboard_orange.jpg">
+                        <div class="tip">
+                            <div class="tip-number">
+                                <div class="tip-number-circle">
+                                    <span>#3</span>
+                                </div>
+                            </div>
+                            <div class="tip-content">
+                                <img data-src="img/vue/relax.gif" style="border-color: #fff;" />
+
+                                <div>
+                                    <h2>Sit back and relax</h2>
+                                </div>
+                            </div>
+
+                            <aside class="notes">
+                                <ul>
+                                    <li>Erst mal sagst du ja, dass das vorhandene Schlecht ist</li>
+                                    <li>für dich ist die neue Lösung ganz klar besser</li>
+                                    <li>Entwickler (und Chefs), die schon länger dabei sind, sind bestehende Technologien gewöhnt und gut darin</li>
+                                    <li>die Ängste nehmen</li>
+                                    <li>DBeaver, Devtool</li>
+                                </ul>
+                            </aside>
+                        </div>
+                    </section>
+                </section>
+
+                <section data-background="img/vue/zebrastreifen.jpg">
                     <h2 class="text-with-bg">Bottom line</h2>
-                    <ul class="nobullets-list">
-                        <li class="fragment">
-                            <span class="text-with-bg">We have three years of experience with Custom Elements.</span>
+
+                    <ul style="list-style: none">
+                        <li class="fragment" style="margin: 0.5em 0">
+                            <span class="text-with-bg">The prototype got finished in time.</span>
                         </li>
-                        <li class="fragment">
-                            <span class="text-with-bg">Recently, we replaced our last RichFaces component.</span>
+                        <li class="fragment" style="margin: 0.5em 0">
+                            <span class="text-with-bg">After 6 months my boss was finally convinced.</span>
                         </li>
-                        <li class="fragment">
-                            <span class="text-with-bg">Pure Custom Elements are low level, but we benefit a lot.</span>
-                        </li>
-                        <li class="fragment">
-                            <span class="text-with-bg">We'll move on into that direction.</span>
+                        <li class="fragment" style="margin: 0.5em 0">
+                            <span class="text-with-bg">I can't go back to AngularJS.</span>
                         </li>
                     </ul>
                     <p class="fragment">
                         <span class="text-with-bg">
-								Keep calm and <a href="https://twitter.com/hashtag/usetheplatform">#UseThePlatform</a>
-							</span>
+                                Keep calm and <a href="https://twitter.com/hashtag/becomeaddicted">#becomeaddicted</a>
+                            </span>
                     </p>
                     <p>
-                        <small class="text-with-bg">Departing train, © Xenotron / <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> (via Wikimedia Commons)</small>
-                    </p>
-                </section>
-            </section>
-
-            <!-- VUE PART -->
-            <section>
-                <section data-background="img/vue/warning1.jpg" data-background-size="cover">
-                    <aside class="notes">
-                        <ul>
-                            <li>wir haben jetzt viel über Disy erfahren, und wie sie erfolgreich auf Webstandards bauen</li>
-                            <li>bevor wir zum nächsten Thema kommen, muss ich leider vorab noch eine Warnung aussprechen.</li>
-                            <li>ich kann verstehen, wenn jemand jetzt den Raum verlassen möchte, denn das Thema über das ich sprechen werde ist nicht ganz ungefährlich.</li>
-                            <li>Ja es stimmt: klick</li>
-                            <li>ich spreche aus Erfahrung</li>
-                        </ul>
-                    </aside>
-                </section>
-
-                <section data-background="img/vue/warning2.jpg" data-background-size="cover">
-                </section>
-            </section>
-
-            <!-- Motivation -->
-            <section>
-                <section data-background="img/vue/eb-bg.png" data-background-size="cover" class="section-twocolumn">
-                    <div class="fragment" style="background-color: rgba(0, 43, 54, 0.65); padding: 20px 0">
-                        <ul>
-                            <li>~100 Servers</li>
-                            <li>4 Developers</li>
-                            <li>every project has one responsible person</li>
-                            <li>goal is uniform technology landscape</li>
-                        </ul>
-                    </div>
-
-                    <aside class="notes">
-                        <ul>
-                            <li>PHP + SPAs</li>
-                            <li>das heißt nicht ein Hauptverantwortlicher sondern wirklich jemand, der sich alleinig um das Projekt kümmert</li>
-                            <li>Reduziert Kommunikationsaufwand, lässt mehr Freiheiten + weniger Diskussionen auf Codeebene</li>
-                            <li>deswegen ist es auch wichtig, eine möglichst homogene Technologielandschaft zu haben</li>
-                        </ul>
-                    </aside>
-                </section>
-
-                <section data-background="img/vue/dc-motivation.jpg" data-background-size="cover" class="section-twocolumn">
-                    <aside class="notes">
-                        <ul>
-                            <li>ich wurde letztes Jahr mit der Aufgabe betreut, das neueste Produkt der Echobot-Familie from scratch zu entwickeln</li>
-                            <li>das Problem was wir damit lösen wollten war, dass viele Kunden z. B. in Ihren CRM-Systemen veraltete Firmendaten haben, da Firmen umziehen/sich auflösen etc.</li>
-                            <li>das Produkt sollte den Kunden ermöglichen, Firmendaten zu importieren, diese zu bereinigen und gegebenenfalls noch um weitere Merkmale wie z. B. Firmengröße oder Ansprechpartner anzureichern</li>
-                            <li>jetzt war es an mir, ein technisches Konzept zu erstellen</li>
-                        </ul>
-                    </aside>
-                </section>
-
-                <section data-background="img/vue/dc-motivation.jpg" data-background-size="cover" class="section-twocolumn">
-                    <div style="background-color: rgba(0, 43, 54, 0.65); padding: 20px 0">
-                        <ul>
-                            <li>Name: DATACARE</li>
-                            <li>Cleaning and enrichment of company data</li>
-                            <li>Prototype ready for DMEXCO</li>
-                        </ul>
-                    </div>
-                </section>
-
-                <section data-background="img/vue/cat-unsplash.jpg">
-                    <h2>
-                        <span class="text-with-bg">There was only one problem&hellip;</span>
-                    </h2>
-
-                    <img class="fragment" src="img/vue/angularjs.png" alt="AngularJS" style="background-color: white;">
-
-                    <aside class="notes">
-                        <ul>
-                            <li>kennt noch jemand das Logo?</li>
-                        </ul>
-                    </aside>
-                </section>
-
-                <section data-background="img/vue/cat-show.jpg" data-background-size="cover">
-                    <div class="fragment" style="background-color: rgba(0, 43, 54, 0.65); padding: 20px 0">
-                        <h3>Analyzing JS frameworks</h3>
-
-                        <ul>
-                            <li>Angular is too heavy weighted</li>
-                            <li>WTF is a Web Component?!</li>
-                            <li>I knew Vue from an internal project</li>
-                        </ul>
-                    </div>
-                </section>
-
-                <section data-background="img/vue/cat-show.jpg" data-background-size="cover">
-                    <div style="background-color: rgba(0, 43, 54, 0.65); padding: 20px 0">
-                        <h3>The technologies we agreed on</h3>
-
-                        <ul style="list-style: none; display: flex; justify-content: space-around; align-items: center;">
-                            <li><img src="img/vue/vue-logo.jpg" alt="Vue Logo" style="border: none; max-width: 245px;"></li>
-                            <li><img src="img/vue/ts-logo.png" alt="TypeScript Logo" style="border: none; max-width: 245px;"></li>
-                            <li><img src="img/vue/element-logo.png" alt="Element UI Logo" style="border: none; max-width: 245px;"></li>
-                        </ul>
-                    </div>
-
-                    <aside class="notes">
-                        <ul>
-                            <li>TypeScript war der Wunsch meines Chefs</li>
-                            <li>von Element UI wusste mein Chef ehrlich gesagt am Anfang nichts :)</li>
-                            <li>das ist ein UI framework ähnlich wie Bootstrap mit dem Vorteil, dass es direkt für Vue geschrieben wurde</li>
-                            <li>die API funktioniert aber nicht über CSS-Klassen, was of unnötig verbose ist</li>
-                        </ul>
-                    </aside>
-                </section>
-            </section>
-
-            <section>
-                <section class="section-twocolumn">
-                    <div>
-                        <img src="img/vue/evanyou.jpeg" alt="Evan You" />
-                    </div>
-
-                    <div style="background-color: rgba(0, 43, 54, 0.65); padding: 20px 0">
-                        <h3>What is Vue.js?</h3>
-
-                        <ul>
-                            <li>pronounced like "view"</li>
-                            <li>created in 2014 by Evan You</li>
-                            <li>started as a side project when he worked for Google</li>
-                        </ul>
-                    </div>
-
-                    <aside class="notes">
-                        <ul>
-                            <li>kommt aus China</li>
-                            <li>hat bei Google schon mit AngularJS gearbeitet</li>
-                        </ul>
-                    </aside>
-                </section>
-
-                <section>
-                    <blockquote>
-                        <p>I figured, what if I could just extract the part that I really liked about <strong>Angular</strong> and build something really <strong>lightweight</strong>?</p>
-                        <footer>
-                            <small>Evan you</small>
-                        </footer>
-                    </blockquote>
-                </section>
-
-                <section data-background="img/vue/vue-team.png" data-background-size="cover">
-                    <h2>Vue Core Team</h2>
-
-                    <aside class="notes">
-                        <ul>
-                            <li>financed via Patreon</li>
-                        </ul>
-                    </aside>
-                </section>
-
-                <section class="section-twocolumn">
-                    <div style="background-color: rgba(0, 43, 54, 0.65); padding: 20px 0">
-                        <h3>Main Vue.js concepts</h3>
-
-                        <ul class="section">
-                            <li>Components</li>
-                            <li>Reactiveness</li>
-                            <li>One way data flow</li>
-                            <li>Template syntax</li>
-                            <li>Single File Components (SFC)</li>
-                            <li>jquery.min.js: 84,8 KB | vue.min.js: 85,6 KB</li>
-                        </ul>
-                    </div>
-
-                    <aside class="notes">
-                        <ul>
-                            <li>Components = reusability</li>
-                        </ul>
-                    </aside>
-                </section>
-
-                <!-- Vue example #1 -->
-                <section>
-                    <img src="img/vue/todo.jpg" alt="Todo example">
-
-                    <pre class="fragment" style="margin-top: 0;"><code data-trim class="html">
-<div id="app">
-    <ul>
-        <li v-for="todo in todos">
-            <label>
-                <input
-                    type="checkbox" @change="todo.done = !todo.done" :checked="todo.done">
-
-                <del v-if="todo.done">
-                    {{ todo.text }}
-                </del>
-                <span v-else>
-                    {{ todo.text }}
-                </span>
-            </label>
-        </li>
-    </ul>
-</div></code></pre>
-
-                    <p style="font-size: 15px;">
-                        <a href="https://jsfiddle.net/mreqpocg/">jsfiddle.net/mreqpocg</a>
-                    </p>
-                </section>
-
-                <!-- Vue example #2 -->
-                <section>
-                    <pre style="margin-top: 0;"><code data-trim class="javascript">
-    new Vue({
-        el: "#app",
-        data: {
-            todos: [
-                { text: "Learn JavaScript", done: true },
-                { text: "Learn Vue", done: false },
-            ]
-        }
-    });</code></pre>
-
-                    <pre style="margin-top: 0;"><code data-trim class="html">
-        <div id="app">
-            <ul>
-                <li v-for="todo in todos">
-                    <label>
-                        <input
-                            type="checkbox" @change="todo.done = !todo.done" :checked="todo.done">
-
-                        <del v-if="todo.done">
-                            {{ todo.text }}
-                        </del>
-                        <span v-else>
-                            {{ todo.text }}
-                        </span>
-                    </label>
-                </li>
-            </ul>
-        </div></code></pre>
-                </section>
-
-                <section class="section-twocolumn">
-                    <div style="background-color: rgba(0, 43, 54, 0.65); padding: 20px 0">
-                        <h3>Template syntax</h3>
-
-                        <ul class="section">
-                            <li>{{ variable }}</li>
-                            <li>v-if, v-else-if, v-else</li>
-                            <li>:href="value"</li>
-                            <li>@click="doSomething()"</li>
-                            <li>{{ variable | filter }}</li>
-                        </ul>
-                    </div>
-
-                    <aside class="notes">
-                        <ul>
-                            <li>similar to AngularJS</li>
-                        </ul>
-                    </aside>
-                </section>
-
-                <section class="section-twocolumn">
-                    <div style="background-color: rgba(0, 43, 54, 0.65); padding: 20px 0">
-                        <h3>Project setup</h3>
-
-                        <ul class="section">
-                            <li>Option #1: include JavaScript dependency</li>
-                            <li>Option #2: Vue CLI</li>
-                        </ul>
-                    </div>
-                </section>
-
-                <section class="section-twocolumn">
-                    <div style="background-color: rgba(0, 43, 54, 0.65); padding: 20px 0">
-                        <h3>Vue CLI</h3>
-
-                        <ul>
-                            <li>based on Webpack</li>
-                            <li>Babel compilation</li>
-                            <li>scss compilation</li>
-                            <li>enables Vue Single File Components</li>
-                            <li>hot reloading</li>
-                            <li>source maps</li>
-                            <li>deployment (minification, code splitting,...)</li>
-                            <li>no config eject</li>
-                        </ul>
-
-                        <pre class="fragment">
-                                <code data-trim class="html">
-                                    npm install -g @vue/cli
-                                </code>
-                            </pre>
-                    </div>
-
-                    <aside class="notes">
-                        <ul>
-                            <li>als ich einem ehemaligen Kollegen von 1&1 Vue erklärt habe, konnte er nicht glauben dass ich das Projekt mit einem CLI generiere</li>
-                            <li>ich wollte ungerne die Kontrolle abgeben</li>
-                            <li>es hat sich aber einiges geändert (z. B. no config eject)</li>
-                            <li>es ist nicht zu leugnen, dass sie einen schneller machen</li>
-                            <li>wer schon mal TypeScript from scratch aufgesetzt hat inkl. Watches usw. weiß das zu schätzen</li>
-                        </ul>
-                    </aside>
-                </section>
-
-                <!-- DEMO:
-						* vue cli
-					    * show project (vue.config.js is optional)
-						* vue ui
-						* vue devtools:
-						  - component tree
-						  - state inspection
-						  - fps
-						  - vuex
-						  - css component name
-					-->
-
-                <section class="section-twocolumn">
-                    <div style="background-color: rgba(0, 43, 54, 0.65); padding: 20px 0">
-                        <h3>TypeScript: the good parts</h3>
-
-                        <ul>
-                            <li>I love it</li>
-                            <li>excellent syntax</li>
-                            <li>short development cycles</li>
-                            <li>easy refactorings</li>
-                            <li>perfect for own code</li>
-                            <li>good fit with Vue</li>
-                            <li>can be added to any project (if you are willing to fix a lot of compile errors)</li>
-                        </ul>
-                    </div>
-
-                    <aside class="notes">
-                        <ul>
-                            <li>ich würde gerne mehr darüber erzählen, aber da es hier um Vue geht nur die wichtigsten Erkenntnisse</li>
-                            <li>Empfehlung: externe Validierung deaktivieren</li>
-                        </ul>
-                    </aside>
-                </section>
-
-                <section class="section-twocolumn">
-                    <div style="background-color: rgba(0, 43, 54, 0.65); padding: 20px 0">
-                        <h3>TypeScript: the bad parts</h3>
-
-                        <ul>
-                            <li>I hate it</li>
-                            <li>not so perfect for library code</li>
-                            <li>no runtime checks</li>
-                            <li>added complexity</li>
-                            <li>harder for beginners to see difference to JS</li>
-                        </ul>
-                    </div>
-
-                    <aside class="notes">
-                        <ul>
-                            <li>ich würde gerne mehr darüber erzählen, aber da es hier um Vue geht nur die wichtigsten Erkenntnisse</li>
-                            <li>Empfehlung: externe Validierung deaktivieren</li>
-                        </ul>
-                    </aside>
-                </section>
-
-                <section class="section-twocolumn">
-                    <div style="background-color: rgba(0, 43, 54, 0.65); padding: 20px 0">
-                        <h3>Single File Components</h3>
-
-                        <ul class="section">
-                            <li>need some time getting used to but make total sense</li>
-                            <li>all the parts that belong together in one file!</li>
-                            <li>if your SFC gets too big: create a subcomponent!</li>
-                            <li>SFCs are opt-in</li>
-                            <li>JSX is also possible</li>
-                        </ul>
-
-                        <aside class="notes">
-                            <ul>
-                                <li>in den Angular 1 Projekten auf der Arbeit muss ich immer suchen</li>
-                                <li>das schöne ist, dass das tatsächlich valides Html ist</li>
-                            </ul>
-                        </aside>
-                    </div>
-                </section>
-
-                <!-- SFC example #1 -->
-                <section>
-                    <h3>HelloWorld.vue</h3>
-                    <pre style="margin-top: 0;"><code data-trim class="vue">
-<template>
-    <p>{{ greeting }} World!</p>
-</template>
-
-<script>
-    export default {
-        data: function () {
-            return {
-                greeting: 'Hello'
-            }
-        }
-    }
-</script>
-
-<style>
-    p {
-        font-size: 2em;
-        text-align: center;
-    }
-</style></code></pre>
-
-                    <p style="font-size: 15px;">
-                        <a href="https://codesandbox.io/s/vue-template-eikjx?fontsize=14">codesandbox.io/s/vue-template-eikjx</a>
-                    </p>
-                    <aside class="notes">
-                        <ul>
-                            <li>so sieht eine Vue-Komponente aus</li>
-                            <li>zu beachten: data ist jetzt eine function</li>
-                        </ul>
-                    </aside>
-                </section>
-
-                <!-- SFC example #2 -->
-                <section>
-                    <h3>main.js</h3>
-                    <pre style="margin-top: 0;"><code data-trim class="javascript">
-import Vue from "vue";
-import HelloWorld from "./HelloWorld.vue";
-
-Vue.component("hello-world", HelloWorld);
-
-new Vue({
-    el: "#app",
-    template: "<hello-world></hello-world>"
-});
-</code></pre>
-
-                    <p style="font-size: 15px;">
-                        <a href="https://codesandbox.io/s/vue-template-eikjx?fontsize=14">codesandbox.io/s/vue-template-eikjx</a>
+                        <small class="text-with-bg">
+                                © Ryoji Iwata <a href="https://unsplash.com/photos/HDbavxACggA">via unsplash.com</a>
+                            </small>
                     </p>
 
                     <aside class="notes">
                         <ul>
-                            <li></li>
+                            <li>mein Chef ist nicht jemand, der mir sofort auf die Schulter klopft und sagt: "du hattest Recht mit Vue!"</li>
+                            <li>der Erfolg ist aber nicht zu leugnen: Entwickler auf meiner Seite, weiteres Projekt, Bewerbern wird gesagt dass wir Projekte nur noch mit Vue machen</li>
+                            <li>44 s deploy time / very responsive ui</li>
+                            <li>easy reusability</li>
+                            <li>Umstellung Export Modal nach extra Seite war sehr einfach</li>
+                            <li>Angular: die Tage versucht, eine Tabelle mit Sortierung und DragnDrop zu bauen</li>
+                            <li>jetzt kann ich es ja sagen, dass ich euch eigentlich mit dem Vue-Virus anstecken wollte</li>
+                            <li>ein Vortrag kann ein guter Start sein, aber wirklich lernen kann man Vue nur Hands On</li>
                         </ul>
                     </aside>
                 </section>
 
-                <!-- Smart vs. dumb components -->
-                <section data-background="img/vue/architecture.jpg" data-background-size="contain">
-                    <h3>How to structure a Vue app?</h3>
+                <!-- Abschlussfolie Vue -->
+                <section data-background="img/vue/beach.jpg">
+                    <img src="img/vue/vue-patreon.png" alt="Vue Logo" style="border: none; box-shadow: none; background: none;">
                 </section>
 
-                <!-- Components screenshot -->
-                <section data-background="img/vue/components/1.jpg" data-background-size="contain">
-                </section>
+				<section>
+					<ul>
+						<li>Fragen?</li>
+						<li>Schaut Euch die Folien auch mal im Speaker-Mode an</li>
+						<li>Go forth an componentize your apps.</li>
+					</ul>
+				</section>
 
-                <!-- Components screenshot -->
-                <section data-background="img/vue/components/2.jpg" data-background-size="contain">
-                </section>
-
-                <!-- Components screenshot -->
-                <section data-background="img/vue/components/3.jpg" data-background-size="contain">
-                </section>
-
-                <!-- Components screenshot -->
-                <section data-background="img/vue/components/4.jpg" data-background-size="contain">
-                    <aside class="notes">
-                        <ul>
-                            <li>was würdet ihr mit der Suchbox machen?</li>
-                        </ul>
-                    </aside>
-                </section>
-
-                <!-- Components #2 -->
-                <section class="section-twocolumn">
-                    <div style="background-color: rgba(0, 43, 54, 0.65); padding: 20px 0">
-                        <h3>Container Components</h3>
-
-                        <ul class="section">
-                            <li>"smart"</li>
-                            <li>manages state</li>
-                            <li>contains layout</li>
-                            <li>often synonym to a page</li>
-                        </ul>
-
-                        <aside class="notes">
-                            <ul>
-                                <li>zentrale Stelle für Buisinesslogik</li>
-                                <li>den Großteil des States (oder Redux/Vuex)</li>
-                                <li>https://www.shade.codes/dumb-components-and-smart-components/</li>
-                            </ul>
-                        </aside>
-                    </div>
-                </section>
-
-                <!-- Components #3 -->
-                <section class="section-twocolumn">
-                    <div style="background-color: rgba(0, 43, 54, 0.65); padding: 20px 0">
-                        <h3>Reusable Components</h3>
-
-                        <ul class="section">
-                            <li>"dumb"</li>
-                            <li>specialized</li>
-                            <li>few dependencies</li>
-                            <li>only receive state they need (via props></li>
-                            <li>good testability</li>
-                        </ul>
-
-                        <aside class="notes">
-                            <ul>
-                                <li>gute Testbarkeit wiegt bei mir nicht so schwer, weil ich UI selten teste</li>
-                            </ul>
-                        </aside>
-                    </div>
-                </section>
-            </section>
-
-            <section>
-                <section class="section-twocolumn">
-                    <div style="background-color: rgba(0, 43, 54, 0.65); padding: 20px 0">
-                        <h3>What I ❤️ about Vue</h3>
-
-                        <ul class="section">
-                            <li>Simplicity</li>
-                            <li>Vue documentation</li>
-                            <li>Vue ecosystem:
-                                <ul>
-                                    <li>vue-router</li>
-                                    <li>vuex</li>
-                                    <li>vue-i18n</li>
-                                </ul>
-                            </li>
-                        </ul>
-
-                        <aside class="notes">
-                            <ul>
-                                <li>simpel, aber trotzdem sehr mächtig</li>
-                                <li>keine dependency injection</li>
-                                <li>kleine Basislibrary</li>
-                                <li>nice update policy</li>
-                                <li>man kann z. B. direkt preventDefault an Html-Element schreiben</li>
-                                <li>alle verwenden Vuepress</li>
-                                <li>es gibt in jedem Bereich ein Standardtool</li>
-                                <li>vue-i18n: hat sich bewährt, weil die Übersetzungen einfach nahe am Code sind</li>
-                                <li>alles enthalten, was man braucht: Pluralization, number formatting, date formatting</li>
-                            </ul>
-                        </aside>
-                    </div>
-                </section>
-            </section>
-
-            <section>
-                <h2 class="text-with-bg">What does the <span style="font-style: italic">Vueture</span>&nbsp;&nbsp;bring?</h2>
-
-                <ul>
-                    <li>Vue 3 is around the corner</li>
-                    <li>Vue Native</li>
-                    <li>Nuxt.js</li>
-                </ul>
-
-                <aside class="notes">
-                    <ul>
-                        <li>Vue 3: besserer TS support (Vue selbst wird in TS umgeschrieben), kaum breaking changes</li>
-                        <li>Targets evergreen browsers only</li>
-                    </ul>
-                </aside>
-            </section>
-
-            <!-- Tipps für Technologieentscheidungen -->
-            <section>
-                <section data-background="img/vue/change.jpg">
-                    <h2 class="text-with-bg">How to convince YOUR boss?</h2>
-
-                    <aside class="notes">
-                        <ul>
-                            <li>Change takes time (DBeaver, Devtool)</li>
-                            <li>Build something with the new technology</li>
-                            <li>Erst mal sagst du, dass das vorhandene Schlecht ist</li>
-                            <li>Entwickler (und Chefs), die schon länger dabei sind, sind bestehende Technologien gewöhnt und gut darin</li>
-                            <li>die Ängste nehmen</li>
-                            <li>Argumente sammeln (z. B. gut für Bewerber)</li>
-                        </ul>
-                    </aside>
-                </section>
-
-                <section data-background="img/vue/bg_chalkboard_orange.jpg">
-                    <div class="tip">
-                        <div class="tip-number">
-                            <div class="tip-number-circle">
-                                <span>#1</span>
-                            </div>
-                        </div>
-                        <div class="tip-content">
-                            <img data-src="img/vue/build.gif" style="border-color: #fff;" />
-
-                            <div>
-                                <h2>Build something with it</h2>
-                            </div>
-                        </div>
-
-                        <aside class="notes">
-                            <ul>
-                                <li>du musst deinem Chef ja nichts davon erzählen ;)</li>
-                                <li>Innovation Week</li>
-                                <li>Frezeitprojekt</li>
-                            </ul>
-                        </aside>
-                    </div>
-                </section>
-
-                <section data-background="img/vue/bg_chalkboard_orange.jpg">
-                    <div class="tip">
-                        <div class="tip-number">
-                            <div class="tip-number-circle">
-                                <span>#2</span>
-                            </div>
-                        </div>
-                        <div class="tip-content">
-                            <img data-src="img/vue/punch.gif" style="border-color: #fff;" />
-
-                            <div>
-                                <h2>Collect arguments</h2>
-                            </div>
-                        </div>
-
-                        <aside class="notes">
-                            <ul>
-                                <li>gut für Bewerber</li>
-                            </ul>
-                        </aside>
-                    </div>
-                </section>
-
-                <section data-background="img/vue/bg_chalkboard_orange.jpg">
-                    <div class="tip">
-                        <div class="tip-number">
-                            <div class="tip-number-circle">
-                                <span>#3</span>
-                            </div>
-                        </div>
-                        <div class="tip-content">
-                            <img data-src="img/vue/relax.gif" style="border-color: #fff;" />
-
-                            <div>
-                                <h2>Sit back and relax</h2>
-                            </div>
-                        </div>
-
-                        <aside class="notes">
-                            <ul>
-                                <li>Erst mal sagst du ja, dass das vorhandene Schlecht ist</li>
-                                <li>für dich ist die neue Lösung ganz klar besser</li>
-                                <li>Entwickler (und Chefs), die schon länger dabei sind, sind bestehende Technologien gewöhnt und gut darin</li>
-                                <li>die Ängste nehmen</li>
-                                <li>DBeaver, Devtool</li>
-                            </ul>
-                        </aside>
-                    </div>
-                </section>
-            </section>
-
-            <section data-background="img/vue/zebrastreifen.jpg">
-                <h2 class="text-with-bg">Bottom line</h2>
-
-                <ul style="list-style: none">
-                    <li class="fragment" style="margin: 0.5em 0">
-                        <span class="text-with-bg">The prototype got finished in time.</span>
-                    </li>
-                    <li class="fragment" style="margin: 0.5em 0">
-                        <span class="text-with-bg">After 6 months my boss was finally convinced.</span>
-                    </li>
-                    <li class="fragment" style="margin: 0.5em 0">
-                        <span class="text-with-bg">I can't go back to AngularJS.</span>
-                    </li>
-                </ul>
-                <p class="fragment">
-                    <span class="text-with-bg">
-							Keep calm and <a href="https://twitter.com/hashtag/becomeaddicted">#becomeaddicted</a>
-						</span>
-                </p>
-                <p>
-                    <small class="text-with-bg">
-							© Ryoji Iwata <a href="https://unsplash.com/photos/HDbavxACggA">via unsplash.com</a>
-						</small>
-                </p>
-
-                <aside class="notes">
-                    <ul>
-                        <li>mein Chef ist nicht jemand, der mir sofort auf die Schulter klopft und sagt: "du hattest Recht mit Vue!"</li>
-                        <li>der Erfolg ist aber nicht zu leugnen: Entwickler auf meiner Seite, weiteres Projekt, Bewerbern wird gesagt dass wir Projekte nur noch mit Vue machen</li>
-                        <li>44 s deploy time / very responsive ui</li>
-                        <li>easy reusability</li>
-                        <li>Umstellung Export Modal nach extra Seite war sehr einfach</li>
-                        <li>Angular: die Tage versucht, eine Tabelle mit Sortierung und DragnDrop zu bauen</li>
-                        <li>jetzt kann ich es ja sagen, dass ich euch eigentlich mit dem Vue-Virus anstecken wollte</li>
-                        <li>ein Vortrag kann ein guter Start sein, aber wirklich lernen kann man Vue nur Hands On</li>
-                    </ul>
-                </aside>
-            </section>
-
-            <!-- Abschlussfolie Vue -->
-            <section data-background="img/vue/beach.jpg">
-                <img src="img/vue/vue-patreon.png" alt="Vue Logo" style="border: none; box-shadow: none; background: none;">
-            </section>
-
-            <section>
-                <ul>
-                    <li>Fragen?</li>
-                    <li>Schaut Euch die Folien auch mal im Speaker-Mode an</li>
-                    <li>Go forth an componentize your apps.</li>
-                </ul>
-            </section>
-
-            <!--
+				<!--
 				<section>
 					<section>
 						<h2>Would I use Vue?</h2>
@@ -1595,49 +1620,45 @@ new Vue({
 				</section>
 				-->
 
-        </div>
-    </div>
+			</div>
+		</div>
 
-    <script src="js/reveal.js"></script>
+		<script src="js/reveal.js"></script>
 
-    <script>
-        // More info about config & dependencies:
-        // - https://github.com/hakimel/reveal.js#configuration
-        // - https://github.com/hakimel/reveal.js#dependencies
-        Reveal.initialize({
-            history: true,
-            transitionSpeed: 'fast',
-            center: true,
-            dependencies: [{
-                src: 'plugin/highlight/highlight.js',
-                async: true
-            }, {
-                src: 'plugin/notes/notes.js',
-                async: true
-            }]
-        });
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				history: true,
+				transitionSpeed: 'fast',
+				center: true,
+				dependencies: [
+					{ src: 'plugin/highlight/highlight.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
 
-        Reveal.addEventListener('fragmentshown', function(event) {
-            var fragment = event.fragment;
-            if (fragment.id === 'solid-foundation') {
-                fragment.previousElementSibling.style.textDecoration = 'line-through';
-                var bgContent = document.querySelector('.slide-background .present .slide-background-content');
-                bgContent.style.backgroundImage = 'url("img/building-blocks.jpg")';
-                bgContent.style.backgroundSize = 'cover';
-            }
-        });
-        Reveal.addEventListener('fragmenthidden', function(event) {
-            var fragment = event.fragment;
-            if (fragment.id === 'solid-foundation') {
-                fragment.previousElementSibling.style.textDecoration = 'none';
-                var bgContent = document.querySelector('.slide-background .present .slide-background-content');
-                bgContent.style.backgroundImage = 'url("img/holy-grail.jpg")';
-                bgContent.style.backgroundSize = 'contain';
-            }
-        });
-    </script>
+			Reveal.addEventListener('fragmentshown', function (event) {
+				var fragment = event.fragment;
+				if (fragment.id === 'solid-foundation') {
+					fragment.previousElementSibling.style.textDecoration = 'line-through';
+					var bgContent = document.querySelector('.slide-background .present .slide-background-content');
+					bgContent.style.backgroundImage = 'url("img/building-blocks.jpg")';
+					bgContent.style.backgroundSize = 'cover';
+				}
+			});
+			Reveal.addEventListener('fragmenthidden', function (event) {
+				var fragment = event.fragment;
+				if (fragment.id === 'solid-foundation') {
+					fragment.previousElementSibling.style.textDecoration = 'none';
+					var bgContent = document.querySelector('.slide-background .present .slide-background-content');
+					bgContent.style.backgroundImage = 'url("img/holy-grail.jpg")';
+					bgContent.style.backgroundSize = 'contain';
+				}
+			});
+		</script>
 
-    <script src="https://cdn.jsdelivr.net/gh/ireade/caniuse-embed/caniuse-embed.min.js"></script>
-</body>
-
+		<script src="https://cdn.jsdelivr.net/gh/ireade/caniuse-embed/caniuse-embed.min.js"></script>
+	</body>
 </html>
