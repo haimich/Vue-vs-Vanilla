@@ -1,898 +1,898 @@
 <!doctype html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-
-		<title>Vue vs Vanilla - Components for the Web</title>
-
-		<link rel="stylesheet" href="css/reset.css">
-		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/moon.css">
-		<link rel="stylesheet" href="css/custom.css">
-
-		<!-- Theme used for syntax highlighting of code -->
-		<link rel="stylesheet" href="lib/css/zenburn.css">
-
-		<!-- Printing and PDF exports -->
-		<script>
-			var link = document.createElement('link');
-			link.rel = 'stylesheet';
-			link.type = 'text/css';
-			link.href = location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
-			document.head.append(link);
-		</script>
-
-		<base target="_blank">
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">
-
-				<section
-					data-background="img/title/art-materials-art-supplies-blocks-1148496.jpg"
-				>
-					<h1>
-						<span class="text-with-bg">Vue vs Vanilla</span><br>
-						<small class="text-with-bg">Components for the Web</small>
-					</h1>
-					<p>
-						<small class="text-with-bg">
-							Johannes Kissel &amp; <a href="http://github.com/haimich/" target="_blank">Michael Müller</a><br>
-						</small>
-					</p>
-
-					<a href="https://2019.accento.dev/">
-						<img src="img/accento-logo.png" alt="Accento Logo" style="border: none; background: none; box-shadow: none; width: 21%; padding: 10px;">
-					</a>
-				</section>
-
-				<!-- About us -->
-
-				<section>
-					<section
-						data-background="img/jo-bicycle.jpg"
-						data-background-size="cover"
-						class="section-twocolumn"
-					>
-						<div>
-							<img src="img/jo.jpg" alt="Johannes Kissel" />
-						</div>
-
-						<div style="background-color: rgba(0, 43, 54, 0.65); padding: 20px 0">
-							<h2>Johannes Kissel</h2>
-							<p>
-								Software Developer<br>at
-								<img src="img/disy-logo.svg" alt="Disy Logo" class="inline" style="padding: 8px;"><br>
-								in Karlsruhe
-							</p>
-							<p>Enthusiastic about &hellip;</p>
-							<ul class="nobullets-list">
-								<li><span class="emoji">🔗</span> The Open Web</li>
-								<li><span class="emoji">🚲</span> Cycling</li>
-								<li><span class="emoji">🎶</span> Singing</li>
-							</ul>
-						</div>
-					</section>
-
-					<section
-						data-background="img/vue/varka-bar-2.jpg"
-						data-background-size="cover"
-						class="section-twocolumn"
-						style="color:#c9cece;"
-					>
-						<div>
-							<img src="img/vue/cookbooks.jpg" alt="Michael Müller" />
-						</div>
-
-						<div style="background-color: rgba(0, 43, 54, 0.65); padding: 20px 0">
-							<h2>Michael Müller</h2>
-
-							<p>
-								Full Stack Developer<br>at
-								<img src="img/vue/echobot-logo.png" alt="Echobot Logo" class="inline" style="padding: 11px; height: 29px;"><br>
-								in Karlsruhe
-							</p>
-							<p>Enthusiastic about &hellip;</p>
-							<ul class="nobullets-list">
-								<li><span class="emoji">💻</span> Web Development</li>
-								<li><span class="emoji">🍳</span> Cooking</li>
-								<li><span class="emoji">🎶</span> Singing</li>
-							</ul>
-						</div>
-
-						<aside class="notes">
-							<ul>
-								<li>arbeite bei der Firma Echobot - ein Startup, das eigentlich keins mehr ist</li>
-								<li>ich war früher reiner Backendentwickler, aber durch Johannes habe ich vor 5 Jahren die Webentwicklung für mich entdeckt</li>
-								<li>wir waren damals beide bei 1&1, Johannes im Frontend und ich im Backendteam</li>
-								<li>ich habe dann ab und zu mal rübergeschielt, was die da so machen</li>
-								<li>ich habe mich dann zwei Jahre jeden Tag weitergebildet (und mache kein Java mehr)</li>
-								<li>zum Kochen: wir schaffen es auch immer mal wieder, das Kochen mit dem Coden zu verbinden</li>
-								<li>zum Singen: auch ein gemeinsames Hobby, wir singen beide beim Karlsruhe Chor Jazzika</li>
-								<li>zum Bild: das passiert, wenn der Vorbereitungszeitraum für die Konferenz in die Urlaubszeit fällt ;)</li>
-							</ul>
-						</aside>
-					</section>
-				</section>
-
-				<section>
-					<h2>Quick and Dirty &hellip;</h2>
-					<img class="fragment" src="img/quick-and-dirty.svg" alt="Quick and Dirty - it depends" style="background-color: white;">
-					<p class="fragment">&hellip; it depends.</p>
-
-					<aside class="notes">
-						<ul>
-							<li>wir haben das Konferenzmotto mal in eine Koordinatensystem überführt</li>
-							<li>wenn man so ein Projekt anfängt, stellt sich natürlich erst mal die Frage: wie geht man an das Ganze ran</li>
-							<li>das muss jedes Team für sich selbst entscheiden, aber gehen wir es doch mal durch:</li>
-							<li>1. You lay a foundation: Du nimmst Dir Zeit, eine gute Basis zu schaffen (für ein Produkt oder Feature).</li>
-							<li>2. You are lucky: The optimal case, nobody will complain. Your team is really potent and can deliver top quality in zero time.</li>
-							<li>3. You bet on the future: You trade quality for time, maybe to get some contract? You'll need to pay in the future.</li>
-							<li>4. You are lazy: WTF, why should you do that? Because you can? Come on &hellip;</li>
-							<li>The truth is&hellip; it depends!</li>
-							<li>in welchem Quadranten wir uns mit unseren Projekten bewegt haben, erfahrt ihr jetzt!</li>
-						</ul>
-					</aside>
-				</section>
-
-				<!-- INTRO -->
-				<section
-					data-background="img/intro/stage-7-photography-q_mKaIlcg6o-unsplash.jpg"
-				>
-					<aside class="notes">
-						<ul>
-							<li>jetzt wisst ihr wer wir sind, bleibt die Frage wie es eigentlich zu diesem Vortrag kam</li>
-							<li>wir ihr vielleicht schon an unseren Hobbies gesehen habt, gibt es da einige Überschneidungen</li>
-							<li>eine davon ist das Fahrrad fahren, bei dem man sich ziemlich gut u. a. über die Arbeit austauschen kann</li>
-							<li>hatten beide im letzten Jahr die Herausforderung, eine Technologieentscheidung für ein großes Projekt treffen zu müssen</li>
-							<li>wir haben dabei ziemlich unterschiedliche Wege verfolgt</li>
-							<li>wir wollen euch heute vorstellen, was das für Projekte waren, welche Technologien wir gewählt haben und was am Ende draus geworden ist :)</li>
-							<li>Zuhörer sollen die Konzepte hinter Vue.js und WebComponents kennenlernen</li>
-							<li>unser Ziel ist es euch zu helfen, es einzuordnen (vor allem für Technikentscheidungen)</li>
-							<li>Vortrag ist in zwei Teile aufgeteilt</li>
-							<li>Vorteile/Nachteile der jeweiligen Lösung aufzeigen</li>
-							<li>Außerdem werden Erfahrungen aus dem direkten Projekteinsatz geteilt.</li>
-							<li>Es gibt viele Technologien im Webkosmos, aber die meisten Entwickler haben nicht die Zeit, sich mit allen eingehend zu beschäftigen.</li>
-							<li>Trotzdem finden wir, dass es insbesondere für erfahrene Entwickler wichtig ist, die verfügbaren Technologien zu kennen und einordnen zu können. Dies erlaubt es, im beruflichen Umfeld informierte Technologie-Entscheidungen zu treffen.</li>
-							<li>damit übergebe ich an Johannes und wünsche euch viel Spaß mit den Web Components</li>
-						</ul>
-					</aside>
-				</section>
-
-				<!-- Motivation Web Components -->
-
-				<section>
-					<section>
-						<h2>Cadenza is big &hellip;</h2>
-						<img src="img/cadenza.png" alt="Cadenza sreenshot showing a map" class="noborder">
-						<p class="fragment">&hellip; and it's legacy, but &hellip;</p>
-
-						<aside class="notes">
-							<ul>
-								<li>Product suite with desktop, Web, and mobile apps.</li>
-								<li>Gather and analyze geo data, do reporting</li>
-								<li>The Java code base alone counts 1.500.000 lines of code, plus a lot of JavaScript.</li>
-							</ul>
-						</aside>
-					</section>
-
-					<section>
-						<p>&hellip; not <em>that</em> kind of legacy &hellip;</p>
-						<figure>
-							<img src="img/legacy-dung-heap.jpg" alt="Dung Heap">
-							<figcaption>
-								<small>Dung heap, © Superbass / <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA-3.0</a> (via Wikimedia Commons)</small>
-							</figcaption>
-						</figure>
-
-						<aside class="notes">
-							<ul>
-								<li>It doesn't steam up while it rots.</li>
-							</ul>
-						</aside>
-					</section>
-
-					<section>
-						<p>&hellip; or that kind:</p>
-						<figure>
-							<img src="img/legacy-jenga.jpg" alt="Jenga Tower">
-							<figcaption>
-								<small>Jenga tower, © Marco Verch / <a href="https://creativecommons.org/licenses/by/2.0/">CC-BY-2.0</a> (via Flickr)</small>
-							</figcaption>
-						</figure>
-
-						<aside class="notes">
-							<ul>
-								<li>We're <em>not</em> afraid it will fall.</li>
-							</ul>
-						</aside>
-					</section>
-
-					<section data-background="img/legacy-main-station.jpg">
-						<p class="text-with-bg" style="margin-bottom: 45vh; font-size: 1.5em">It's vivid and<br>constantly improved and extended</p>
-						<br><br><br><br><br><br><br><br><br>
-						<p class="text-with-bg" style="font-size: 0.6em">
-							Frankfurt main station, © Urmelbeauftragter / <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA-3.0</a> (via Wikimedia Commons)
-						</p>
-
-						<aside class="notes">
-							<ul>
-								<li>Web is ~10 years old and getting more important, recently.</li>
-								<li>A lot of people use it (tens of thousands).</li>
-								<li>We add new features all the time.</li>
-								<li>We constantly improve the code base (e.g. always using the newest LTS Java version).</li>
-							</ul>
-						</aside>
-					</section>
-
-					<section>
-						<h2 class="fragment">How to be future proof?</h2>
-						<ul class="nobullets-list" style="text-align: center">
-							<li>
-								<a href="https://richfaces.jboss.org/">
-									<img src="img/richfaces-logo.png" alt="RichFaces Logo" class="noborder" style="height: 2em">
-								</a>
-							</li>
-							<li class="fragment">
-								<a href="https://angularjs.org/">
-									<img src="img/angularjs-logo.png" alt="AngularJS (aka &quot;Angular 1&quot;) Logo" class="noborder" style="height: 2em">
-								</a>
-							</li>
-							<li class="fragment">
-								<a href="https://backbonejs.org/">
-									<img src="img/backbone-logo.png" alt="Backbone Logo" class="noborder" style="height: 2em; background-color: white">
-								</a>
-							</li>
-							<li class="fragment">
-								<a href="https://openlayers.org/two/">
-									<img src="img/openlayers2-logo.png" alt="OpenLayers 2 Logo" class="noborder" style="height: 2em">
-								</a>
-							</li>
-							<li class="fragment">
-								<a href="http://www.qooxdoo.org/">
-									<img src="img/qooxdoo-logo.png" alt="OpenLayers 2 Logo" class="noborder" style="height: 2em">
-								</a><br>
-								&hellip;
-							</li>
-
-							<img src="img/forbidden.svg" alt="" class="fragment noborder" style="height: 50vh; left: 50%; position: absolute; top: 50%; transform: translate(-50%, -50%);">
-						</ul>
-
-						<aside class="notes">
-							<ul>
-								<li>
-									The RichFaces end-of-life in 2016 together with an exploding number of feature requests
-									made us think about Cadenza Web's technical foundation.
-								</li>
-								<li>The problem: Frameworks tend to die or break their APIs.</li>
-							</ul>
-						</aside>
-					</section>
-
-					<!-- https://commons.wikimedia.org/wiki/File:RU800S_atepitovonat_1.jpg -->
-					<section data-background="img/refactor-on-the-go.jpg" data-background-size="contain" data-no-center style="text-align: left; padding-top: 15%">
-						<p class="text-with-bg">Refactoring on the go demands<br>maximum interoperability</p>
-
-						<aside class="notes">
-							<ul>
-								<li>Re-writing the app is not an option.</li>
-								<li>We need maximum interoperability with existing code and know-how and also with future libs.</li>
-							</ul>
-						</aside>
-					</section>
-
-					<section>
-						<pre><code data-trim class="javascript">
-							const ELEMENT_NAME = 'd-toggle-button';
-
-							class ToggleButton extends HTMLElement {
-							  connectedCallback () {
-							    this.classList.add(ELEMENT_NAME);
-							    this.setAttribute('role', 'button');
-							    this.addEventListener('click', () => {
-							      this.pressed = !this.pressed;
-							      this.dispatchEvent(new CustomEvent('toggle', {bubbles: true}));
-							    });
-							  }
-							  set pressed (value) {
-							    this.setAttribute('aria-pressed', value);
-							  }
-							  get pressed () {
-							    return this.getAttribute('aria-pressed') === 'true';
-							  }
-							}
-
-							customElements.define(ELEMENT_NAME, ToggleButton);
-						</code></pre>
-						<p>
-							<a href="https://jsfiddle.net/w15c8mpx/">jsfiddle.net/w15c8mpx/</a>
-						</p>
-
-						<aside class="notes">
-							<ul>
-								<li>A simple toggle button component as example: The following slides show it's usage with various technologies.</li>
-								<li>The example already shows some of our best practices, which will be discussed later.</li>
-								<li>Web components are low-level, so you should know the DOM.</li>
-							</ul>
-						</aside>
-					</section>
-
-					<section>
-						<h2>Usage with Plain DOM</h2>
-						<pre><code data-trim class="javascript">
-							const button = document.createElement('d-toggle-button');
-							button.textContent = 'Button';
-							button.pressed = true;
-							button.addEventListener('toggle', () => {
-							  console.log(button.pressed);
-							});
-							document.body.append(button);
-						</code></pre>
-
-						<aside class="notes">
-							<p>Custom Elements can be used like a built-in element.</p>
-						</aside>
-					</section>
-
-					<section>
-						<h2>Usage with Constructor</h2>
-						<pre><code data-trim class="javascript">
-							import ToggleButton from 'ui/toggle-button';
-							// or
-							const ToggleButton = customElements.get('d-toggle-button');
-
-							// Constructor
-							const button = new ToggleButton();
-							&hellip;
-						</code></pre>
-
-						<aside class="notes">
-							<ul>
-								<li>Using the constructor in this case is equivalent to <code>document.createElement()</code>.</li>
-								<li>But it also accepts arguments.</li>
-								<li>Ideally, your components should work <em>with</em> and <em>without</em> constructor arguments.</li>
-							</ul>
-						</aside>
-					</section>
-
-					<section>
-						<h2>Usage with jQuery</h2>
-						<pre><code data-trim class="javascript">
-							const $button = $('&lt;d-toggle-button>')
-							  .text('Button')
-							  .prop('pressed', true)
-							  .on('toggle', () => console.log($button.prop('pressed')))
-							  .appendTo(document.body);
-						</code></pre>
-					</section>
-
-					<section>
-						<h2>Usage with Vue</h2>
-						<pre><code data-trim class="javascript">
-							new Vue({
-							  el: '#app',
-							  template: `&lt;d-toggle-button
-							               :pressed.prop="pressed"
-							               @toggle="onToggle">Button&lt;/d-toggle-button>`,
-							  data: { pressed: true },
-							  methods: {
-							    onToggle: event => console.log(event.target.pressed)
-							  }
-							});
-						</code></pre>
-
-						<aside class="notes">
-							<p>Note: Vue binds to attributes instead of properties by default.</p>
-						</aside>
-					</section>
-
-					<!-- https://commons.wikimedia.org/wiki/File:Holy-grail-round-table-bnf-ms_fr-116F-f610v-15th-detail.jpg -->
-					<section data-background="img/holy-grail.jpg" data-background-size="contain" data-no-center>
-						<h2><span class="text-with-bg">Web Components</span></h2>
-						<br><br><br><br><br>
-						<h3 class="fragment">
-							<span class="text-with-bg">The Holy Grail</span>
-						</h3>
-						<div class="fragment" id="solid-foundation">
-							<h3>
-								<span class="text-with-bg">A solid foundation<br><small>with the right level of abstraction</small></span>
-							</h3>
-							<p>
-								<small class="text-with-bg">Railroad ties, © Störfix / <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA-3.0</a> (via Wikimedia Commons)</small>
-							</p>
-						</div>
-
-						<aside class="notes">
-							<ul>
-								<li>We bet - yes, it's a bet - that Web Components are more future proof than frameworks.</li>
-								<li>At least they move more slowly 😉</li>
-								<li>Because they're relatively low-level, they integrate well with other technologies.</li>
-							</ul>
-						</aside>
-					</section>
-				</section>
-
-				<!-- Intro: Components in General -->
-
-				<section>
-					<section>
-						<blockquote>
-							<p>A software component is a<br><strong>unit of composition</strong> with contractually specified <strong>interfaces</strong> and explicit context <strong>dependencies</strong> only.</p>
-							<footer>
-								<small>Szyperski, Gruntz, Murer; <cite><a href="https://books.google.de/books?id=U896iwmtiagC">Component Software</a></cite></small>
-							</footer>
-						</blockquote>
-
-						<aside class="notes">
-							<p>Components are building blocks - for your app and for other components of your app.</p>
-						</aside>
-					</section>
-
-					<section>
-						<h2>The effect is <strong style="font-size: 1.5em; font-weight: normal; vertical-align: middle">HUGE!</strong></h2>
-						<img src="img/grunt-webpack-transition.svg" class="noborder" alt="Arrow pointing from the Grunt logo to the Webpack logo, indicating the transition from one tool to the other.">
-
-						<aside class="notes">
-							<ul>
-								<li>We came from a world with strictly separated technologies: HTML, CSS, JS</li>
-								<li>Now we think and build self-contained components and Webpack (or your preferred bundler) resolves their dependencies for you.</li>
-								<li>This affects the structure of our code base, our tooling, and our habits and practices.</li>
-								<li>Reusing components makes testing and documenting them more rewarding.</li>
-								<li>Even without reuse, you benefit from the improved code structure and tooling.</li>
-							</ul>
-						</aside>
-					</section>
-
-					<!-- https://www.pexels.com/photo/button-buttons-color-colour-670673/ -->
-					<section data-background="img/buttons.jpg">
-						<h2>
-							<span class="text-with-bg">Button</span>
-						</h2>
-						<p>
-							<span class="text-with-bg">UI components have a name and can be reused.</span>
-						</p>
-
-						<aside class="notes">
-							<ul>
-								<li>In frontend development, we usually talk about UI components.</li>
-								<li>People love them, because they make it easier to discuss certain parts of the UI.</li>
-								<li>Component reuse supports a consistent UI, hence a better UX.</li>
-							</ul>
-						</aside>
-					</section>
-
-					<section class="section-twocolumn">
-						<figure>
-							<img src="img/screenshot-zeplin.png" alt="Screenshot of the Disy style guide">
-							<figcaption>
-								Style guide<br>
-								<a href="https://zeplin.io/"><small>(Zeplin)</small></a>
-							</figcaption>
-						</figure>
-						<figure>
-							<img src="img/screenshot-catalog.png" alt="Screenshot of the Disy component library">
-							<figcaption>
-								Component library<br>
-								<a href="https://www.catalog.style/"><small>(Catalog)</small></a>
-							</figcaption>
-						</figure>
-
-						<aside class="notes">
-							<ul>
-								<li>Design tools co-evolve with the component trend in frontend development.</li>
-								<li>In recent years we talk more about style guides and component libraries.</li>
-								<li>
-									Designers use design tools like Adobe XD instead of "canvas editors" like Photoshop -
-									and they work with components instead of pixels.
-								</li>
-							</ul>
-						</aside>
-					</section>
-				</section>
-
-				<!-- Web Components -->
-
-				<section>
-					<section data-background="img/web-components-logo.svg" data-background-size="contain">
-						<h2>Web Components</h2>
-						<ul>
-							<li>Custom Elements</li>
-							<li>Shadow DOM</li>
-							<li>HTML Templates</li>
-							<li>&hellip;</li>
-						</ul>
-
-						<aside class="notes">
-							<ul>
-								<li>A set of complementary, but independet standards.</li>
-								<li>There's still movement (e.g. HTML modules).
-								<li>
-									Note: If you avoid frameworks because of long-term considerations,
-									you should avoid bleeding edge Web APIs, too 😜
-								</li>
-							</ul>
-						</aside>
-					</section>
-
-					<section>
-						<h2>Custom elements</h2>
-						<pre><code data-trim class="javascript">
-							class MyComponent extends HTMLElement {
-							  &hellip;
-							}
-
-							customElements.define('d-my-component', MyComponent);
-						</code></pre>
-						<p>
-							(<a href="https://developers.google.com/web/fundamentals/web-components/customelements">Google primer</a> on custom elements)
-						</p>
-
-						<aside class="notes">
-							<ul>
-								<li>
-									Custom elements are implemented as <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Classes">ES2015 classes</a>,
-									extending one of the built-in element types, and then defined in the <a href="https://developer.mozilla.org/docs/Web/API/CustomElementRegistry"><code>CustomElementRegistry</code></a>
-									with their element name.
-								</li>
-								<li>The dash (<code>-</code>) in the element name is mandatory and avoids collisions with (future) built-in elements.</li>
-								<li>Additionally at Disy, we prefix our component names with <code>d-</code> to avoid collisions with third-party components.</li>
-							</ul>
-						</aside>
-					</section>
-
-					<section>
-						<h2>
-							<span class="text-muted">Custom Elements:</span> Extending Built-ins
-						</h2>
-						<pre><code data-trim class="javascript">
-							class MyButton extends HTMLButtonElement {
-							  &hellip;
-							}
-
-							customElements.define('d-my-button', MyComponent, {extends: 'button'});
-
-							// Usage:
-							document.createElement('button', {is: 'd-my-button'});
-							// or
-							// new MyButton();
-							// &lt;button is="d-my-button">My Button&lt;/button>
-						</code></pre>
-
-						<aside class="notes">
-							<ul>
-								<li>
-									Benefit: Your component inherits the semantics and behavior of the built-in component,
-									so that it's functional and accessible out-of-the-box.
-								</li>
-								<li>For example, you can trigger your button using the keyboard <em>without extra code</em>.</li>
-								<li>When defining the Custom Element, the required third parameter tells the browser which tag you're extending.</li>
-							</ul>
-						</aside>
-					</section>
-
-					<section>
-						<h2>
-							<span class="text-muted">Custom Elements:</span> Browser Support
-						</h2>
-						<p class="ciu_embed" data-feature="custom-elementsv1" data-periods="future_1,current,past_1,past_2">
-							<a href="http://caniuse.com/#feat=custom-elementsv1">
-								<img src="https://res.cloudinary.com/ireaderinokun/image/upload/v1569016053/caniuse-embed/custom-elementsv1-2019-9-20.png" alt="Data on support for the custom-elementsv1 feature across the major browsers from caniuse.com">
-							</a>
-						</p>
-					</section>
-
-					<section>
-						<h2>
-							<span class="text-muted">Custom Elements:</span> Polyfilling
-						</h2>
-						<pre><code data-trim class="javascript">
-							&lt;script>
-							  if (window.customElements) {
-							    // Make the browser work with transpiled custom elements.
-							    document.write('&lt;script src="native-shim.js">&lt;/script>');
-							  } else {
-							    // Polyfill custom elements.
-							    document.write('&lt;script src="custom-elements.min.js">&lt;/script>');
-							  }
-							&lt;/script>
-						</code></pre>
-						<p>
-							<a href="https://github.com/webcomponents/polyfills/tree/master/packages/custom-elements">Polyfill for Custom Elements</a>
-						</p>
-
-						<p class="fragment">&rArr; We look forward to extend built-in elements in the future.</p>
-
-						<aside class="notes">
-							<ul>
-								<li>Because we need to support IE (our customers are rather conservative in this respect), we need to polyfill custom elements.</li>
-								<li>Using transpiled classes requires an extra shim.</li>
-								<li>That's not a problem: Polyfilling custom elements is easy and works well.</li>
-								<li>
-									Because Apple opposes extending built-in elements, the implementers of the
-									major polyfill (which we use) hesitate to implement that feature.
-								</li>
-							</ul>
-						</aside>
-					</section>
-
-					<section>
-						<h2>
-							<span class="text-muted">Custom Elements:</span> Lifecycle Callbacks
-						</h2>
-						<pre><code data-trim class="javascript">
-							class MyComponent extends HTMLElement {
-							  constructor () {
-							    // Called when the element is created or upgraded.
-							    super(); // Don't forget to call super().
-							    &hellip;
-							  }
-							  connectedCallback () {
-							    // Called when the element is connected to the DOM.
-							  }
-							  disconnectedCallback () {
-							    // Complement to the connectedCallback()
-							  }
-							}
-						</code></pre>
-
-						<aside class="notes">
-							<ul>
-								<li>
-									When <code>document.createElement()</code> is used to create the element,
-									it is not allowed to have attributes or children after the constructor was called.
-								</li>
-								<li>
-									<code>connectedCallback()</code> and <code>disconnectedCallback()</code> should be symmetric.
-									Keep in mind that they could be called multiple times.
-								</li>
-								<li>
-									For example, <code>classList.add()</code> and <code>setAttribute()</code> are idempotent,
-									while <code>append()</code> and <code>addEventListener()</code> are not.
-								</li>
-							</ul>
-						</aside>
-					</section>
-
-					<section>
-						<h2>
-							<span class="text-muted">Custom Elements:</span> Attributes
-						</h2>
-						<pre><code data-trim class="javascript">
-							class MyComponent extends HTMLElement {
-							  static get observedAttributes() {
-							    return ['some-attribute']; // Return attribute names to observe.
-							  }
-							  attributeChangedCallback (name, oldValue, newValue) {
-							    // Called when the observed attributes' values change.
-							  }
-							}
-						</code></pre>
-
-						<aside class="notes">
-							<ul>
-								<li>Attributes are there to configure an element declaratively. We use that for server-side rendering.</li>
-								<li>
-									At Disy, we don't use the <code>attributeChangedCallback()</code>, because a programmatic
-									attribute change should rather call the corresponding property setter.
-								</li>
-								<li>It could be useful for integration with third-party libraries, though.</li>
-							</ul>
-						</aside>
-					</section>
-
-					<section>
-						<h2>
-							<span class="text-muted">Custom Elements:</span> Properties
-						</h2>
-						<pre><code data-trim class="javascript">
-							class ToggleButton extends HTMLElement {
-							  connectedCallback () {
-							    this.addEventListener('click', () => {
-							      this.pressed = !this.pressed;
-							      this.dispatchEvent(new CustomEvent('toggle', {bubbles: true}));
-							    });
-							  }
-							  set pressed (value) {
-							    this.setAttribute('aria-pressed', value);
-							  }
-							  get pressed () {
-							    return this.getAttribute('aria-pressed') === 'true';
-							  }
-							}
-						</code></pre>
-
-						<aside class="notes">
-							<ul>
-								<li>Using the DOM to maintain the state of your component supports a coherent UI.</li>
-								<li>If you keep that in mind when writing your CSS, e.g. by using related attribute selectors, the benefit will be even bigger.</li>
-								<li>Triggering change events only for user actions (and not in property setters) avoids endless update loops.</li>
-								<li>When mimicing native events, be sure to get the details right (see <a href="https://developer.mozilla.org/docs/Web/Events">MDN Event Reference</a>).</li>
-							</ul>
-						</aside>
-					</section>
-
-					<section>
-						<h2>Shadow DOM</h2>
-						<pre><code data-trim class="javascript">
-							class Tabs extends HTMLElement {
-							  constructor() {
-							    super();
-
-							    const shadowRoot = this.attachShadow({mode: 'open'});
-							    shadowRoot.innerHTML = `
-							      &lt;style>#tabs { border-bottom: 1px solid; }&lt;/style>
-							      &lt;div id="tabs">
-							        &lt;slot name="tabs" />
-							      &lt;/div>
-							      &lt;div id="panels">
-							        &lt;slot />
-							      &lt;/div>
-							    `;
-							  }
-							}
-						</code></pre>
-						<ul>
-							<li>Scoped Styles</li>
-							<li>Declarative Composition</li>
-						</ul>
-						<p>
-							<a href="https://jsfiddle.net/09dyg34p/1/">jsfiddle.net/09dyg34p/1/</a>
-							(<a href="https://developers.google.com/web/fundamentals/web-components/shadowdom">Google primer</a>)
-						</p>
-
-						<aside class="notes">
-							<ul>
-								<li>The "Shadow Root" is attached to the "Host Element" and is local to that element.</li>
-								<li><code>'closed'</code> is used by built-in elements and is generally discouraged.</li>
-								<li>You cannot attach a shadow root to elements, which already have one.</li>
-							</ul>
-						</aside>
-					</section>
-
-					<section>
-						<h2>
-							<span class="text-muted">Shadow DOM:</span> Browser Support
-						</h2>
-						<p class="ciu_embed" data-feature="shadowdomv1" data-periods="future_1,current,past_1,past_2">
-							<a href="http://caniuse.com/#feat=shadowdomv1">
-								<img src="https://res.cloudinary.com/ireaderinokun/image/upload/v1569016053/caniuse-embed/shadowdomv1-2019-9-20.png" alt="Data on support for the shadowdomv1 feature across the major browsers from caniuse.com">
-							</a>
-						</p>
-						<p>
-							<a href="https://github.com/webcomponents/polyfills/tree/master/packages/shadydom">Polyfill for the Shadow DOM</a>
-						</p>
-					</section>
-
-					<section>
-						<h2>
-							<span class="text-muted">Shadow DOM:</span> "Challenges"
-						</h2>
-						<ul>
-							<li class="fragment">Polyfills are "shady" and horribly slow.</li>
-							<li class="fragment">Scoped styles require native CSS custom<br>properties to be really useful.</li>
-							<li class="fragment">No server-side rendering (although <a href="https://www.petergoes.nl/blog/my-stab-at-rendering-shadow-dom-server-side/">people try</a>)</li>
-						</ul>
-						<p class="fragment">
-							&rArr; We do not use the Shadow DOM and do not recommend it.
-						</p>
-
-						<aside class="notes">
-							<p>Style scoping was solved for us already by CSS conventions like BEM or - in our case - <a href="http://smacss.com/book/categorizing">SMACSS</a>.</p>
-						</aside>
-					</section>
-
-					<section>
-						<h2>HTML Templates</h2>
-						<pre><code data-trim class="html">
-							&lt;ul id="todoList">&lt;/ul>
-							&lt;template id="todoTemplate">
-							  &lt;li>
-							    &lt;label>
-							      &lt;input type="checkbox"> &lt;span class="text">&lt;/span>
-							    &lt;/label>
-							  &lt;/li>
-							&lt;/template>
-						</code></pre>
-
-						<pre><code data-trim class="javascript">
-							const todos = document.querySelector('#todoList');
-							const template = document.querySelector('#todoTemplate');
-							template.content.querySelector('.text').textContent = 'Give a talk';
-							template.content.querySelector('input').checked = true;
-							todos.append(document.importNode(template.content, true));
-						</code></pre>
-
-						<p>
-							<a href="https://jsfiddle.net/teg37rao/">jsfiddle.net/teg37rao/</a>
-						</p>
-
-						<aside class="notes">
-							<ul>
-								<li>
-									HTML Templates are special, because they're not text based and
-									work with the regular DOM APIs instead of custom binding syntax.
-								</li>
-								<li>
-									The content is inert until activated: <code>&lt;script></code>s do not run,
-									<code>&lt;img></code>s do not load, the content is effectively not part of the host document.
-								</li>
-							</ul>
-						</aside>
-					</section>
-
-					<section>
-						<h2>
-							<span class="text-muted">HTML Templates:</span> Browser Support
-						</h2>
-						<p class="ciu_embed" data-feature="template" data-periods="future_1,current,past_1,past_2">
-							<a href="http://caniuse.com/#feat=template">
-								<img src="https://res.cloudinary.com/ireaderinokun/image/upload/v1569016053/caniuse-embed/template-2019-9-20.png" alt="Data on support for the template feature across the major browsers from caniuse.com">
-							</a>
-						</p>
-						<p>
-							<a href="https://github.com/webcomponents/polyfills/tree/master/packages/template">Polyfill for HTML Templates</a>
-						</p>
-						<p class="fragment">&rArr; HTML Templates work nicely, but we don't use them, yet.</p>
-
-						<aside class="notes">
-							<ul>
-								<li>Browser support is better than for Custom Elements or Shadow DOM.</li>
-								<li>Polyfilling the inert property is impossible.</li>
-								<li>
-									We don't use it, because we create our DOM programmatically using <a href="https://github.com/hyperhype/hyperscript">Hyperscript</a>
-									(which is basically the same as <a href="https://reactjs.org/docs/react-api.html#createelement"><code>React.createElement()</code></a>).
-								</li>
-							</ul>
-						</aside>
-					</section>
-
-					<section>
-						<h2>And did I mention&hellip;</h2>
-						<ul class="nobullets-list">
-							<li class="fragment"><span class="emoji">🔋</span> Batteries included</li>
-							<li class="fragment"><span class="emoji">🎓</span> Flat learning curve</li>
-							<li class="fragment"><span class="emoji">🛠️</span> Great devtools</li>
-							<li class="fragment"><span class="emoji">☮</span>️ You can use &lt;x> with Web Components</li>
-							<li class="fragment"><span class="emoji">📈</span> Bigger companies do commitments	</li>
-						</ul>
-
-						<aside class="notes">
-							<ul>
-								<li>In modern browsers, you can use custom elements out-of-the-box.</li>
-								<li>Custom elements are just another API, not a whole new concept like JSX or Virtual DOM.</li>
-								<li>The browsers' devtools are <em>made</em> for DOM elements.</li>
-								<li>
-									Some frameworks support Web Components as compile target.
-									And there are Web Component frameworks which use JSX and Virtual DOM and stuff.
-								</li>
-							</ul>
-						</aside>
-					</section>
-
-					<section data-background="img/moving-train.jpg">
-						<h2 class="text-with-bg">Bottom line</h2>
-						<ul class="nobullets-list">
-							<li class="fragment">
-								<span class="text-with-bg">We have three years of experience with Custom Elements.</span>
-							</li>
-							<li class="fragment">
-								<span class="text-with-bg">Recently, we replaced our last RichFaces component.</span>
-							</li>
-							<li class="fragment">
-								<span class="text-with-bg">We benefit a lot and we'll move on into that direction.</span>
-							</li>
-						</ul>
-						<p class="fragment">
-							<span class="text-with-bg">
-								Keep calm and <a href="https://twitter.com/hashtag/usetheplatform">#UseThePlatform</a>
-							</span>
-						</p>
-						<p>
-							<small class="text-with-bg">Departing train, © Xenotron / <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> (via Wikimedia Commons)</small>
-						</p>
-					</section>
-				</section>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+        <title>Vue vs Vanilla - Components for the Web</title>
+
+        <link rel="stylesheet" href="css/reset.css">
+        <link rel="stylesheet" href="css/reveal.css">
+        <link rel="stylesheet" href="css/theme/moon.css">
+        <link rel="stylesheet" href="css/custom.css">
+
+        <!-- Theme used for syntax highlighting of code -->
+        <link rel="stylesheet" href="lib/css/zenburn.css">
+
+        <!-- Printing and PDF exports -->
+        <script>
+            var link = document.createElement('link');
+            link.rel = 'stylesheet';
+            link.type = 'text/css';
+            link.href = location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+            document.head.append(link);
+        </script>
+
+        <base target="_blank">
+    </head>
+    <body>
+        <div class="reveal">
+            <div class="slides">
+
+                <section
+                    data-background="img/title/art-materials-art-supplies-blocks-1148496.jpg"
+                >
+                    <h1>
+                        <span class="text-with-bg">Vue vs Vanilla</span><br>
+                        <small class="text-with-bg">Components for the Web</small>
+                    </h1>
+                    <p>
+                        <small class="text-with-bg">
+                            Johannes Kissel &amp; <a href="http://github.com/haimich/" target="_blank">Michael Müller</a><br>
+                        </small>
+                    </p>
+
+                    <a href="https://2019.accento.dev/">
+                        <img src="img/accento-logo.png" alt="Accento Logo" style="border: none; background: none; box-shadow: none; width: 21%; padding: 10px;">
+                    </a>
+                </section>
+
+                <!-- About us -->
+
+                <section>
+                    <section
+                        data-background="img/jo-bicycle.jpg"
+                        data-background-size="cover"
+                        class="section-twocolumn"
+                    >
+                        <div>
+                            <img src="img/jo.jpg" alt="Johannes Kissel" />
+                        </div>
+
+                        <div style="background-color: rgba(0, 43, 54, 0.65); padding: 20px 0">
+                            <h2>Johannes Kissel</h2>
+                            <p>
+                                Software Developer<br>at
+                                <img src="img/disy-logo.svg" alt="Disy Logo" class="inline" style="padding: 8px;"><br>
+                                in Karlsruhe
+                            </p>
+                            <p>Enthusiastic about &hellip;</p>
+                            <ul class="nobullets-list">
+                                <li><span class="emoji">🔗</span> The Open Web</li>
+                                <li><span class="emoji">🚲</span> Cycling</li>
+                                <li><span class="emoji">🎶</span> Singing</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section
+                        data-background="img/vue/varka-bar-2.jpg"
+                        data-background-size="cover"
+                        class="section-twocolumn"
+                        style="color:#c9cece;"
+                    >
+                        <div>
+                            <img src="img/vue/cookbooks.jpg" alt="Michael Müller" />
+                        </div>
+
+                        <div style="background-color: rgba(0, 43, 54, 0.65); padding: 20px 0">
+                            <h2>Michael Müller</h2>
+
+                            <p>
+                                Full Stack Developer<br>at
+                                <img src="img/vue/echobot-logo.png" alt="Echobot Logo" class="inline" style="padding: 11px; height: 29px;"><br>
+                                in Karlsruhe
+                            </p>
+                            <p>Enthusiastic about &hellip;</p>
+                            <ul class="nobullets-list">
+                                <li><span class="emoji">💻</span> Web Development</li>
+                                <li><span class="emoji">🍳</span> Cooking</li>
+                                <li><span class="emoji">🎶</span> Singing</li>
+                            </ul>
+                        </div>
+
+                        <aside class="notes">
+                            <ul>
+                                <li>arbeite bei der Firma Echobot - ein Startup, das eigentlich keins mehr ist</li>
+                                <li>ich war früher reiner Backendentwickler, aber durch Johannes habe ich vor 5 Jahren die Webentwicklung für mich entdeckt</li>
+                                <li>wir waren damals beide bei 1&1, Johannes im Frontend und ich im Backendteam</li>
+                                <li>ich habe dann ab und zu mal rübergeschielt, was die da so machen</li>
+                                <li>ich habe mich dann zwei Jahre jeden Tag weitergebildet (und mache kein Java mehr)</li>
+                                <li>zum Kochen: wir schaffen es auch immer mal wieder, das Kochen mit dem Coden zu verbinden</li>
+                                <li>zum Singen: auch ein gemeinsames Hobby, wir singen beide beim Karlsruhe Chor Jazzika</li>
+                                <li>zum Bild: das passiert, wenn der Vorbereitungszeitraum für die Konferenz in die Urlaubszeit fällt ;)</li>
+                            </ul>
+                        </aside>
+                    </section>
+                </section>
+
+                <section>
+                    <h2>Quick and Dirty &hellip;</h2>
+                    <img class="fragment" src="img/quick-and-dirty.svg" alt="Quick and Dirty - it depends" style="background-color: white;">
+                    <p class="fragment">&hellip; it depends.</p>
+
+                    <aside class="notes">
+                        <ul>
+                            <li>wir haben das Konferenzmotto mal in eine Koordinatensystem überführt</li>
+                            <li>wenn man so ein Projekt anfängt, stellt sich natürlich erst mal die Frage: wie geht man an das Ganze ran</li>
+                            <li>das muss jedes Team für sich selbst entscheiden, aber gehen wir es doch mal durch:</li>
+                            <li>1. You lay a foundation: Du nimmst Dir Zeit, eine gute Basis zu schaffen (für ein Produkt oder Feature).</li>
+                            <li>2. You are lucky: The optimal case, nobody will complain. Your team is really potent and can deliver top quality in zero time.</li>
+                            <li>3. You bet on the future: You trade quality for time, maybe to get some contract? You'll need to pay in the future.</li>
+                            <li>4. You are lazy: WTF, why should you do that? Because you can? Come on &hellip;</li>
+                            <li>The truth is&hellip; it depends!</li>
+                            <li>in welchem Quadranten wir uns mit unseren Projekten bewegt haben, erfahrt ihr jetzt!</li>
+                        </ul>
+                    </aside>
+                </section>
+
+                <!-- INTRO -->
+                <section
+                    data-background="img/intro/stage-7-photography-q_mKaIlcg6o-unsplash.jpg"
+                >
+                    <aside class="notes">
+                        <ul>
+                            <li>jetzt wisst ihr wer wir sind, bleibt die Frage wie es eigentlich zu diesem Vortrag kam</li>
+                            <li>wir ihr vielleicht schon an unseren Hobbies gesehen habt, gibt es da einige Überschneidungen</li>
+                            <li>eine davon ist das Fahrrad fahren, bei dem man sich ziemlich gut u. a. über die Arbeit austauschen kann</li>
+                            <li>hatten beide im letzten Jahr die Herausforderung, eine Technologieentscheidung für ein großes Projekt treffen zu müssen</li>
+                            <li>wir haben dabei ziemlich unterschiedliche Wege verfolgt</li>
+                            <li>wir wollen euch heute vorstellen, was das für Projekte waren, welche Technologien wir gewählt haben und was am Ende draus geworden ist :)</li>
+                            <li>Zuhörer sollen die Konzepte hinter Vue.js und WebComponents kennenlernen</li>
+                            <li>unser Ziel ist es euch zu helfen, es einzuordnen (vor allem für Technikentscheidungen)</li>
+                            <li>Vortrag ist in zwei Teile aufgeteilt</li>
+                            <li>Vorteile/Nachteile der jeweiligen Lösung aufzeigen</li>
+                            <li>Außerdem werden Erfahrungen aus dem direkten Projekteinsatz geteilt.</li>
+                            <li>Es gibt viele Technologien im Webkosmos, aber die meisten Entwickler haben nicht die Zeit, sich mit allen eingehend zu beschäftigen.</li>
+                            <li>Trotzdem finden wir, dass es insbesondere für erfahrene Entwickler wichtig ist, die verfügbaren Technologien zu kennen und einordnen zu können. Dies erlaubt es, im beruflichen Umfeld informierte Technologie-Entscheidungen zu treffen.</li>
+                            <li>damit übergebe ich an Johannes und wünsche euch viel Spaß mit den Web Components</li>
+                        </ul>
+                    </aside>
+                </section>
+
+                <!-- Motivation Web Components -->
+
+                <section>
+                    <section>
+                        <h2>Cadenza is big &hellip;</h2>
+                        <img src="img/cadenza.png" alt="Cadenza sreenshot showing a map" class="noborder">
+                        <p class="fragment">&hellip; and it's legacy, but &hellip;</p>
+
+                        <aside class="notes">
+                            <ul>
+                                <li>Product suite with desktop, Web, and mobile apps.</li>
+                                <li>Gather and analyze geo data, do reporting</li>
+                                <li>The Java code base alone counts 1.500.000 lines of code, plus a lot of JavaScript.</li>
+                            </ul>
+                        </aside>
+                    </section>
+
+                    <section>
+                        <p>&hellip; not <em>that</em> kind of legacy &hellip;</p>
+                        <figure>
+                            <img src="img/legacy-dung-heap.jpg" alt="Dung Heap">
+                            <figcaption>
+                                <small>Dung heap, © Superbass / <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA-3.0</a> (via Wikimedia Commons)</small>
+                            </figcaption>
+                        </figure>
+
+                        <aside class="notes">
+                            <ul>
+                                <li>It doesn't steam up while it rots.</li>
+                            </ul>
+                        </aside>
+                    </section>
+
+                    <section>
+                        <p>&hellip; or that kind:</p>
+                        <figure>
+                            <img src="img/legacy-jenga.jpg" alt="Jenga Tower">
+                            <figcaption>
+                                <small>Jenga tower, © Marco Verch / <a href="https://creativecommons.org/licenses/by/2.0/">CC-BY-2.0</a> (via Flickr)</small>
+                            </figcaption>
+                        </figure>
+
+                        <aside class="notes">
+                            <ul>
+                                <li>We're <em>not</em> afraid it will fall.</li>
+                            </ul>
+                        </aside>
+                    </section>
+
+                    <section data-background="img/legacy-main-station.jpg">
+                        <p class="text-with-bg" style="margin-bottom: 45vh; font-size: 1.5em">It's vivid and<br>constantly improved and extended</p>
+                        <br><br><br><br><br><br><br><br><br>
+                        <p class="text-with-bg" style="font-size: 0.6em">
+                            Frankfurt main station, © Urmelbeauftragter / <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA-3.0</a> (via Wikimedia Commons)
+                        </p>
+
+                        <aside class="notes">
+                            <ul>
+                                <li>Web is ~10 years old and getting more important, recently.</li>
+                                <li>A lot of people use it (tens of thousands).</li>
+                                <li>We add new features all the time.</li>
+                                <li>We constantly improve the code base (e.g. always using the newest LTS Java version).</li>
+                            </ul>
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h2 class="fragment">How to be future proof?</h2>
+                        <ul class="nobullets-list" style="text-align: center">
+                            <li>
+                                <a href="https://richfaces.jboss.org/">
+                                    <img src="img/richfaces-logo.png" alt="RichFaces Logo" class="noborder" style="height: 2em">
+                                </a>
+                            </li>
+                            <li class="fragment">
+                                <a href="https://angularjs.org/">
+                                    <img src="img/angularjs-logo.png" alt="AngularJS (aka &quot;Angular 1&quot;) Logo" class="noborder" style="height: 2em">
+                                </a>
+                            </li>
+                            <li class="fragment">
+                                <a href="https://backbonejs.org/">
+                                    <img src="img/backbone-logo.png" alt="Backbone Logo" class="noborder" style="height: 2em; background-color: white">
+                                </a>
+                            </li>
+                            <li class="fragment">
+                                <a href="https://openlayers.org/two/">
+                                    <img src="img/openlayers2-logo.png" alt="OpenLayers 2 Logo" class="noborder" style="height: 2em">
+                                </a>
+                            </li>
+                            <li class="fragment">
+                                <a href="http://www.qooxdoo.org/">
+                                    <img src="img/qooxdoo-logo.png" alt="OpenLayers 2 Logo" class="noborder" style="height: 2em">
+                                </a><br>
+                                &hellip;
+                            </li>
+
+                            <img src="img/forbidden.svg" alt="" class="fragment noborder" style="height: 50vh; left: 50%; position: absolute; top: 50%; transform: translate(-50%, -50%);">
+                        </ul>
+
+                        <aside class="notes">
+                            <ul>
+                                <li>
+                                    The RichFaces end-of-life in 2016 together with an exploding number of feature requests
+                                    made us think about Cadenza Web's technical foundation.
+                                </li>
+                                <li>The problem: Frameworks tend to die or break their APIs.</li>
+                            </ul>
+                        </aside>
+                    </section>
+
+                    <!-- https://commons.wikimedia.org/wiki/File:RU800S_atepitovonat_1.jpg -->
+                    <section data-background="img/refactor-on-the-go.jpg" data-background-size="contain" data-no-center style="text-align: left; padding-top: 15%">
+                        <p class="text-with-bg">Refactoring on the go demands<br>maximum interoperability</p>
+
+                        <aside class="notes">
+                            <ul>
+                                <li>Re-writing the app is not an option.</li>
+                                <li>We need maximum interoperability with existing code and know-how and also with future libs.</li>
+                            </ul>
+                        </aside>
+                    </section>
+
+                    <section>
+                        <pre><code data-trim class="javascript">
+                            const ELEMENT_NAME = 'd-toggle-button';
+
+                            class ToggleButton extends HTMLElement {
+                              connectedCallback () {
+                                this.classList.add(ELEMENT_NAME);
+                                this.setAttribute('role', 'button');
+                                this.addEventListener('click', () => {
+                                  this.pressed = !this.pressed;
+                                  this.dispatchEvent(new CustomEvent('toggle', {bubbles: true}));
+                                });
+                              }
+                              set pressed (value) {
+                                this.setAttribute('aria-pressed', value);
+                              }
+                              get pressed () {
+                                return this.getAttribute('aria-pressed') === 'true';
+                              }
+                            }
+
+                            customElements.define(ELEMENT_NAME, ToggleButton);
+                        </code></pre>
+                        <p>
+                            <a href="https://jsfiddle.net/w15c8mpx/">jsfiddle.net/w15c8mpx/</a>
+                        </p>
+
+                        <aside class="notes">
+                            <ul>
+                                <li>A simple toggle button component as example: The following slides show it's usage with various technologies.</li>
+                                <li>The example already shows some of our best practices, which will be discussed later.</li>
+                                <li>Web components are low-level, so you should know the DOM.</li>
+                            </ul>
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h2>Usage with Plain DOM</h2>
+                        <pre><code data-trim class="javascript">
+                            const button = document.createElement('d-toggle-button');
+                            button.textContent = 'Button';
+                            button.pressed = true;
+                            button.addEventListener('toggle', () => {
+                              console.log(button.pressed);
+                            });
+                            document.body.append(button);
+                        </code></pre>
+
+                        <aside class="notes">
+                            <p>Custom Elements can be used like a built-in element.</p>
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h2>Usage with Constructor</h2>
+                        <pre><code data-trim class="javascript">
+                            import ToggleButton from 'ui/toggle-button';
+                            // or
+                            const ToggleButton = customElements.get('d-toggle-button');
+
+                            // Constructor
+                            const button = new ToggleButton();
+                            &hellip;
+                        </code></pre>
+
+                        <aside class="notes">
+                            <ul>
+                                <li>Using the constructor in this case is equivalent to <code>document.createElement()</code>.</li>
+                                <li>But it also accepts arguments.</li>
+                                <li>Ideally, your components should work <em>with</em> and <em>without</em> constructor arguments.</li>
+                            </ul>
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h2>Usage with jQuery</h2>
+                        <pre><code data-trim class="javascript">
+                            const $button = $('&lt;d-toggle-button>')
+                              .text('Button')
+                              .prop('pressed', true)
+                              .on('toggle', () => console.log($button.prop('pressed')))
+                              .appendTo(document.body);
+                        </code></pre>
+                    </section>
+
+                    <section>
+                        <h2>Usage with Vue</h2>
+                        <pre><code data-trim class="javascript">
+                            new Vue({
+                              el: '#app',
+                              template: `&lt;d-toggle-button
+                                           :pressed.prop="pressed"
+                                           @toggle="onToggle">Button&lt;/d-toggle-button>`,
+                              data: { pressed: true },
+                              methods: {
+                                onToggle: event => console.log(event.target.pressed)
+                              }
+                            });
+                        </code></pre>
+
+                        <aside class="notes">
+                            <p>Note: Vue binds to attributes instead of properties by default.</p>
+                        </aside>
+                    </section>
+
+                    <!-- https://commons.wikimedia.org/wiki/File:Holy-grail-round-table-bnf-ms_fr-116F-f610v-15th-detail.jpg -->
+                    <section data-background="img/holy-grail.jpg" data-background-size="contain" data-no-center>
+                        <h2><span class="text-with-bg">Web Components</span></h2>
+                        <br><br><br><br><br>
+                        <h3 class="fragment">
+                            <span class="text-with-bg">The Holy Grail</span>
+                        </h3>
+                        <div class="fragment" id="solid-foundation">
+                            <h3>
+                                <span class="text-with-bg">A solid foundation<br><small>with the right level of abstraction</small></span>
+                            </h3>
+                            <p>
+                                <small class="text-with-bg">Railroad ties, © Störfix / <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA-3.0</a> (via Wikimedia Commons)</small>
+                            </p>
+                        </div>
+
+                        <aside class="notes">
+                            <ul>
+                                <li>We bet - yes, it's a bet - that Web Components are more future proof than frameworks.</li>
+                                <li>At least they move more slowly 😉</li>
+                                <li>Because they're relatively low-level, they integrate well with other technologies.</li>
+                            </ul>
+                        </aside>
+                    </section>
+                </section>
+
+                <!-- Intro: Components in General -->
+
+                <section>
+                    <section>
+                        <blockquote>
+                            <p>A software component is a<br><strong>unit of composition</strong> with contractually specified <strong>interfaces</strong> and explicit context <strong>dependencies</strong> only.</p>
+                            <footer>
+                                <small>Szyperski, Gruntz, Murer; <cite><a href="https://books.google.de/books?id=U896iwmtiagC">Component Software</a></cite></small>
+                            </footer>
+                        </blockquote>
+
+                        <aside class="notes">
+                            <p>Components are building blocks - for your app and for other components of your app.</p>
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h2>The effect is <strong style="font-size: 1.5em; font-weight: normal; vertical-align: middle">HUGE!</strong></h2>
+                        <img src="img/grunt-webpack-transition.svg" class="noborder" alt="Arrow pointing from the Grunt logo to the Webpack logo, indicating the transition from one tool to the other.">
+
+                        <aside class="notes">
+                            <ul>
+                                <li>We came from a world with strictly separated technologies: HTML, CSS, JS</li>
+                                <li>Now we think and build self-contained components and Webpack (or your preferred bundler) resolves their dependencies for you.</li>
+                                <li>This affects the structure of our code base, our tooling, and our habits and practices.</li>
+                                <li>Reusing components makes testing and documenting them more rewarding.</li>
+                                <li>Even without reuse, you benefit from the improved code structure and tooling.</li>
+                            </ul>
+                        </aside>
+                    </section>
+
+                    <!-- https://www.pexels.com/photo/button-buttons-color-colour-670673/ -->
+                    <section data-background="img/buttons.jpg">
+                        <h2>
+                            <span class="text-with-bg">Button</span>
+                        </h2>
+                        <p>
+                            <span class="text-with-bg">UI components have a name and can be reused.</span>
+                        </p>
+
+                        <aside class="notes">
+                            <ul>
+                                <li>In frontend development, we usually talk about UI components.</li>
+                                <li>People love them, because they make it easier to discuss certain parts of the UI.</li>
+                                <li>Component reuse supports a consistent UI, hence a better UX.</li>
+                            </ul>
+                        </aside>
+                    </section>
+
+                    <section class="section-twocolumn">
+                        <figure>
+                            <img src="img/screenshot-zeplin.png" alt="Screenshot of the Disy style guide">
+                            <figcaption>
+                                Style guide<br>
+                                <a href="https://zeplin.io/"><small>(Zeplin)</small></a>
+                            </figcaption>
+                        </figure>
+                        <figure>
+                            <img src="img/screenshot-catalog.png" alt="Screenshot of the Disy component library">
+                            <figcaption>
+                                Component library<br>
+                                <a href="https://www.catalog.style/"><small>(Catalog)</small></a>
+                            </figcaption>
+                        </figure>
+
+                        <aside class="notes">
+                            <ul>
+                                <li>Design tools co-evolve with the component trend in frontend development.</li>
+                                <li>In recent years we talk more about style guides and component libraries.</li>
+                                <li>
+                                    Designers use design tools like Adobe XD instead of "canvas editors" like Photoshop -
+                                    and they work with components instead of pixels.
+                                </li>
+                            </ul>
+                        </aside>
+                    </section>
+                </section>
+
+                <!-- Web Components -->
+
+                <section>
+                    <section data-background="img/web-components-logo.svg" data-background-size="contain">
+                        <h2>Web Components</h2>
+                        <ul>
+                            <li>Custom Elements</li>
+                            <li>Shadow DOM</li>
+                            <li>HTML Templates</li>
+                            <li>&hellip;</li>
+                        </ul>
+
+                        <aside class="notes">
+                            <ul>
+                                <li>A set of complementary, but independet standards.</li>
+                                <li>There's still movement (e.g. HTML modules).
+                                <li>
+                                    Note: If you avoid frameworks because of long-term considerations,
+                                    you should avoid bleeding edge Web APIs, too 😜
+                                </li>
+                            </ul>
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h2>Custom elements</h2>
+                        <pre><code data-trim class="javascript">
+                            class MyComponent extends HTMLElement {
+                              &hellip;
+                            }
+
+                            customElements.define('d-my-component', MyComponent);
+                        </code></pre>
+                        <p>
+                            (<a href="https://developers.google.com/web/fundamentals/web-components/customelements">Google primer</a> on custom elements)
+                        </p>
+
+                        <aside class="notes">
+                            <ul>
+                                <li>
+                                    Custom elements are implemented as <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Classes">ES2015 classes</a>,
+                                    extending one of the built-in element types, and then defined in the <a href="https://developer.mozilla.org/docs/Web/API/CustomElementRegistry"><code>CustomElementRegistry</code></a>
+                                    with their element name.
+                                </li>
+                                <li>The dash (<code>-</code>) in the element name is mandatory and avoids collisions with (future) built-in elements.</li>
+                                <li>Additionally at Disy, we prefix our component names with <code>d-</code> to avoid collisions with third-party components.</li>
+                            </ul>
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h2>
+                            <span class="text-muted">Custom Elements:</span> Extending Built-ins
+                        </h2>
+                        <pre><code data-trim class="javascript">
+                            class MyButton extends HTMLButtonElement {
+                              &hellip;
+                            }
+
+                            customElements.define('d-my-button', MyComponent, {extends: 'button'});
+
+                            // Usage:
+                            document.createElement('button', {is: 'd-my-button'});
+                            // or
+                            // new MyButton();
+                            // &lt;button is="d-my-button">My Button&lt;/button>
+                        </code></pre>
+
+                        <aside class="notes">
+                            <ul>
+                                <li>
+                                    Benefit: Your component inherits the semantics and behavior of the built-in component,
+                                    so that it's functional and accessible out-of-the-box.
+                                </li>
+                                <li>For example, you can trigger your button using the keyboard <em>without extra code</em>.</li>
+                                <li>When defining the Custom Element, the required third parameter tells the browser which tag you're extending.</li>
+                            </ul>
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h2>
+                            <span class="text-muted">Custom Elements:</span> Browser Support
+                        </h2>
+                        <p class="ciu_embed" data-feature="custom-elementsv1" data-periods="future_1,current,past_1,past_2">
+                            <a href="http://caniuse.com/#feat=custom-elementsv1">
+                                <img src="https://res.cloudinary.com/ireaderinokun/image/upload/v1569016053/caniuse-embed/custom-elementsv1-2019-9-20.png" alt="Data on support for the custom-elementsv1 feature across the major browsers from caniuse.com">
+                            </a>
+                        </p>
+                    </section>
+
+                    <section>
+                        <h2>
+                            <span class="text-muted">Custom Elements:</span> Polyfilling
+                        </h2>
+                        <pre><code data-trim class="javascript">
+                            &lt;script>
+                              if (window.customElements) {
+                                // Make the browser work with transpiled custom elements.
+                                document.write('&lt;script src="native-shim.js">&lt;/script>');
+                              } else {
+                                // Polyfill custom elements.
+                                document.write('&lt;script src="custom-elements.min.js">&lt;/script>');
+                              }
+                            &lt;/script>
+                        </code></pre>
+                        <p>
+                            <a href="https://github.com/webcomponents/polyfills/tree/master/packages/custom-elements">Polyfill for Custom Elements</a>
+                        </p>
+
+                        <p class="fragment">&rArr; We look forward to extend built-in elements in the future.</p>
+
+                        <aside class="notes">
+                            <ul>
+                                <li>Because we need to support IE (our customers are rather conservative in this respect), we need to polyfill custom elements.</li>
+                                <li>Using transpiled classes requires an extra shim.</li>
+                                <li>That's not a problem: Polyfilling custom elements is easy and works well.</li>
+                                <li>
+                                    Because Apple opposes extending built-in elements, the implementers of the
+                                    major polyfill (which we use) hesitate to implement that feature.
+                                </li>
+                            </ul>
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h2>
+                            <span class="text-muted">Custom Elements:</span> Lifecycle Callbacks
+                        </h2>
+                        <pre><code data-trim class="javascript">
+                            class MyComponent extends HTMLElement {
+                              constructor () {
+                                // Called when the element is created or upgraded.
+                                super(); // Don't forget to call super().
+                                &hellip;
+                              }
+                              connectedCallback () {
+                                // Called when the element is connected to the DOM.
+                              }
+                              disconnectedCallback () {
+                                // Complement to the connectedCallback()
+                              }
+                            }
+                        </code></pre>
+
+                        <aside class="notes">
+                            <ul>
+                                <li>
+                                    When <code>document.createElement()</code> is used to create the element,
+                                    it is not allowed to have attributes or children after the constructor was called.
+                                </li>
+                                <li>
+                                    <code>connectedCallback()</code> and <code>disconnectedCallback()</code> should be symmetric.
+                                    Keep in mind that they could be called multiple times.
+                                </li>
+                                <li>
+                                    For example, <code>classList.add()</code> and <code>setAttribute()</code> are idempotent,
+                                    while <code>append()</code> and <code>addEventListener()</code> are not.
+                                </li>
+                            </ul>
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h2>
+                            <span class="text-muted">Custom Elements:</span> Attributes
+                        </h2>
+                        <pre><code data-trim class="javascript">
+                            class MyComponent extends HTMLElement {
+                              static get observedAttributes() {
+                                return ['some-attribute']; // Return attribute names to observe.
+                              }
+                              attributeChangedCallback (name, oldValue, newValue) {
+                                // Called when the observed attributes' values change.
+                              }
+                            }
+                        </code></pre>
+
+                        <aside class="notes">
+                            <ul>
+                                <li>Attributes are there to configure an element declaratively. We use that for server-side rendering.</li>
+                                <li>
+                                    At Disy, we don't use the <code>attributeChangedCallback()</code>, because a programmatic
+                                    attribute change should rather call the corresponding property setter.
+                                </li>
+                                <li>It could be useful for integration with third-party libraries, though.</li>
+                            </ul>
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h2>
+                            <span class="text-muted">Custom Elements:</span> Properties
+                        </h2>
+                        <pre><code data-trim class="javascript">
+                            class ToggleButton extends HTMLElement {
+                              connectedCallback () {
+                                this.addEventListener('click', () => {
+                                  this.pressed = !this.pressed;
+                                  this.dispatchEvent(new CustomEvent('toggle', {bubbles: true}));
+                                });
+                              }
+                              set pressed (value) {
+                                this.setAttribute('aria-pressed', value);
+                              }
+                              get pressed () {
+                                return this.getAttribute('aria-pressed') === 'true';
+                              }
+                            }
+                        </code></pre>
+
+                        <aside class="notes">
+                            <ul>
+                                <li>Using the DOM to maintain the state of your component supports a coherent UI.</li>
+                                <li>If you keep that in mind when writing your CSS, e.g. by using related attribute selectors, the benefit will be even bigger.</li>
+                                <li>Triggering change events only for user actions (and not in property setters) avoids endless update loops.</li>
+                                <li>When mimicing native events, be sure to get the details right (see <a href="https://developer.mozilla.org/docs/Web/Events">MDN Event Reference</a>).</li>
+                            </ul>
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h2>Shadow DOM</h2>
+                        <pre><code data-trim class="javascript">
+                            class Tabs extends HTMLElement {
+                              constructor() {
+                                super();
+
+                                const shadowRoot = this.attachShadow({mode: 'open'});
+                                shadowRoot.innerHTML = `
+                                  &lt;style>#tabs { border-bottom: 1px solid; }&lt;/style>
+                                  &lt;div id="tabs">
+                                    &lt;slot name="tabs" />
+                                  &lt;/div>
+                                  &lt;div id="panels">
+                                    &lt;slot />
+                                  &lt;/div>
+                                `;
+                              }
+                            }
+                        </code></pre>
+                        <ul>
+                            <li>Scoped Styles</li>
+                            <li>Declarative Composition</li>
+                        </ul>
+                        <p>
+                            <a href="https://jsfiddle.net/09dyg34p/1/">jsfiddle.net/09dyg34p/1/</a>
+                            (<a href="https://developers.google.com/web/fundamentals/web-components/shadowdom">Google primer</a>)
+                        </p>
+
+                        <aside class="notes">
+                            <ul>
+                                <li>The "Shadow Root" is attached to the "Host Element" and is local to that element.</li>
+                                <li><code>'closed'</code> is used by built-in elements and is generally discouraged.</li>
+                                <li>You cannot attach a shadow root to elements, which already have one.</li>
+                            </ul>
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h2>
+                            <span class="text-muted">Shadow DOM:</span> Browser Support
+                        </h2>
+                        <p class="ciu_embed" data-feature="shadowdomv1" data-periods="future_1,current,past_1,past_2">
+                            <a href="http://caniuse.com/#feat=shadowdomv1">
+                                <img src="https://res.cloudinary.com/ireaderinokun/image/upload/v1569016053/caniuse-embed/shadowdomv1-2019-9-20.png" alt="Data on support for the shadowdomv1 feature across the major browsers from caniuse.com">
+                            </a>
+                        </p>
+                        <p>
+                            <a href="https://github.com/webcomponents/polyfills/tree/master/packages/shadydom">Polyfill for the Shadow DOM</a>
+                        </p>
+                    </section>
+
+                    <section>
+                        <h2>
+                            <span class="text-muted">Shadow DOM:</span> "Challenges"
+                        </h2>
+                        <ul>
+                            <li class="fragment">Polyfills are "shady" and horribly slow.</li>
+                            <li class="fragment">Scoped styles require native CSS custom<br>properties to be really useful.</li>
+                            <li class="fragment">No server-side rendering (although <a href="https://www.petergoes.nl/blog/my-stab-at-rendering-shadow-dom-server-side/">people try</a>)</li>
+                        </ul>
+                        <p class="fragment">
+                            &rArr; We do not use the Shadow DOM and do not recommend it.
+                        </p>
+
+                        <aside class="notes">
+                            <p>Style scoping was solved for us already by CSS conventions like BEM or - in our case - <a href="http://smacss.com/book/categorizing">SMACSS</a>.</p>
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h2>HTML Templates</h2>
+                        <pre><code data-trim class="html">
+                            &lt;ul id="todoList">&lt;/ul>
+                            &lt;template id="todoTemplate">
+                              &lt;li>
+                                &lt;label>
+                                  &lt;input type="checkbox"> &lt;span class="text">&lt;/span>
+                                &lt;/label>
+                              &lt;/li>
+                            &lt;/template>
+                        </code></pre>
+
+                        <pre><code data-trim class="javascript">
+                            const todos = document.querySelector('#todoList');
+                            const template = document.querySelector('#todoTemplate');
+                            template.content.querySelector('.text').textContent = 'Give a talk';
+                            template.content.querySelector('input').checked = true;
+                            todos.append(document.importNode(template.content, true));
+                        </code></pre>
+
+                        <p>
+                            <a href="https://jsfiddle.net/teg37rao/">jsfiddle.net/teg37rao/</a>
+                        </p>
+
+                        <aside class="notes">
+                            <ul>
+                                <li>
+                                    HTML Templates are special, because they're not text based and
+                                    work with the regular DOM APIs instead of custom binding syntax.
+                                </li>
+                                <li>
+                                    The content is inert until activated: <code>&lt;script></code>s do not run,
+                                    <code>&lt;img></code>s do not load, the content is effectively not part of the host document.
+                                </li>
+                            </ul>
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h2>
+                            <span class="text-muted">HTML Templates:</span> Browser Support
+                        </h2>
+                        <p class="ciu_embed" data-feature="template" data-periods="future_1,current,past_1,past_2">
+                            <a href="http://caniuse.com/#feat=template">
+                                <img src="https://res.cloudinary.com/ireaderinokun/image/upload/v1569016053/caniuse-embed/template-2019-9-20.png" alt="Data on support for the template feature across the major browsers from caniuse.com">
+                            </a>
+                        </p>
+                        <p>
+                            <a href="https://github.com/webcomponents/polyfills/tree/master/packages/template">Polyfill for HTML Templates</a>
+                        </p>
+                        <p class="fragment">&rArr; HTML Templates work nicely, but we don't use them, yet.</p>
+
+                        <aside class="notes">
+                            <ul>
+                                <li>Browser support is better than for Custom Elements or Shadow DOM.</li>
+                                <li>Polyfilling the inert property is impossible.</li>
+                                <li>
+                                    We don't use it, because we create our DOM programmatically using <a href="https://github.com/hyperhype/hyperscript">Hyperscript</a>
+                                    (which is basically the same as <a href="https://reactjs.org/docs/react-api.html#createelement"><code>React.createElement()</code></a>).
+                                </li>
+                            </ul>
+                        </aside>
+                    </section>
+
+                    <section>
+                        <h2>And did I mention&hellip;</h2>
+                        <ul class="nobullets-list">
+                            <li class="fragment"><span class="emoji">🔋</span> Batteries included</li>
+                            <li class="fragment"><span class="emoji">🎓</span> Flat learning curve</li>
+                            <li class="fragment"><span class="emoji">🛠️</span> Great devtools</li>
+                            <li class="fragment"><span class="emoji">☮</span>️ You can use &lt;x> with Web Components</li>
+                            <li class="fragment"><span class="emoji">📈</span> Bigger companies do commitments</li>
+                        </ul>
+
+                        <aside class="notes">
+                            <ul>
+                                <li>In modern browsers, you can use custom elements out-of-the-box.</li>
+                                <li>Custom elements are just another API, not a whole new concept like JSX or Virtual DOM.</li>
+                                <li>The browsers' devtools are <em>made</em> for DOM elements.</li>
+                                <li>
+                                    Some frameworks support Web Components as compile target.
+                                    And there are Web Component frameworks which use JSX and Virtual DOM and stuff.
+                                </li>
+                            </ul>
+                        </aside>
+                    </section>
+
+                    <section data-background="img/moving-train.jpg">
+                        <h2 class="text-with-bg">Bottom line</h2>
+                        <ul class="nobullets-list">
+                            <li class="fragment">
+                                <span class="text-with-bg">We have three years of experience with Custom Elements.</span>
+                            </li>
+                            <li class="fragment">
+                                <span class="text-with-bg">Recently, we replaced our last RichFaces component.</span>
+                            </li>
+                            <li class="fragment">
+                                <span class="text-with-bg">We benefit a lot and we'll move on into that direction.</span>
+                            </li>
+                        </ul>
+                        <p class="fragment">
+                            <span class="text-with-bg">
+                                Keep calm and <a href="https://twitter.com/hashtag/usetheplatform">#UseThePlatform</a>
+                            </span>
+                        </p>
+                        <p>
+                            <small class="text-with-bg">Departing train, © Xenotron / <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> (via Wikimedia Commons)</small>
+                        </p>
+                    </section>
+                </section>
 
             <!-- VUE PART -->
             <section>
@@ -1589,76 +1589,76 @@
                     <img src="img/vue/vue-patreon.png" alt="Vue Logo" style="border: none; box-shadow: none; background: none;">
                 </section>
 
-				<section>
-					<ul>
-						<li>Fragen?</li>
-						<li>Schaut Euch die Folien auch mal im Speaker-Mode an</li>
-						<li>Go forth an componentize your apps.</li>
-					</ul>
-				</section>
+                <section>
+                    <ul>
+                        <li>Fragen?</li>
+                        <li>Schaut Euch die Folien auch mal im Speaker-Mode an</li>
+                        <li>Go forth an componentize your apps.</li>
+                    </ul>
+                </section>
 
-				<!--
-				<section>
-					<section>
-						<h2>Would I use Vue?</h2>
-						<ul>
-							<li>Klar, in Projekten, bei denen man weniger konservativ sein muss.</li>
-							<li>Vue sieht im Vergleich zu anderen anderen Frameworks recht leichtgewichtig aus.</li>
-							<li>Das Tooling und die konsistente Doku sind beeindruckend.</li>
-						</ul>
-					</section>
+                <!--
+                <section>
+                    <section>
+                        <h2>Would I use Vue?</h2>
+                        <ul>
+                            <li>Klar, in Projekten, bei denen man weniger konservativ sein muss.</li>
+                            <li>Vue sieht im Vergleich zu anderen anderen Frameworks recht leichtgewichtig aus.</li>
+                            <li>Das Tooling und die konsistente Doku sind beeindruckend.</li>
+                        </ul>
+                    </section>
 
-					<section>
-						<h2>Would I use Web Components?</h2>
-						<ul>
-							<li>jetzt wo ich gehört hab wie einfach man sie einsetzt, kann ich es mir schon vorstellen ;)</li>
-							<li>Ich glaube sie haben großes Potential, zu einem standardisierten Format zu werden.</li>
-							<li>Die Frameworks arbeiten hier leider eher entgegen, da jeder sein eigenes Süppchen kocht.</li>
-							<li>tatsächlich kann man aber von Vue aus Web Components exportieren</li>
-						</ul>
-					</section>
-				</section>
-				-->
+                    <section>
+                        <h2>Would I use Web Components?</h2>
+                        <ul>
+                            <li>jetzt wo ich gehört hab wie einfach man sie einsetzt, kann ich es mir schon vorstellen ;)</li>
+                            <li>Ich glaube sie haben großes Potential, zu einem standardisierten Format zu werden.</li>
+                            <li>Die Frameworks arbeiten hier leider eher entgegen, da jeder sein eigenes Süppchen kocht.</li>
+                            <li>tatsächlich kann man aber von Vue aus Web Components exportieren</li>
+                        </ul>
+                    </section>
+                </section>
+                -->
 
-			</div>
-		</div>
+            </div>
+        </div>
 
-		<script src="js/reveal.js"></script>
+        <script src="js/reveal.js"></script>
 
-		<script>
-			// More info about config & dependencies:
-			// - https://github.com/hakimel/reveal.js#configuration
-			// - https://github.com/hakimel/reveal.js#dependencies
-			Reveal.initialize({
-				history: true,
-				transitionSpeed: 'fast',
-				center: true,
-				dependencies: [
-					{ src: 'plugin/highlight/highlight.js', async: true },
-					{ src: 'plugin/notes/notes.js', async: true }
-				]
-			});
+        <script>
+            // More info about config & dependencies:
+            // - https://github.com/hakimel/reveal.js#configuration
+            // - https://github.com/hakimel/reveal.js#dependencies
+            Reveal.initialize({
+                history: true,
+                transitionSpeed: 'fast',
+                center: true,
+                dependencies: [
+                    { src: 'plugin/highlight/highlight.js', async: true },
+                    { src: 'plugin/notes/notes.js', async: true }
+                ]
+            });
 
-			Reveal.addEventListener('fragmentshown', function (event) {
-				var fragment = event.fragment;
-				if (fragment.id === 'solid-foundation') {
-					fragment.previousElementSibling.style.textDecoration = 'line-through';
-					var bgContent = document.querySelector('.slide-background .present .slide-background-content');
-					bgContent.style.backgroundImage = 'url("img/building-blocks.jpg")';
-					bgContent.style.backgroundSize = 'cover';
-				}
-			});
-			Reveal.addEventListener('fragmenthidden', function (event) {
-				var fragment = event.fragment;
-				if (fragment.id === 'solid-foundation') {
-					fragment.previousElementSibling.style.textDecoration = 'none';
-					var bgContent = document.querySelector('.slide-background .present .slide-background-content');
-					bgContent.style.backgroundImage = 'url("img/holy-grail.jpg")';
-					bgContent.style.backgroundSize = 'contain';
-				}
-			});
-		</script>
+            Reveal.addEventListener('fragmentshown', function (event) {
+                var fragment = event.fragment;
+                if (fragment.id === 'solid-foundation') {
+                    fragment.previousElementSibling.style.textDecoration = 'line-through';
+                    var bgContent = document.querySelector('.slide-background .present .slide-background-content');
+                    bgContent.style.backgroundImage = 'url("img/building-blocks.jpg")';
+                    bgContent.style.backgroundSize = 'cover';
+                }
+            });
+            Reveal.addEventListener('fragmenthidden', function (event) {
+                var fragment = event.fragment;
+                if (fragment.id === 'solid-foundation') {
+                    fragment.previousElementSibling.style.textDecoration = 'none';
+                    var bgContent = document.querySelector('.slide-background .present .slide-background-content');
+                    bgContent.style.backgroundImage = 'url("img/holy-grail.jpg")';
+                    bgContent.style.backgroundSize = 'contain';
+                }
+            });
+        </script>
 
-		<script src="https://cdn.jsdelivr.net/gh/ireade/caniuse-embed/caniuse-embed.min.js"></script>
-	</body>
+        <script src="https://cdn.jsdelivr.net/gh/ireade/caniuse-embed/caniuse-embed.min.js"></script>
+    </body>
 </html>
