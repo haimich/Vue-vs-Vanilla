@@ -916,7 +916,15 @@
                         </aside>
                     </section>
 
-                    <section data-background="img/vue/dc-motivation.png" data-background-size="contain" class="section-twocolumn">
+                    <section data-background="img/vue/dc-motivation.png" data-background-size="contain">
+                        <div class="fragment" style="background-color: rgba(0, 43, 54, 0.8); padding: 20px 0">
+                            <ul>
+                                <li>Name: DATACARE</li>
+                                <li>Cleaning and enrichment of company data</li>
+                                <li>Prototype ready for DMEXCO</li>
+                            </ul>
+                        </div>
+
                         <aside class="notes">
                             <ul>
                                 <li>ich wurde letztes Jahr mit der Aufgabe betreut, das neueste Produkt der Echobot-Familie from scratch zu entwickeln</li>
@@ -925,16 +933,6 @@
                                 <li>jetzt war es an mir, ein technisches Konzept zu erstellen</li>
                             </ul>
                         </aside>
-                    </section>
-
-                    <section data-background="img/vue/dc-motivation.jpg" data-background-size="cover" class="section-twocolumn">
-                        <div style="background-color: rgba(0, 43, 54, 0.65); padding: 20px 0">
-                            <ul>
-                                <li>Name: DATACARE</li>
-                                <li>Cleaning and enrichment of company data</li>
-                                <li>Prototype ready for DMEXCO</li>
-                            </ul>
-                        </div>
                     </section>
 
                     <section data-background="img/vue/cat-unsplash.jpg">
@@ -952,7 +950,7 @@
                     </section>
 
                     <section data-background="img/vue/cat-show.jpg" data-background-size="cover">
-                        <div class="fragment" style="background-color: rgba(0, 43, 54, 0.65); padding: 20px 0">
+                        <div class="fragment" style="background-color: rgba(0, 43, 54, 0.8); padding: 20px 0">
                             <h3>Analyzing JS frameworks</h3>
 
                             <ul>
@@ -1105,32 +1103,18 @@
 
                     <section class="section-twocolumn">
                         <div style="background-color: rgba(0, 43, 54, 0.65); padding: 20px 0">
-                            <h3>Template syntax</h3>
-
-                            <ul class="section">
-                                <li>{{ variable }}</li>
-                                <li>v-if, v-else-if, v-else</li>
-                                <li>:href="value"</li>
-                                <li>@click="doSomething()"</li>
-                                <li>{{ variable | filter }}</li>
-                            </ul>
-                        </div>
-
-                        <aside class="notes">
-                            <ul>
-                                <li>similar to AngularJS</li>
-                            </ul>
-                        </aside>
-                    </section>
-
-                    <section class="section-twocolumn">
-                        <div style="background-color: rgba(0, 43, 54, 0.65); padding: 20px 0">
                             <h3>Project setup</h3>
 
-                            <ul class="section">
-                                <li>Option #1: include JavaScript dependency</li>
-                                <li>Option #2: Vue CLI</li>
-                            </ul>
+                            <div class="fragment">
+                                <h4>Option #1</h4>
+                                <pre><code><script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script></code></pre>
+                            </div>
+
+                            <div class="fragment">
+                                <h4>Option #2: Vue CLI</h4>
+                                
+                                <img src="img/vue/vueclie.gif" alt="Vue CLI" style="width: 65%">
+                            </div>
                         </div>
                     </section>
 
@@ -1379,11 +1363,12 @@
                 <section>
                     <section class="section-twocolumn">
                         <div style="background-color: rgba(0, 43, 54, 0.65); padding: 20px 0">
-                            <h3>What I ❤️ about Vue</h3>
+                            <h3>What I <span style="color: red">❤</span>️ about Vue</h3>
 
                             <ul class="section">
                                 <li>Simplicity</li>
                                 <li>Vue documentation</li>
+                                <li>Vue puns :)</li>
                                 <li>Vue ecosystem
                                     <ul class="fragment">
                                         <li>vue-router</li>
