@@ -138,7 +138,7 @@
 
                 <section>
                     <section>
-                        <h2>Cadenza is big &hellip;</h2>
+                        <h2 class="fragment">Cadenza is big &hellip;</h2>
                         <img src="img/cadenza.png" alt="Cadenza sreenshot showing a map" class="noborder">
                         <p class="fragment">&hellip; and it's legacy, but &hellip;</p>
 
@@ -368,14 +368,20 @@
                         <h3 class="fragment">
                             <span class="text-with-bg">The Holy Grail</span>
                         </h3>
-                        <div class="fragment" id="solid-foundation">
-                            <h3>
-                                <span class="text-with-bg">A solid foundation<br><small>with the right level of abstraction</small></span>
-                            </h3>
-                            <p>
-                                <small class="text-with-bg">Railroad ties, © Störfix / <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA-3.0</a> (via Wikimedia Commons)</small>
-                            </p>
-                        </div>
+                    </section>
+
+                    <section data-background="img/building-blocks.jpg" data-background-size="cover" data-no-center data-transition="none">
+                        <h2><span class="text-with-bg">Web Components</span></h2>
+                        <br><br><br><br><br>
+                        <h3>
+                            <del class="text-with-bg">The Holy Grail</del>
+                        </h3>
+                        <h3>
+                            <span class="text-with-bg">A solid foundation<br><small>with the right level of abstraction</small></span>
+                        </h3>
+                        <p>
+                            <small class="text-with-bg">Railroad ties, © Störfix / <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA-3.0</a> (via Wikimedia Commons)</small>
+                        </p>
 
                         <aside class="notes">
                             <ul>
@@ -1071,7 +1077,7 @@
                                 <pre><code data-trim class="bash">
                                     npm install -g @vue/cli
                                 </code></pre>
-                                
+
                                 <img class="fragment" src="img/vue/vueclie.gif" alt="Vue CLI" style="width: 55%">
                             </div>
 
@@ -1101,7 +1107,7 @@
                     <section data-background="img/vue/vueui/3.png"></section>
                     <section data-background="img/vue/vueui/4.png"></section>
 
-                    <!-- TypeScript 
+                    <!-- TypeScript
                     <section class="section-twocolumn">
                         <div style="background-color: rgba(0, 43, 54, 0.65); padding: 20px 0">
                             <h3>TypeScript</h3>
@@ -1391,38 +1397,6 @@
                     <h2 class="text-with-bg">Questions?</h2>
                 </section>
 
-                <!-- Abschlussfolie
-                <section>
-                    <ul>
-                        <li>Fragen?</li>
-                        <li>Schaut Euch die Folien auch mal im Speaker-Mode an</li>
-                        <li>Go forth an componentize your apps.</li>
-                    </ul>
-                </section>-->
-
-                <!--
-                <section>
-                    <section>
-                        <h2>Would I use Vue?</h2>
-                        <ul>
-                            <li>Klar, in Projekten, bei denen man weniger konservativ sein muss.</li>
-                            <li>Vue sieht im Vergleich zu anderen anderen Frameworks recht leichtgewichtig aus.</li>
-                            <li>Das Tooling und die konsistente Doku sind beeindruckend.</li>
-                        </ul>
-                    </section>
-
-                    <section>
-                        <h2>Would I use Web Components?</h2>
-                        <ul>
-                            <li>jetzt wo ich gehört hab wie einfach man sie einsetzt, kann ich es mir schon vorstellen ;)</li>
-                            <li>Ich glaube sie haben großes Potential, zu einem standardisierten Format zu werden.</li>
-                            <li>Die Frameworks arbeiten hier leider eher entgegen, da jeder sein eigenes Süppchen kocht.</li>
-                            <li>tatsächlich kann man aber von Vue aus Web Components exportieren</li>
-                        </ul>
-                    </section>
-                </section>
-                -->
-
             </div>
         </div>
 
@@ -1440,25 +1414,6 @@
                     { src: 'plugin/highlight/highlight.js', async: true },
                     { src: 'plugin/notes/notes.js', async: true }
                 ]
-            });
-
-            Reveal.addEventListener('fragmentshown', function (event) {
-                var fragment = event.fragment;
-                if (fragment.id === 'solid-foundation') {
-                    fragment.previousElementSibling.style.textDecoration = 'line-through';
-                    var bgContent = document.querySelector('.slide-background .present .slide-background-content');
-                    bgContent.style.backgroundImage = 'url("img/building-blocks.jpg")';
-                    bgContent.style.backgroundSize = 'cover';
-                }
-            });
-            Reveal.addEventListener('fragmenthidden', function (event) {
-                var fragment = event.fragment;
-                if (fragment.id === 'solid-foundation') {
-                    fragment.previousElementSibling.style.textDecoration = 'none';
-                    var bgContent = document.querySelector('.slide-background .present .slide-background-content');
-                    bgContent.style.backgroundImage = 'url("img/holy-grail.jpg")';
-                    bgContent.style.backgroundSize = 'contain';
-                }
             });
         </script>
 
