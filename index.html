@@ -100,14 +100,6 @@
                                 <li><span class="emoji" style="margin-right: 4px;">🍳</span> Cooking</li>
                             </ul>
                         </div>
-
-                        <aside class="notes">
-                            <ul>
-                                <li>arbeite bei der Firma Echobot - ein Startup, das eigentlich keins mehr ist</li>
-                                <li>ich war früher reiner Backendentwickler, aber durch Johannes habe ich vor 5 Jahren die Webentwicklung für mich entdeckt</li>
-                                <li>zum Bild: das passiert, wenn der Vorbereitungszeitraum für die Konferenz in die Urlaubszeit fällt ;)</li>
-                            </ul>
-                        </aside>
                     </section>
                 </section>
 
@@ -122,14 +114,6 @@
                             <li>hatten beide im letzten Jahr die Herausforderung, eine Technologieentscheidung für ein großes Projekt treffen zu müssen</li>
                             <li>wir haben dabei ziemlich unterschiedliche Wege verfolgt</li>
                             <li>wir wollen euch heute vorstellen, was das für Projekte waren, welche Technologien wir gewählt haben und was am Ende draus geworden ist :)</li>
-                            <li>Zuhörer sollen die Konzepte hinter Vue.js und WebComponents kennenlernen</li>
-                            <li>unser Ziel ist es euch zu helfen, es einzuordnen (vor allem für Technikentscheidungen)</li>
-                            <li>Vortrag ist in zwei Teile aufgeteilt</li>
-                            <li>Vorteile/Nachteile der jeweiligen Lösung aufzeigen</li>
-                            <li>Außerdem werden Erfahrungen aus dem direkten Projekteinsatz geteilt.</li>
-                            <li>Es gibt viele Technologien im Webkosmos, aber die meisten Entwickler haben nicht die Zeit, sich mit allen eingehend zu beschäftigen.</li>
-                            <li>Trotzdem finden wir, dass es insbesondere für erfahrene Entwickler wichtig ist, die verfügbaren Technologien zu kennen und einordnen zu können. Dies erlaubt es, im beruflichen Umfeld informierte Technologie-Entscheidungen zu treffen.</li>
-                            <li>damit übergebe ich an Johannes und wünsche euch viel Spaß mit den Web Components</li>
                         </ul>
                     </aside>
                 </section>
@@ -884,8 +868,6 @@
                                 <li>wir haben jetzt viel über Disy erfahren, und wie sie erfolgreich auf Webstandards bauen</li>
                                 <li>bevor wir zum nächsten Thema kommen, muss ich leider vorab noch eine Warnung aussprechen.</li>
                                 <li>ich kann verstehen, wenn jemand jetzt den Raum verlassen möchte, denn das Thema über das ich sprechen werde ist nicht ganz ungefährlich.</li>
-                                <li>Ja es stimmt: klick</li>
-                                <li>ich spreche aus Erfahrung</li>
                             </ul>
                         </aside>
                     </section>
@@ -908,7 +890,6 @@
 
                         <aside class="notes">
                             <ul>
-                                <li>PHP + SPAs</li>
                                 <li>das heißt nicht ein Hauptverantwortlicher sondern wirklich jemand, der sich alleinig um das Projekt kümmert</li>
                                 <li>Reduziert Kommunikationsaufwand, lässt mehr Freiheiten + weniger Diskussionen auf Codeebene</li>
                                 <li>deswegen ist es auch wichtig, eine möglichst homogene Technologielandschaft zu haben</li>
@@ -974,8 +955,6 @@
 
                         <aside class="notes">
                             <ul>
-                                <li>TypeScript war der Wunsch meines Chefs</li>
-                                <li>von Element UI wusste mein Chef ehrlich gesagt am Anfang nichts :)</li>
                                 <li>das ist ein UI framework ähnlich wie Bootstrap mit dem Vorteil, dass es direkt für Vue geschrieben wurde</li>
                                 <li>die API funktioniert aber nicht über CSS-Klassen, was of unnötig verbose ist</li>
                             </ul>
@@ -1006,7 +985,6 @@
                                 <li>React: 136.541</li>
                                 <li>Vue: 148.528</li>
                                 <li>Angular: 51.895</li>
-                                <li>David gegen Goliath</li>
                             </ul>
                         </aside>
                     </section>
@@ -1025,42 +1003,6 @@
                             </ul>
                         </aside>
                     </section>
-
-                    <!-- Vue example backup
-                    <section style="position: relative;">
-                        <img src="img/vue/todo.jpg" alt="Todo example" style="position: absolute; bottom: 80px; right: 0px; z-index: 100; width: 56%;">
-
-                        <pre style="margin-top: 0;"><code data-trim class="javascript">
-                            new Vue({
-                              el: "#app",
-                              data: {
-                                todos: [
-                                  { text: "Learn JavaScript", done: true },
-                                  { text: "Learn Vue", done: false },
-                                ]
-                              },
-                            });
-                        </code></pre>
-
-                        <pre style="margin-top: 0;"><code data-trim class="html">
-                            <div id="app">
-                              <ul>
-                                <li v-for="todo in todos">
-                                  <label>
-                                    <input type="checkbox" @change="todo.done = !todo.done" :checked="todo.done">
-
-                                    <del v-if="todo.done">
-                                      {{ todo.text }}
-                                    </del>
-                                    <span v-else>
-                                      {{ todo.text }}
-                                    </span>
-                                  </label>
-                                </li>
-                              </ul>
-                            </div>
-                        </code></pre>
-                    </section> -->
 
                     <section class="section-twocolumn">
                         <div style="background-color: rgba(0, 43, 54, 0.65); padding: 20px 0">
@@ -1084,7 +1026,6 @@
                             <aside class="notes">
                                 <ul>
                                     <li>bei Option #1 kann man keine SFCs verwenden</li>
-                                    <li>ich war früher kein Fan von CLIs, weil man die Kontrolle abgibt</li>
                                     <li>based on Webpack</li>
                                     <li>Babel compilation</li>
                                     <li>scss compilation</li>
@@ -1107,29 +1048,6 @@
                     <section data-background="img/vue/vueui/3.png"></section>
                     <section data-background="img/vue/vueui/4.png"></section>
 
-                    <!-- TypeScript
-                    <section class="section-twocolumn">
-                        <div style="background-color: rgba(0, 43, 54, 0.65); padding: 20px 0">
-                            <h3>TypeScript</h3>
-
-                            <ul>
-                                <li>excellent syntax</li>
-                                <li>perfect for own code</li>
-                                <li>easy refactorings</li>
-                                <li>added complexity</li>
-                                <li>harder for beginners to see difference to JS</li>
-                            </ul>
-                        </div>
-
-                        <aside class="notes">
-                            <ul>
-                                <li>ich würde gerne mehr darüber erzählen, aber da es hier um Vue geht nur die wichtigsten Erkenntnisse</li>
-                                <li>Empfehlung: externe Validierung deaktivieren</li>
-                            </ul>
-                        </aside>
-                    </section>
-                    -->
-
                     <section class="section-twocolumn">
                         <div style="background-color: rgba(0, 43, 54, 0.65); padding: 20px 0">
                             <h3>Single File Components</h3>
@@ -1144,7 +1062,6 @@
 
                             <aside class="notes">
                                 <ul>
-                                    <li>in den Angular 1 Projekten auf der Arbeit muss ich immer suchen</li>
                                     <li>das schöne ist, dass das tatsächlich valides Html ist</li>
                                 </ul>
                             </aside>
@@ -1216,11 +1133,10 @@
 
                     <!-- Smart vs. dumb components -->
                     <section data-background="img/vue/architecture.jpg" data-no-center data-background-size="contain">
-                        <h2 class="text-with-bg">How to structure a <a href="https://staging-datacare.echobot.de/">Vue app</a>?</h2>
+                        <h2 class="text-with-bg">How to structure a <a href="https://codesandbox.io/s/vue-template-lmzro">Vue app</a>?</h2>
 
                         <aside class="notes">
                             <ul>
-                                <li>Backup: https://codesandbox.io/s/vue-template-lmzro</li>
                                 <li>container components vs. reusable</li>
                             </ul>
                         </aside>
@@ -1284,19 +1200,6 @@
                                 © Ryoji Iwata <a href="https://unsplash.com/photos/HDbavxACggA">via unsplash.com</a>
                             </small>
                         </p>
-
-                        <aside class="notes">
-                            <ul>
-                                <li>mein Chef ist nicht jemand, der mir sofort auf die Schulter klopft und sagt: "du hattest Recht mit Vue!"</li>
-                                <li>der Erfolg ist aber nicht zu leugnen: Entwickler auf meiner Seite, weiteres Projekt, Bewerbern wird gesagt dass wir Projekte nur noch mit Vue machen</li>
-                                <li>44 s deploy time / very responsive ui</li>
-                                <li>easy reusability</li>
-                                <li>Umstellung Export Modal nach extra Seite war sehr einfach</li>
-                                <li>Angular: die Tage versucht, eine Tabelle mit Sortierung und DragnDrop zu bauen</li>
-                                <li>jetzt kann ich es ja sagen, dass ich euch eigentlich mit dem Vue-Virus anstecken wollte</li>
-                                <li>ein Vortrag kann ein guter Start sein, aber wirklich lernen kann man Vue nur Hands On</li>
-                            </ul>
-                        </aside>
                     </section>
                 </section>
 
@@ -1304,17 +1207,6 @@
                 <section>
                     <section data-background="img/vue/change.jpg">
                         <h2 class="text-with-bg">How to convince YOUR boss?</h2>
-
-                        <aside class="notes">
-                            <ul>
-                                <li>Change takes time (DBeaver, Devtool)</li>
-                                <li>Build something with the new technology</li>
-                                <li>Erst mal sagst du, dass das vorhandene Schlecht ist</li>
-                                <li>Entwickler (und Chefs), die schon länger dabei sind, sind bestehende Technologien gewöhnt und gut darin</li>
-                                <li>die Ängste nehmen</li>
-                                <li>Argumente sammeln (z. B. gut für Bewerber)</li>
-                            </ul>
-                        </aside>
                     </section>
 
                     <section data-background="img/vue/bg_chalkboard_orange.jpg">
@@ -1359,6 +1251,7 @@
 
                             <aside class="notes">
                                 <ul>
+                                    <li>die Ängste nehmen</li>
                                     <li>gut für Bewerber</li>
                                 </ul>
                             </aside>
@@ -1386,7 +1279,6 @@
                                     <li>für dich ist die neue Lösung ganz klar besser</li>
                                     <li>Entwickler (und Chefs), die schon länger dabei sind, sind bestehende Technologien gewöhnt und gut darin</li>
                                     <li>die Ängste nehmen</li>
-                                    <li>DBeaver, Devtool</li>
                                 </ul>
                             </aside>
                         </div>
